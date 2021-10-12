@@ -137,7 +137,7 @@
           </ul>
         </li>
         <li>
-          <a href="/inbox">
+          <a href="/suratMasuk">
             <i class="fa fa-inbox"></i> <span>Surat Masuk</span>
           </a>
         </li>
@@ -148,7 +148,7 @@
           </a>
         </li-->
         <li>
-          <a href="/kirim">
+          <a href="/suratTerkirim">
             <i class="fa fa-reply"></i> <span>Terkirim</span>
           </a>
         </li>

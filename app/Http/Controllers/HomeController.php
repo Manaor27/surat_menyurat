@@ -36,6 +36,18 @@ class HomeController extends Controller
         }
     }
 
+    public function smasuk()
+    {
+        $role = Auth::user()->role;
+        if($role == "admin"){
+            return redirect()->to('suratMasuka');
+        } else if($role == "dosen"){
+            return redirect()->to('suratMasukd');
+        } else{
+            return redirect()->to('suratMasukm');
+        } 
+    }
+
     public function logout(Request $request) {
         $request->session()->flush();
         Auth::logout();

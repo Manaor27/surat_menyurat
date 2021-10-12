@@ -12,4 +12,10 @@ class MahasiswaController extends Controller
         $user = Auth::user();
         return view('mahasiswa.home', compact('user'));
     }
+
+    public function smasuk()
+    {
+        //$user = Auth::user();
+        return view('mahasiswa.smasuk');
+    }
 }

@@ -9,7 +9,7 @@ use Hash;
 class UserController extends Controller
 {
     public function index(){
-        $user = User::all();
+        $user = User::paginate(5);
         return view('admin.user', ['user' => $user]);
     }
 

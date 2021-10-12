@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manajemen User</title>
+    <title>Surat Masuk</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -34,12 +34,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manajemen User
+        Surat Masuk
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-group"></i> Home</a></li>
-        <li class="active">Manajemen User</li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Surat Masuk</li>
       </ol>
     </section>
 
@@ -49,50 +49,51 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <!--div class="box-header">
             <div class="col-md-2">
-              <a type="button" class="btn btn-block btn-success" href="/user/tambah"><p class="fa fa-plus"> Tambah User</p></a>
+              <a type="button" class="btn btn-block btn-success" href="/user/tambah"><p class="fa fa-plus"> Kirim Surat</p></a>
             </div>
-            </div>
+            </div-->
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                     <th>#</th>
-                  <th>KODE</th>
-                  <th>NAMA</th>
-                  <th>EMAIL</th>
-                  <th>No. TELPON</th>
-                  <th>JABATAN</th>
-                  <th colspan="2">ACTION</th>
+                  <th>No. Surat</th>
+                  <th>Tanggal</th>
+                  <th>Kepentingan Surat</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 @php
                     $no = 1;
                 @endphp
-                @foreach($user as $u)
                 <tbody>
                 <tr>
-                    <td>{{ $no++ + (($user->currentPage()-1) * $user->perPage()) }}</td>
-                  <td>{{ $u->kode }}</td>
-                  <td>{{ $u->name }}</td>
-                  <td>{{ $u->email }}</td>
-                  <td>{{ $u->telpon }}</td>
-                  <td>{{ $u->role }}</td>
+                    <td>{{ $no++ }}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td>
-                    <a class="btn btn-app bg-aqua" href="{{url('/user/edit/'. $u->id)}}">
+                    <a class="btn btn-app bg-green" href="">
+                      <i class="fa fa-eye"></i> Preview
+                    </a>
+                    <a class="btn btn-app bg-aqua" href="">
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/user/delete/'. $u->id)}}">
+                    <a class="btn btn-app bg-red" href="">
                       <i class="fa fa-remove"></i> Delete
+                    </a>
+                    <a class="btn btn-app bg-black" href="">
+                      <i class="fa fa-download"></i> Download
                     </a>
                   </td>
                 </tr>
                 </tfoot>
-                @endforeach
               </table>
-              {{ $user->links() }}
             </div>
             <!-- /.box-body -->
           </div>
