@@ -28,10 +28,10 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition" style="background-image: url('{{ asset('p.gif')}}'); background-size: cover;">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Surat Menyurat</b> FTI</a>
+    <p class="text-aqua"><b>Surat Menyurat</b> <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" style="width:60px;height:40px;"></p>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -58,33 +58,12 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-12">
             <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-        </div>
-        <!-- /.col -->
-        <div class="col-xs-8">
-            @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif
         </div>
         <!-- /.col -->
       </div>
     </form>
-
-    <!--div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
-    </div-->
-    <!-- /.social-auth-links -->
-
-    <!--a href="#">I forgot my password</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a-->
-
   </div>
   <!-- /.login-box-body -->
 </div>
