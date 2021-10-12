@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -57,7 +58,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suratTugas" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -71,21 +72,21 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suratKeterangan" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        <!--div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-grey"><i class="fa fa-envelope-o"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Total Arsip</span>
               <span class="info-box-number">1,410</span>
-            </div>
+            </div-->
             <!-- /.info-box-content -->
-          </div>
+          <!--/div-->
           <!-- /.info-box -->
-        </div>
+        <!--/div-->
         <!-- ./col -->
       </div>
       <!-- /.row -->

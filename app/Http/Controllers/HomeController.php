@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -34,5 +34,11 @@ class HomeController extends Controller
         } else {
             return redirect()->to('logout');
         }
+    }
+
+    public function logout(Request $request) {
+        $request->session()->flush();
+        Auth::logout();
+        return Redirect('login');
     }
 }

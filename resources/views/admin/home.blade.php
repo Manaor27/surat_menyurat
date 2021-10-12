@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -57,7 +58,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suratTugas" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -66,12 +67,12 @@
             <div class="inner">
               <h3>150</h3>
 
-              <p>Surat Keterangan</p>
+              <p>Surat Kegiatan Mahasiswa</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suratKeterangan" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -81,12 +82,12 @@
             <div class="inner">
               <h3>53</h3>
 
-              <p>Surat Keputusan</p>
+              <p>Surat Personalian & SK</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suratPersonalia" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -96,12 +97,12 @@
             <div class="inner">
               <h3>44</h3>
 
-              <p>Berita Acara</p>
+              <p>Surat Berita Acara</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suratBerita" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -116,7 +117,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/suran" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Users;
+use App\Models\User;
 use Hash;
 
 class UserController extends Controller
 {
     public function index(){
-        $users = Users::all();
-        return view('admin.user', ['users' => $users]);
+        $user = User::all();
+        return view('admin.user', ['user' => $user]);
     }
 
     public function tambah(){
@@ -32,7 +32,7 @@ class UserController extends Controller
     }
 
     public function simpan(Request $request) {
-        Users::create([
+        User::create([
             'kode' => $request->kode,
             'name' => $request->name,
             'email' => $request->email,
@@ -46,12 +46,12 @@ class UserController extends Controller
     }
 
     public function edit($id) {
-        $user = Users::find($id);
+        $user = User::find($id);
         return view('admin.edituser', ['user' => $user, 'role' => ['admin', 'dosen', 'mahasiswa']]);
     }
 
     public function update($id, Request $request) {
-        $user = Users::find($id);
+        $user = User::find($id);
         $user->kode = $request->kode;
         $user->name = $request->name;
         $user->email = $request->email;
@@ -67,7 +67,7 @@ class UserController extends Controller
     }
 
     public function delete($id) {
-        $user = Users::find($id);
+        $user = User::find($id);
         $user->delete();
         return redirect('/user');
     }

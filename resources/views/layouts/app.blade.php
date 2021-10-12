@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dashboard</title>
+  <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -25,6 +26,10 @@
   <link rel="stylesheet" href="{{ asset('style/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('style/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="{{ asset('style/plugins/timepicker/bootstrap-timepicker.min.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -104,7 +109,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <!--li class="header">MAIN NAVIGATION</li-->
         <li class="active">
-          <a href="/dashboard">
+          <a href="/home">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -116,12 +121,18 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/surattugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
-            <li><a href="/suratketerangan"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
-            @if(Auth::user()->role!='mahasiswa')
-            <li><a href="/suratkeputusan"><i class="fa fa-circle-o"></i> Surat Keputusan</a></li>
-            <li><a href="/beritaacara"><i class="fa fa-circle-o"></i> Berita Acara</a></li>
-            <li><a href="/suratundangan"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
+            @if(Auth::user()->role=='admin')
+            <li><a href="/suratTugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="/suratKeterangan"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
+            <li><a href="/suratPersonalia"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+            <li><a href="/suratBerita"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
+            <li><a href="/suratUndangan"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
+            @elseif(Auth::user()->role=='mahasiswa')
+            <li><a href="/suratTugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="/suratKeterangan"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
+            @else
+            <li><a href="/suratTugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="/suratPersonalia"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
             @endif
           </ul>
         </li>
@@ -210,6 +221,11 @@
 <!-- DataTables -->
 <script src="{{ asset('style/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('style/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<!-- bootstrap time picker -->
+<script src="{{ asset('style/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{ asset('style/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+
 <!-- page script -->
 <script>
   $(function () {
@@ -240,6 +256,23 @@
       ykeys: ['a', 'b'],
       labels: ['CPU', 'DISK'],
       hideHover: 'auto'
+    });
+</script>
+<script type="text/javascript">
+    $("#dynamic-ar").click(function () {
+        $("#dynamicAddRemove").append('<tr>@if(Auth::user()->role=="mahasiswa")<td><label>NIM</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIM"></td>@elseif(Auth::user()->role=="dosen")<td><label>NIDN</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIDN"></td>@else<td><label>Kode</label></br><input type="text" class="form-control" name="kode[]" placeholder="Kode"></td>@endif<td style="width: 500px"><label>Nama</label></br><input type="text" class="form-control" name="name[]" placeholder="Nama"></td><td></br><button type="button" class="btn btn-danger remove-input-field">[X]Delete</button></td></tr>');
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
+<script type="text/javascript">
+    $("#dynamic").click(function () {
+        $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Place some text here"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea></td><td></br><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
+            );
+    });
+    $(document).on('click', '.remove-field', function () {
+        $(this).parents('tr').remove();
     });
 </script>
 </body>

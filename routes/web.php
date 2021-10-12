@@ -5,6 +5,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SuketController;
+use App\Http\Controllers\SutugController;
+use App\Http\Controllers\SuperController;
+use App\Http\Controllers\SuunController;
+use App\Http\Controllers\SuberController;
+use Illuminate\Http\Request;
  
 Route::get('/', function () {
     return view('auth.login');
@@ -17,11 +23,22 @@ Route::get('/user/edit/{id}', [UserController::class, 'edit']);
 Route::put('/user/update/{id}', [UserController::class, 'update']);
 Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 
+Route::get('/suratKeterangan', [SuketController::class, 'index']);
+
+Route::get('/suratTugas', [SutugController::class, 'index']);
+
+Route::get('/suratPersonalia', [SuperController::class, 'index']);
+
+Route::get('/suratBerita', [SuberController::class, 'index']);
+
+Route::get('/suratUndangan', [SuunController::class, 'index']);
+
 Auth::routes();
  
 Route::middleware(['auth'])->group(function () {
  
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
  
     Route::middleware(['admin'])->group(function () {
         Route::get('admin', [AdminController::class, 'index']);
@@ -35,9 +52,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('mahasiswa', [MahasiswaController::class, 'index']);
     });
  
-    Route::get('/logout', function() {
+    /*Route::get('/logout', function(Request $request) {
+        $request->session()->flush();
         Auth::logout();
-        return view('auth.login');
-    });
+        return Redirect('login');
+    });*/
  
 });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
+    <title>Form Surat Personalia & SK</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -34,13 +34,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Manajemen User
+        Surat Personalia & SK
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-group"></i> Home</a></li>
-        <li>Manajemen User</li>
-        <li class="active">Tambah User</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Jenis Surat</li>
+        <li class="active">Surat Personalia & SK</li>
       </ol>
     </section>
 
@@ -48,49 +48,30 @@
     <section class="content">
       <!-- Main row -->
       <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
-            </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/user/update/{{ $user->id }}">
+            <form role="form" method="POST" action="/user/simpan">
                 @csrf
-                @method('PUT')
-                <input type="hidden" class="form-control" name="id" value="{{ $user->id }}">
               <div class="box-body">
                 <div class="form-group">
-                  <label>Kode</label>
-                  <input type="text" class="form-control" name="kode" placeholder="Input Kode Identitas" value="{{ $user->kode }}">
+                  <label>Perihal</label>
+                  <input type="text" class="form-control" name="kode" placeholder="Tentang">
                 </div>
                 <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" name="name" placeholder="Enter name" value="{{ $user->name }}">
+                    <table class="table" id="dynamicRemove">
+                        <tr>
+                            <td style="width: 850px">
+                                <label for="exampleInputPassword1">Keterangan</label></br>
+                                <textarea placeholder="Place some text here"
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                            </td>
+                            <td>
+                                </br>
+                                <button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="form-group">
-                  <label>Email address</label>
-                  <input type="email" class="form-control" name="email" placeholder="Enter email" value="{{ $user->email }}">
-                </div>
-                <div class="form-group">
-                  <label>New Password</label>
-                  <input type="password" class="form-control" name="password1" placeholder="Password">
-                  <p>Jika tidak ingin mengubah password silahkan kosongkan saja!</p>
-                  <input type="hidden" class="form-control" name="password2" value="{{ $user->password }}">
-                </div>
-                <div class="form-group">
-                  <label>No. Telpon</label>
-                  <input type="number" class="form-control" name="telpon" placeholder="Input Nomor Telpon" value="{{ $user->telpon }}">
-                </div>
-                <div class="form-group">
-                  <label>Jabatan</label>
-                    <select name="role" id="role" class="form-control" value="{{ $user->role }}">
-                        @foreach ($role as $r)
-                            <option @php if ($r==($user->role)) echo 'selected' @endphp>
-                                {{ $r }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-              </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
@@ -100,4 +81,13 @@
   </div>
 @endsection
 </body>
+<script type="text/javascript">
+    $("#dynamic").click(function () {
+        $("#dynamicRemove").append('<tr><td style="width: 300px"><label for="exampleInputPassword1">Keterangan</label></br><textarea placeholder="Place some text here"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea></td><td></br><button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button></td></tr>'
+            );
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
 </html>
