@@ -25,14 +25,19 @@ Route::put('/user/update/{id}', [UserController::class, 'update']);
 Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/suratKeterangan', [SuketController::class, 'index']);
+Route::post('/suket/simpan', [SuketController::class, 'simpan']);
 
 Route::get('/suratTugas', [SutugController::class, 'index']);
+Route::post('/sutug/simpan', [SutugController::class, 'simpan']);
 
 Route::get('/suratPersonalia', [SuperController::class, 'index']);
+Route::post('/super/simpan', [SuperController::class, 'simpan']);
 
 Route::get('/suratBerita', [SuberController::class, 'index']);
+Route::post('/suber/simpan', [SuberController::class, 'simpan']);
 
 Route::get('/suratUndangan', [SuunController::class, 'index']);
+Route::post('/suun/simpan', [SuunController::class, 'simpan']);
 
 Route::get('/suratTerkirim', [TerkirimController::class, 'index']);
 

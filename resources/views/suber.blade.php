@@ -50,24 +50,24 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/user/simpan">
+            <form role="form" method="POST" action="/suber/simpan">
                 @csrf
               <div class="box-body">
                 <div class="form-group">
                   <label>Tema</label>
-                  <input type="text" class="form-control" name="kode" placeholder="Tema">
+                  <input type="text" class="form-control" name="tema" placeholder="Tema">
                 </div>
                 <div class="form-group">
                   <label>Tamu Pembicara</label>
-                  <input type="text" class="form-control" name="name" placeholder="Tamu Pembicara">
+                  <input type="text" class="form-control" name="pembicara" placeholder="Tamu Pembicara">
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" class="form-control pull-right" id="reservation">
+                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal">
                 </div>
                 <div class="form-group">
                   <label>Target Peserta</label>
-                  <input type="number" class="form-control">
+                  <input type="text" class="form-control" name="target">
                 </div>
                 <div class="form-group">
                   <label>Tempat</label>

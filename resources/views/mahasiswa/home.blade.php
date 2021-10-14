@@ -51,7 +51,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{ count($sutug); }}</h3>
 
               <p>Surat Tugas</p>
             </div>
@@ -65,7 +65,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{ count($suket); }}</h3>
 
               <p>Surat Kegiatan Mahasiswa</p>
             </div>

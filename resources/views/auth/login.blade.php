@@ -28,7 +28,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition" style="background-image: url('{{ asset('p.gif')}}'); background-size: cover;">
+<body class="hold-transition" style="background: url('{{ asset('l.gif')}}'); background-size: cover;">
 <div class="login-box">
   <div class="login-logo">
     <p class="text-aqua"><b>Surat Menyurat</b> <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" style="width:60px;height:40px;"></p>

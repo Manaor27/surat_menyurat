@@ -97,7 +97,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="style/dist/img/user.png" class="img-circle" alt="User Image">
+          <img src="style/dist/img/icon.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -260,7 +260,7 @@
 </script>
 <script type="text/javascript">
     $("#dynamic-ar").click(function () {
-        $("#dynamicAddRemove").append('<tr>@if(Auth::user()->role=="mahasiswa")<td><label>NIM</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIM"></td>@elseif(Auth::user()->role=="dosen")<td><label>NIDN</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIDN"></td>@else<td><label>Kode</label></br><input type="text" class="form-control" name="kode[]" placeholder="Kode"></td>@endif<td style="width: 500px"><label>Nama</label></br><input type="text" class="form-control" name="name[]" placeholder="Nama"></td><td></br><button type="button" class="btn btn-danger remove-input-field">[X]Delete</button></td></tr>');
+        $("#dynamicAddRemove").append('<tr>@if(Auth::user()->role=="mahasiswa")<td><label>NIM</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIM"></td>@elseif(Auth::user()->role=="dosen")<td><label>NIDN</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIDN"></td>@else<td><label>Kode</label></br><input type="text" class="form-control" name="kode[]" placeholder="Kode"></td>@endif<td style="width: 500px"><label>Nama</label></br><input type="text" class="form-control" name="nama[]" placeholder="Nama"></td><td></br><button type="button" class="btn btn-danger remove-input-field">[X]Delete</button></td></tr>');
     });
     $(document).on('click', '.remove-input-field', function () {
         $(this).parents('tr').remove();
@@ -268,7 +268,7 @@
 </script>
 <script type="text/javascript">
     $("#dynamic").click(function () {
-        $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Place some text here"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea></td><td></br><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
+        $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Place some text here"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]"></textarea></td><td></br><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
             );
     });
     $(document).on('click', '.remove-field', function () {

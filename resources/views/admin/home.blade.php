@@ -51,7 +51,7 @@
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{ count($sutug); }}</h3>
 
               <p>Surat Tugas</p>
             </div>
@@ -65,7 +65,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{ count($suket); }}</h3>
 
               <p>Surat Kegiatan Mahasiswa</p>
             </div>
@@ -80,7 +80,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53</h3>
+              <h3>{{ count($super); }}</h3>
 
               <p>Surat Personalian & SK</p>
             </div>
@@ -95,7 +95,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{ count($suber); }}</h3>
 
               <p>Surat Berita Acara</p>
             </div>
@@ -110,7 +110,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+              <h3>{{ count($suun); }}</h3>
 
               <p>Surat Undangan</p>
             </div>

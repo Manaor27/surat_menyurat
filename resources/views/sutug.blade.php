@@ -50,12 +50,12 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/user/simpan">
+            <form role="form" method="POST" action="/sutug/simpan">
                 @csrf
               <div class="box-body">
                 <div class="form-group">
                   <label>Tema</label>
-                  <input type="text" class="form-control" name="kode" placeholder="Tema Kegiatan">
+                  <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan">
                 </div>
                 <div class="form-group">
                   <table class="table" id="dynamicAddRemove">
@@ -78,7 +78,7 @@
                     @endif
                       <td style="width: 500px">
                         <label>Nama</label></br>
-                        <input type="text" class="form-control" name="name[]" placeholder="Nama">
+                        <input type="text" class="form-control" name="nama[]" placeholder="Nama">
                       </td>
                       <td >
                         </br>
@@ -94,11 +94,11 @@
                 </div-->
                 <div class="form-group">
                   <label>Penyelenggara Kegiatan</label>
-                  <input type="text" class="form-control" id="reservation">
+                  <input type="text" class="form-control" id="reservation" name="penyelenggara">
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" class="form-control">
+                  <input type="date" class="form-control" name="tanggal">
                 </div>
                 <div class="form-group">
                   <label>Tempat</label>

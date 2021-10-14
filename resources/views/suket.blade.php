@@ -50,33 +50,33 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/user/simpan">
+            <form role="form" method="POST" action="/suket/simpan">
                 @csrf
               <div class="box-body">
                 <div class="form-group">
                   <label>Hal</label>
-                  <input type="text" class="form-control" name="kode" placeholder="Perihal">
+                  <input type="text" class="form-control" name="perihal" placeholder="Perihal">
                 </div>
                 <div class="form-group">
                   <label>Kepada</label>
-                  <input type="text" class="form-control" name="name" placeholder="Kepada">
+                  <input type="text" class="form-control" name="kepada" placeholder="Kepada">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Keterangan</label>
                     <textarea placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan"></textarea>
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" class="form-control pull-right" id="reservation">
+                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal">
                 </div>
                 <div class="form-group">
                   <label>Waktu</label>
-                  <input type="time" class="form-control timepicker">
+                  <input type="time" class="form-control timepicker" name="waktu">
                 </div>
                 <div class="form-group">
                   <label>Tempat</label>
-                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan">
+                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat">
                 </div>
               </div>
               <div class="box-footer">
