@@ -25,6 +25,8 @@ Route::put('/user/update/{id}', [UserController::class, 'update']);
 Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/mahasiswa/simpan/{id}', [MahasiswaController::class, 'simpan']);
+Route::get('/dosen/simpan/{id}', [DosenController::class, 'simpan']);
+Route::get('/admin/simpan/{id}', [AdminController::class, 'simpan']);
 
 Route::get('/suratKeterangan', [SuketController::class, 'index']);
 Route::post('/suket/simpan', [SuketController::class, 'simpan']);

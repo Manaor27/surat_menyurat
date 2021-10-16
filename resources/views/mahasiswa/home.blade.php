@@ -51,7 +51,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>1</h3>
+              <h3>{{ $banyak_suket }}</h3>
 
               <p>Surat Kegiatan Mahasiswa</p>
             </div>
@@ -64,7 +64,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>0</h3>
+              <h3>{{ $banyak_sutug }}</h3>
 
               <p>Surat Tugas</p>
             </div>
@@ -121,7 +121,7 @@
                   <th>#</th>
                   <th>No. Surat</th>
                   <th>Perihal/Tema</th>
-                  <th>Tempat</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -129,14 +129,45 @@
                     $no = 1;
                 @endphp
                 <tbody>
+                @foreach($tab as $tbl => $item)
                 <tr>
                   <td>{{ $no++ }}</td>
-                  <td></td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
+                  <td>{{ $item->no_surat }}</td>
+                  <td>{{ $item->tema }}</td>
+                  @if($item->status=='disetujui')
+                  <td><span class="label bg-green">{{ $item->status }}</span></td>
+                  @elseif($item->status=='on process')
+                  <td><span class="label bg-yellow">{{ $item->status }}</span></td>
+                  @else
+                  <td><span class="label bg-red">{{ $item->status }}</span></td>
+                  @endif
+                  <td>
+                  @if($item->status=='on process')
+                    <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}" disabled>
+                      <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}" disabled>
+                      <i class="fa fa-remove"></i> Delete
+                    </a>
+                    @elseif($item->status=='disetujui')
+                    <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}" disabled>
+                      <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}" disabled>
+                      <i class="fa fa-remove"></i> Delete
+                    </a>
+                    @else
+                    <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}">
+                      <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}">
+                      <i class="fa fa-remove"></i> Delete
+                    </a>
+                  @endif
+                  </td>
                 </tr>
-                </tfoot>
+                @endforeach
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->

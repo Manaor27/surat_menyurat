@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\JenisSurat;
 use App\Models\ManajemenSurat;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
@@ -14,7 +15,16 @@ class DosenController extends Controller
         $user = Auth::user();
         $super = JenisSurat::find(1);
         $sutug = JenisSurat::find(4);
-        return view('dosen.home', compact('user','sutug','super'));
+        $count_super = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_user',Auth::id())->where('manajemen_surat.id_jenis',1)->get();
+        $count_sutug = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_user',Auth::id())->where('manajemen_surat.id_jenis',4)->get();
+        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid'))->where('manajemen_surat.id_user',Auth::id())->get();
+        foreach ($count_super as $csuper) {
+            $banyak_super = $csuper->banyak;
+        }
+        foreach ($count_sutug as $csutug) {
+            $banyak_sutug = $csutug->banyak;
+        }
+        return view('dosen.home', compact('user','sutug','super','banyak_super','banyak_sutug','tab'));
     }
 
     public function smasuk()
