@@ -9,5 +9,5 @@ class Sutug extends Model
 {
     use HasFactory;
     protected $table = "sutug";
-    protected $fillable = ['no_surat','kode','nama','tema','penyelenggara','tempat','id_user'];
+    protected $fillable = ['no_surat','kode','nama','perihal','penyelenggara','tempat','id_manajemen'];
 }

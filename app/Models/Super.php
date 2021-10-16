@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Super extends Model
 {
     use HasFactory;
-    protected $table = "super";
-    protected $fillable = ['no_surat','perihal','isi','id_user'];
+    protected $table = "surat";
+    protected $fillable = ['no_surat','perihal','keterangan','id_manajemen'];
 }

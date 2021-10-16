@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Suket;
-use App\Models\Sutug;
-use App\Models\Super;
-use App\Models\Suber;
-use App\Models\Suun;
+use App\Models\JenisSurat;
+use App\Models\ManajemenSurat;
 use Auth;
 
 class AdminController extends Controller
@@ -15,17 +12,36 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $suket = Suket::select('id')->get();
-        $sutug = Sutug::select('id')->get();
-        $super = Super::select('id')->get();
-        $suber = Suber::select('id')->get();
-        $suun = Suun::select('id')->get();
-        return view('admin.home', compact('user','suket','sutug','super','suber','suun'));
+        $super = JenisSurat::find(1);
+        $sutug = JenisSurat::find(4);
+        $suun = JenisSurat::find(3);
+        $suber = JenisSurat::find(5);
+        $suket = JenisSurat::find(2);
+        return view('admin.home', compact('user','super','sutug','suun','suber','suket'));
     }
 
     public function smasuk()
     {
         //$user = Auth::user();
         return view('admin.smasuk');
+    }
+
+    public function simpan($id){
+        $jenis = JenisSurat::find($id);
+        ManajemenSurat::create([
+            'id_user' => Auth::id(),
+            'id_jenis' => $jenis->id
+        ]);
+        if ($jenis->id=='1') {
+            return redirect("/suratPersonalia");
+        }elseif ($jenis->id=='4'){
+            return redirect("/suratTugas");
+        }elseif ($jenis->id=='2') {
+            return redirect("/suratKeterangan");
+        }elseif ($jenis->id=='3') {
+            return redirect("/suratUndangan");
+        }elseif ($jenis->id=='5') {
+            return redirect("/suratBerita");
+        }
     }
 }

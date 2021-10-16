@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Suket;
-use App\Models\Sutug;
 use Auth;
+use App\Models\JenisSurat;
+use App\Models\ManajemenSurat;
 
 class MahasiswaController extends Controller
 {
     public function index()
     {
         $user = Auth::user();
-        $suket = Suket::select('id')->where('id_user',Auth::id())->get();
-        $sutug = Sutug::select('id')->where('id_user',Auth::id())->get();
+        $suket = JenisSurat::find(2);
+        $sutug = JenisSurat::find(4);
         return view('mahasiswa.home', compact('user','suket','sutug'));
     }
 
@@ -21,5 +21,18 @@ class MahasiswaController extends Controller
     {
         //$user = Auth::user();
         return view('mahasiswa.smasuk');
+    }
+
+    public function simpan($id){
+        $jenis = JenisSurat::find($id);
+        ManajemenSurat::create([
+            'id_user' => Auth::id(),
+            'id_jenis' => $jenis->id
+        ]);
+        if ($jenis->id=='2') {
+            return redirect("/suratKeterangan");
+        }elseif ($jenis->id=='4'){
+            return redirect("/suratTugas");
+        }
     }
 }

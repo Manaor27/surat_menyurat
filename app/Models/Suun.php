@@ -9,5 +9,5 @@ class Suun extends Model
 {
     use HasFactory;
     protected $table = "suun";
-    protected $fillable = ['no_surat','perihal','kepada','keterangan','tanggal','waktu','tempat','id_user'];
+    protected $fillable = ['no_surat','perihal','kepada','keterangan','tanggal','waktu','tempat','id_manajemen'];
 }

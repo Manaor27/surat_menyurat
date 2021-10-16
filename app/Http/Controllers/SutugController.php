@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ManajemenSurat;
 use App\Models\Sutug;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SutugController extends Controller
 {
@@ -13,18 +15,33 @@ class SutugController extends Controller
     }
 
     public function simpan(Request $request) {
-        $sutug = Sutug::select('id')->get();
+        $count = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_jenis',4)->get();
+        //$b = '';
+        foreach ($count as $cy) {
+            if ($cy->banyak>="0") {
+                $b = "00".($cy->banyak+1)."/D/FTI/".date('Y');
+            }elseif ($cy->banyak>="9") {
+                $b = "0".($cy->banyak+1)."/D/FTI/".date('Y');
+            }elseif ($cy->banyak>="99") {
+                $b = ($cy->banyak+1)."/D/FTI/".date('Y');
+            }
+        }
+        $manajemen = DB::table('manajemen_surat')->orderBy('id','desc')->limit('1')->get();
+        foreach ($manajemen as $man) {
+            $id_man = $man->id;
+        }
+        //$count = 
         $kode = implode(",", $request->get('kode'));
         $nama = implode(",", $request->get('nama'));
-        Sutug::create([
-            'no_surat' => '00'.(count($sutug)+1).'/D/FTI/'.date('Y'),
-            'tema' => $request->tema,
+        DB::table('surat')->insert([
+            'no_surat' => $b,
+            'perihal' => $request->tema,
             'kode' => $kode,
             'nama' => $nama,
             'penyelenggara' => $request->penyelenggara,
             'tanggal' => $request->tanggal,
             'tempat' => $request->tempat,
-            'id_user' => Auth::id()
+            'id_manajemen' => $id_man
         ]);
         return redirect("/home");
     }

@@ -122,17 +122,17 @@
           </a>
           <ul class="treeview-menu">
             @if(Auth::user()->role=='admin')
-            <li><a href="/suratTugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
-            <li><a href="/suratKeterangan"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
-            <li><a href="/suratPersonalia"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
-            <li><a href="/suratBerita"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
-            <li><a href="/suratUndangan"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
+            <li><a href="{{url('/admin/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="{{url('/admin/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
+            <li><a href="{{url('/admin/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+            <li><a href="{{url('/admin/simpan/'. '5')}}"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
+            <li><a href="{{url('/admin/simpan/'. '3')}}"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
             @elseif(Auth::user()->role=='mahasiswa')
-            <li><a href="/suratTugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
-            <li><a href="/suratKeterangan"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
+            <li><a href="{{url('/mahasiswa/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="{{url('/mahasiswa/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
             @else
-            <li><a href="/suratTugas"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
-            <li><a href="/suratPersonalia"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+            <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="{{url('/dosen/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
             @endif
           </ul>
         </li>

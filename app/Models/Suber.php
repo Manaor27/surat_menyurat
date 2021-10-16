@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Suber extends Model
 {
     use HasFactory;
-    protected $table = "suber";
-    protected $fillable = ['no_surat','tema','tanggal','target','pembicara','tempat','id_user'];
+    protected $table = "surat";
+    protected $fillable = ['no_surat','perihal','tanggal','target','tamu','tempat','id_manajemen'];
 }
