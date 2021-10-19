@@ -16,7 +16,7 @@ class SuunController extends Controller
     }
 
     public function simpan(Request $request) {
-        $manajemen = DB::table('manajemen_surat')->orderBy('id','desc')->limit('1')->get();
+        $manajemen = DB::table('manajemen_surat')->where('id_user',Auth::id())->orderBy('id','desc')->limit('1')->get();
         foreach ($manajemen as $man) {
             $id_man = $man->id;
         }
@@ -48,7 +48,8 @@ class SuunController extends Controller
         Informasi::create([
             'status' => 'on process',
             'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt
+            'id_surat' => $id_srt,
+            'id_pejabat' => null
         ]);
         return redirect("/home");
     }

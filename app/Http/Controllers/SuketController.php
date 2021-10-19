@@ -16,7 +16,7 @@ class SuketController extends Controller
     }
     
     public function simpan(Request $request) {
-        $manajemen = DB::table('manajemen_surat')->orderBy('id','desc')->limit('1')->get();
+        $manajemen = DB::table('manajemen_surat')->where('id_user',Auth::id())->orderBy('id','desc')->limit('1')->get();
         foreach ($manajemen as $man) {
             $id_man = $man->id;
         }
@@ -48,8 +48,22 @@ class SuketController extends Controller
         Informasi::create([
             'status' => 'on process',
             'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt
+            'id_surat' => $id_srt,
+            'id_pejabat' => null
         ]);
         return redirect("/home");
+    }
+
+    public function update($id, Request $request) {
+        $skt = Suket::find($id);
+        $skt->no_surat = $request->no_surat;
+        $skt->perihal = $request->perihal;
+        $skt->kepada = $request->kepada;
+        $skt->keterangan = $request->keterangan;
+        $skt->tanggal = $request->tanggal;
+        $skt->waktu = $request->waktu;
+        $skt->tempat = $request->tempat;
+        $skt->save();
+        return redirect('/home');
     }
 }

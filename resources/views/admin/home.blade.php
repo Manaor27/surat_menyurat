@@ -175,13 +175,13 @@
                   <td><span class="label bg-red">{{ $item->status }}</span></td>
                   @endif
                   <td>
-                    <a class="btn btn-app bg-green" href="">
+                    <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                       <i class="fa fa-eye"></i> Preview
                     </a>
                     <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->informasiid)}}">
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->informasiid)}}">
+                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->suratid)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
                   </td>
@@ -196,6 +196,25 @@
         </div>
         <!-- /.col -->
       </div>
+      <!-- Modal Profile -->
+      <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">Show Data</h3>
+                </div>
+                <div class="modal-body">
+                    <h4 id="mediumBody">
+                        <!-- the result to be displayed apply here -->
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
       <!-- /.row (main row) -->
     </section>
     <!-- /.content -->

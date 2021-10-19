@@ -25,11 +25,21 @@ Route::put('/user/update/{id}', [UserController::class, 'update']);
 Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/mahasiswa/simpan/{id}', [MahasiswaController::class, 'simpan']);
+Route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'delete']);
+Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit']);
+
 Route::get('/dosen/simpan/{id}', [DosenController::class, 'simpan']);
+Route::get('/dosen/delete/{id}', [DosenController::class, 'delete']);
+
 Route::get('/admin/simpan/{id}', [AdminController::class, 'simpan']);
+Route::get('/admin/delete/{id}', [AdminController::class, 'delete']);
+Route::get('/admin/preview/{id}', [AdminController::class, 'preview']);
+Route::get('/admin/edit/{id}', [AdminController::class, 'edit']);
+Route::put('/admin/update/{id}', [AdminController::class, 'update']);
 
 Route::get('/suratKeterangan', [SuketController::class, 'index']);
 Route::post('/suket/simpan', [SuketController::class, 'simpan']);
+Route::put('/suket/update/{id}', [SuketController::class, 'update']);
 
 Route::get('/suratTugas', [SutugController::class, 'index']);
 Route::post('/sutug/simpan', [SutugController::class, 'simpan']);

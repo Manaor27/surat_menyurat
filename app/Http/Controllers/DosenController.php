@@ -45,4 +45,10 @@ class DosenController extends Controller
             return redirect("/suratTugas");
         }
     }
+
+    public function delete($id) {
+        $srt = DB::table('surat')->where('id',$id);
+        $srt->delete();
+        return redirect('/home');
+    }
 }

@@ -143,17 +143,17 @@
                   @endif
                   <td>
                   @if($item->status=='on process')
-                    <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}" disabled>
+                    <a class="btn btn-app bg-aqua" href="#" disabled>
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}" disabled>
+                    <a class="btn btn-app bg-red" href="#" disabled>
                       <i class="fa fa-remove"></i> Delete
                     </a>
                     @elseif($item->status=='disetujui')
-                    <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}" disabled>
+                    <a class="btn btn-app bg-aqua" href="#" disabled>
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}" disabled>
+                    <a class="btn btn-app bg-red" href="#" disabled>
                       <i class="fa fa-remove"></i> Delete
                     </a>
                     @else

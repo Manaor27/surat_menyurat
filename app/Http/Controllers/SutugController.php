@@ -27,7 +27,7 @@ class SutugController extends Controller
                 $b = ($cy->banyak+1)."/D/FTI/".date('Y');
             }
         }
-        $manajemen = DB::table('manajemen_surat')->orderBy('id','desc')->limit('1')->get();
+        $manajemen = DB::table('manajemen_surat')->where('id_user',Auth::id())->orderBy('id','desc')->limit('1')->get();
         foreach ($manajemen as $man) {
             $id_man = $man->id;
         }
@@ -51,7 +51,8 @@ class SutugController extends Controller
         Informasi::create([
             'status' => 'on process',
             'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt
+            'id_surat' => $id_srt,
+            'id_pejabat' => null
         ]);
         return redirect("/home");
     }
