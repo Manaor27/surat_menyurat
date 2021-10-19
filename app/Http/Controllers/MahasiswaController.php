@@ -17,7 +17,7 @@ class MahasiswaController extends Controller
         $sutug = JenisSurat::find(4);
         $count_suket = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_user',Auth::id())->where('manajemen_surat.id_jenis',2)->get();
         $count_sutug = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_user',Auth::id())->where('manajemen_surat.id_jenis',4)->get();
-        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid'))->where('manajemen_surat.id_user',Auth::id())->get();
+        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid, informasi.id as inforid, informasi.id_pejabat as pejabat'))->where('manajemen_surat.id_user',Auth::id())->get();
         foreach ($count_suket as $csuket) {
             $banyak_suket = $csuket->banyak;
         }
@@ -57,6 +57,17 @@ class MahasiswaController extends Controller
         foreach ($srt as $sur) {
             if ($sur->jenis=='2') {
                 return view('editsuket', compact('srt'));
+            }
+        }
+    }
+
+    public function download($id) {
+        $down = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('informasi.id_pejabat as pejabat, surat.no_surat as no_surat, surat.perihal as hal, surat.kepada as kepada, surat.keterangan as keterangan, surat.tanggal as tanggal, surat.waktu as waktu, surat.tempat as tempat, surat.kode as kode, surat.nama as nama, surat.penyelenggara as penyelenggara, surat.target as target, surat.tamu as tamu, manajemen_surat.id_jenis as jenis'))->where('informasi.id',$id)->get();
+        foreach ($down as $load) {
+            $jabat = Pejabat::find($load->pejabat);
+            if ($load->jenis=='2') {
+                $pdf = PDF::loadview('dsuket', compact('load','jabat'));
+                return $pdf->download('Surat Keterangan.pdf');
             }
         }
     }

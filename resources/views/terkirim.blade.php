@@ -38,7 +38,7 @@
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-group"></i> Home</a></li>
+        <li><a href="/home"><i class="fa fa-group"></i> Home</a></li>
         <li class="active">Surat Terkirim</li>
       </ol>
     </section>
@@ -49,11 +49,11 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <!--div class="box-header">
             <div class="col-md-2">
               <a type="button" class="btn btn-block btn-success" href="/user/tambah"><p class="fa fa-plus"> Kirim Surat</p></a>
             </div>
-            </div>
+            </div-->
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
@@ -63,31 +63,47 @@
                   <th>No. Surat</th>
                   <th>Tanggal</th>
                   <th>Kepentingan Surat</th>
+                  <th>Pemohon</th>
+                  <th>Bertanda Tangan</th>
+                  <th>Status Pengiriman</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 @php
                     $no = 1;
                 @endphp
+                @foreach($tab as $tbl)
                 <tbody>
-                <tr>
+                  <tr>
                     <td>{{ $no++ }}</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <a class="btn btn-app bg-green" href="">
-                      <i class="fa fa-eye"></i> Preview
-                    </a>
-                    <a class="btn btn-app bg-aqua" href="">
-                      <i class="fa fa-edit"></i> Edit
-                    </a>
-                    <a class="btn btn-app bg-red" href="">
-                      <i class="fa fa-remove"></i> Delete
-                    </a>
-                  </td>
-                </tr>
+                    <td>{{ $tbl->no_surat }}</td>
+                    <td>{{ $tbl->tgl }}</td>
+                    <td>{{ $tbl->tema }}</td>
+                    <td>{{ $tbl->code }}</td>
+                    @if($tbl->pejabat==null)
+                    <td></td>
+                    @else
+                    <td>{{ $jabat->jabatan }}</td>
+                    @endif
+                    @if($tbl->pejabat==null)
+                    <td><span class="label bg-red">Belum Terkirim</span></td>
+                    @else
+                    <td><span class="label bg-green">Terkirim</span></td>
+                    @endif
+                    <td>
+                      <a data-attr="{{url('/admin/preview/'. $tbl->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
+                        <i class="fa fa-eye"></i> Preview
+                      </a>
+                      <a class="btn btn-app bg-aqua" href="{{url('/terkirim/edit/'. $tbl->informasiid)}}">
+                        <i class="fa fa-edit"></i> Edit
+                      </a>
+                      <!--a class="btn btn-app bg-red" href="">
+                        <i class="fa fa-remove"></i> Delete
+                      </a-->
+                    </td>
+                  </tr>
                 </tfoot>
+                @endforeach
               </table>
             </div>
             <!-- /.box-body -->
@@ -96,6 +112,25 @@
         </div>
         <!-- /.col -->
       </div>
+      <!-- Modal Profile -->
+      <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">Show Data</h3>
+                </div>
+                <div class="modal-body">
+                    <h4 id="mediumBody">
+                        <!-- the result to be displayed apply here -->
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
       <!-- /.row (main row) -->
     </section>
     <!-- /.content -->

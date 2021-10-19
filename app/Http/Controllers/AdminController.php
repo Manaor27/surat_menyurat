@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\JenisSurat;
 use App\Models\ManajemenSurat;
 use App\Models\Informasi;
+use App\Models\Pejabat;
 use Auth;
+use PDF;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -24,7 +26,7 @@ class AdminController extends Controller
         $count_suket = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_jenis',2)->get();
         $count_suun = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_jenis',3)->get();
         $count_suber = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_jenis',5)->get();
-        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.no_surat as no_surat, surat.perihal as tema, informasi.status as status, informasi.id as informasiid, surat.id as suratid'))->get();
+        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.no_surat as no_surat, surat.perihal as tema, informasi.status as status, informasi.id as informasiid, surat.id as suratid, informasi.id_pejabat as pejabat'))->get();
         foreach ($count_super as $csuper) {
             $banyak_super = $csuper->banyak;
         }
@@ -90,5 +92,16 @@ class AdminController extends Controller
         $up->tanggal = date('Y-m-d');
         $up->save();
         return redirect('/home');
+    }
+
+    public function download($id) {
+        $down = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('informasi.id_pejabat as pejabat, surat.no_surat as no_surat, surat.perihal as hal, surat.kepada as kepada, surat.keterangan as keterangan, surat.tanggal as tanggal, surat.waktu as waktu, surat.tempat as tempat, surat.kode as kode, surat.nama as nama, surat.penyelenggara as penyelenggara, surat.target as target, surat.tamu as tamu, manajemen_surat.id_jenis as jenis'))->where('informasi.id',$id)->get();
+        foreach ($down as $load) {
+            $jabat = Pejabat::find($load->pejabat);
+            if ($load->jenis=='2') {
+                $pdf = PDF::loadview('dsuket', compact('load','jabat'));
+                return $pdf->download('Surat Keterangan.pdf');
+            }
+        }
     }
 }

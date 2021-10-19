@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
   <!-- Bootstrap time Picker -->
   <link rel="stylesheet" href="{{ asset('style/plugins/timepicker/bootstrap-timepicker.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/select2/dist/css/select2.min.css') }}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -225,6 +227,8 @@
 <script src="{{ asset('style/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
 <!-- bootstrap datepicker -->
 <script src="{{ asset('style/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('style/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 
 <!-- page script -->
 <script>

@@ -149,11 +149,19 @@
                     <a class="btn btn-app bg-red" href="#" disabled>
                       <i class="fa fa-remove"></i> Delete
                     </a>
-                    @elseif($item->status=='disetujui')
+                  @elseif($item->status=='disetujui')
                     <a class="btn btn-app bg-aqua" href="#" disabled>
                       <i class="fa fa-edit"></i> Edit
                     </a>
                     <a class="btn btn-app bg-red" href="#" disabled>
+                      <i class="fa fa-remove"></i> Delete
+                    </a>
+                  @else
+                    @if($item->pejabat==null)
+                    <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}">
+                      <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
                     @else
@@ -163,6 +171,10 @@
                     <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
+                    <a class="btn btn-app bg-green" href="{{url('/mahasiswa/download/'. $item->inforid)}}">
+                      <i class="fa fa-download"></i> Download
+                    </a>
+                    @endif
                   @endif
                   </td>
                 </tr>

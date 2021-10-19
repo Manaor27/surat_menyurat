@@ -153,7 +153,7 @@
                 <tr>
                   <th>#</th>
                   <th>No Surat</th>
-                  <th>Perihal/Tema</th>
+                  <th>Kepentingan Surat</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -175,6 +175,7 @@
                   <td><span class="label bg-red">{{ $item->status }}</span></td>
                   @endif
                   <td>
+                  @if($item->pejabat==null)
                     <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                       <i class="fa fa-eye"></i> Preview
                     </a>
@@ -184,6 +185,20 @@
                     <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->suratid)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
+                  @else
+                    <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
+                      <i class="fa fa-eye"></i> Preview
+                    </a>
+                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->informasiid)}}">
+                      <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->suratid)}}">
+                      <i class="fa fa-remove"></i> Delete
+                    </a>
+                    <a class="btn btn-app bg-grey" href="{{url('/admin/download/'. $item->informasiid)}}">
+                      <i class="fa fa-download"></i> Download
+                    </a>
+                  @endif
                   </td>
                 </tr>
                 @endforeach
