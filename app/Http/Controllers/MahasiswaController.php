@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use PDF;
 use App\Models\JenisSurat;
 use App\Models\ManajemenSurat;
+use App\Models\Pejabat;
 use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
