@@ -83,7 +83,9 @@
                     @if($tbl->pejabat==null)
                     <td></td>
                     @else
-                    <td>{{ $jabat->jabatan }}</td>
+                    @foreach($jabat as $jab)
+                    <td>{{ $jab->jabatan }}</td>
+                    @endforeach
                     @endif
                     @if($tbl->pejabat==null)
                     <td><span class="label bg-red">Belum Terkirim</span></td>

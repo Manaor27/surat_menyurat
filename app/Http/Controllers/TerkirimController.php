@@ -14,7 +14,7 @@ class TerkirimController extends Controller
         foreach ($tab as $tbl) {
             $idjabat = $tbl->pejabat;
         }
-        $jabat = Pejabat::find($idjabat);
+        $jabat = DB::table('informasi')->join('pejabat','id_pejabat','=','pejabat.id')->select(DB::raw('pejabat.jabatan as jabatan'))->get();
         return view('terkirim', compact('tab','jabat'));
     }
 

@@ -9,6 +9,7 @@ use App\Models\JenisSurat;
 use App\Models\ManajemenSurat;
 use App\Models\Pejabat;
 use Illuminate\Support\Facades\DB;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class MahasiswaController extends Controller
 {
@@ -68,7 +69,8 @@ class MahasiswaController extends Controller
         foreach ($down as $load) {
             $jabat = Pejabat::find($load->pejabat);
             if ($load->jenis=='2') {
-                $pdf = PDF::loadview('dsuket', compact('load','jabat'));
+                $barcode = QrCode::size(100)->generate('Online Web Tutor');
+                $pdf = PDF::loadview('dsuket', compact('load','jabat','barcode'));
                 return $pdf->download('Surat Keterangan.pdf');
             }
         }

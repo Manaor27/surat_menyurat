@@ -111,7 +111,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Surat Terkirim</h3>
+              <h3 class="box-title">Permohonan Surat</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -120,7 +120,7 @@
                 <tr>
                   <th>#</th>
                   <th>No. Surat</th>
-                  <th>Perihal/Tema</th>
+                  <th>Kepentingan Surat</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>

@@ -10,4 +10,8 @@ class Pejabat extends Model
     use HasFactory;
     protected $table = "pejabat";
     protected $fillable = ['nidn','nama','jabatan','ttd'];
+
+    public function informasi() {
+        return $this->hasOne('App\Models\Informasi','id_pejabat');
+    }
 }
