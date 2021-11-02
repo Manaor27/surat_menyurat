@@ -76,7 +76,11 @@
                 <tbody>
                   <tr>
                     <td>{{ $no++ }}</td>
+                    @if($tbl->pejabat==null)
+                    <td></td>
+                    @else
                     <td>{{ $tbl->no_surat }}</td>
+                    @endif
                     <td>{{ $tbl->tgl }}</td>
                     <td>{{ $tbl->tema }}</td>
                     <td>{{ $tbl->code }}</td>

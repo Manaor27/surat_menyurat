@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-group">
                   <label>Status</label>
-                  <select name="pejabat" class="form-control select2" style="width: 100%;" required>
+                  <select name="status" class="form-control select2" style="width: 100%;" required>
                         <option value="{{ $in->status }}">{{ $in->status }}</option>
                         <option value="disetujui">
                           Disetujui

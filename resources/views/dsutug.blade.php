@@ -11,7 +11,7 @@
             font-size: 11pt;
         }
         .letter5 { 
-            letter-spacing: 3px; 
+            letter-spacing: 1px; 
         }
         .element { 
             margin: 15 px 20px;
@@ -20,7 +20,7 @@
     <table>
         <tr>
             <td rowspan="4">
-                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="70" height="90"/>
+                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="55" height="75"/>
             </td>
             <td rowspan="4">
                 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -28,22 +28,24 @@
         </tr>
         <tr>
             <td>
-                <font size="4" class="letter5">
+                <font size="2" class="letter5">
                     UNIVERSITAS KRISTEN DUTA WACANA
                 </font>
                 <br>
-                <font size="5">
+                <font size="3">
                     <b>FAKULTAS TEKNOLOGI INFORMASI</b>
                 </font>
                 <br>
-                ■ &nbsp;PROGRAM STUDI INFORMATIKA<br>
-                ■ &nbsp;PROGRAM STUDI SISTEM INFORMASI
+                <font size="2">
+                    ■ &nbsp;PROGRAM STUDI INFORMATIKA<br>
+                    ■ &nbsp;PROGRAM STUDI SISTEM INFORMASI
+                </font>
             </td>
         </tr>
     </table>
     <br>
     <center>
-        <u><b><font size="5" face="Times New Roman">SURAT TUGAS</font></b></u><br>
+        <u><b><font size="4" face="Times New Roman">SURAT TUGAS</font></b></u><br>
         Nomor: {{ $load->no_surat }}
     </center>
     <br>
@@ -53,17 +55,30 @@
         <p style="text-align: justify;">
             Dengan ini {{ $jabat->jabatan }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana Yogyakarta memberikan tugas kepada para {{ Auth::user()->role }} tersebut di bawah ini:
         </p>
-        <table border="1">
-            <tr style="text-align: center;">
-                <td width="50px">No.</td>
-                <td width="350px">Nama</td>
-                <td width="200px">NIM</td>
-            </tr>
-            <tr>
-                <td style="text-align: center;">1.</td>
-                <td>Ferry</td>
-                <td style="text-align: center;">72190315</td>
-            </tr>
+        <table border="1" align="center">
+            <thead>
+                <tr style="text-align: center;">
+                    <td width="50px">No.</td>
+                    <td width="350px">Nama</td>
+                    <td width="200px">NIM</td>
+                </tr>
+            </thead>
+            @php
+                $no = 1;
+                $name = array();
+                $name = explode(',', $load->nama);
+                $code = array();
+                $code = explode(',', $load->kode);
+            @endphp
+            @foreach($name as $key => $value)
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">{{ $no++ }}.</td>
+                    <td>{{ $name[$key] }}</td>
+                    <td style="text-align: center;">{{ $code[$key] }}</td>
+                </tr>
+            </tbody>
+            @endforeach
         </table>
         <br>
         <p style="text-align: justify;">
@@ -75,10 +90,10 @@
         <br>
         <b><p align="left">
             <!--p style="text-align: center;"-->
-                {{ $jabat->jabatan }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+                {{ $jabat->jabatan }}<br><br>
                 <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                <u>{{ $jabat->nama }}</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                {{ $jabat->nidn }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <u>{{ $jabat->nama }}</u><br>
+                {{ $jabat->nidn }}
             <!--/p-->
         </p></b>
     </font>
