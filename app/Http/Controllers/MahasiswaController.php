@@ -72,7 +72,7 @@ class MahasiswaController extends Controller
                 $pdf = PDF::loadview('dsuket', compact('load','jabat'));
                 return $pdf->download('Surat Keterangan.pdf');
             }elseif ($load->jenis=='4') {
-                $pdf = PDF::loadview('dsutug', compact('load','jabat','down'));
+                $pdf = PDF::loadview('dsutug', compact('load','jabat'));
                 return $pdf->download('Surat Tugas.pdf');
             }
         }

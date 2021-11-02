@@ -137,12 +137,24 @@
                       <i class="fa fa-remove"></i> Delete
                     </a>
                     @elseif($item->status=='disetujui')
-                    <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}" disabled>
-                      <i class="fa fa-edit"></i> Edit
-                    </a>
-                    <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}" disabled>
-                      <i class="fa fa-remove"></i> Delete
-                    </a>
+                      @if($item->pejabat==null)
+                      <a class="btn btn-app bg-aqua" href="#" disabled>
+                        <i class="fa fa-edit"></i> Edit
+                      </a>
+                      <a class="btn btn-app bg-red" href="#" disabled>
+                        <i class="fa fa-remove"></i> Delete
+                      </a>
+                      @else
+                      <a class="btn btn-app bg-aqua" href="#" disabled>
+                        <i class="fa fa-edit"></i> Edit
+                      </a>
+                      <a class="btn btn-app bg-red" href="#" disabled>
+                        <i class="fa fa-remove"></i> Delete
+                      </a>
+                      <a class="btn btn-app bg-green" href="{{url('/dosen/download/'. $item->inforid)}}">
+                        <i class="fa fa-download"></i> Download
+                      </a>
+                      @endif
                     @else
                     <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
                       <i class="fa fa-edit"></i> Edit

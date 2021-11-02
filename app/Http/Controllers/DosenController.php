@@ -51,4 +51,18 @@ class DosenController extends Controller
         $srt->delete();
         return redirect('/home');
     }
+
+    public function download($id) {
+        $down = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('informasi.id_pejabat as pejabat, surat.no_surat as no_surat, surat.perihal as hal, surat.kepada as kepada, surat.keterangan as keterangan, surat.tanggal as tanggal, surat.waktu as waktu, surat.tempat as tempat, surat.kode as kode, surat.nama as nama, surat.penyelenggara as penyelenggara, surat.target as target, surat.tamu as tamu, manajemen_surat.id_jenis as jenis'))->where('informasi.id',$id)->get();
+        foreach ($down as $load) {
+            $jabat = Pejabat::find($load->pejabat);
+            if ($load->jenis=='1') {
+                $pdf = PDF::loadview('dsuper', compact('load','jabat'));
+                return $pdf->download('Surat Personalia.pdf');
+            }elseif ($load->jenis=='4') {
+                $pdf = PDF::loadview('dsutug', compact('load','jabat'));
+                return $pdf->download('Surat Tugas.pdf');
+            }
+        }
+    }
 }

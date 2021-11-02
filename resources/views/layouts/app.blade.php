@@ -138,11 +138,11 @@
             @endif
           </ul>
         </li>
-        <li>
+        <!--li>
           <a href="/suratMasuk">
             <i class="fa fa-inbox"></i> <span>Surat Masuk</span>
           </a>
-        </li>
+        </li-->
         @if(Auth::user()->role=='admin')
         <!--li>
           <a href="/klasifikasi">
@@ -154,11 +154,11 @@
             <i class="fa fa-reply"></i> <span>Terkirim</span>
           </a>
         </li>
-        <li>
+        <!--li>
           <a href="/user">
             <i class="fa fa-group"></i> <span>Manajemen User</span>
           </a>
-        </li>
+        </li-->
         @endif
       </ul>
     </section>
