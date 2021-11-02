@@ -29,85 +29,122 @@
         .line {
             line-height: 50%;
         }
+
+        .disp {
+            text-align: center;
+            margin: -.5rem 0;
+        }
+        .logodisp {
+            float: left;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: .5rem 0 0 .5rem;
+        }
     </style>
-    <div class="row">
-        <center class="line">
-            <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="80">
-            <h3>UNIVERSITAS KRISTEN DUTA WACANA</h3>
-            <h2>FAKULTAS TEKNOLOGI INFORMASI</h2>
-            <p>Jl. Dr. Wahidin Sudiro Husodo No. 5 – 25, Yogyakarta 55224 </p>
-            <hr>
-        </center>
-    </div> 
-    <table>
-        <tr>
-            <td>Nomor</td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>: {{ $load->no_surat }}</td>
-        </tr>
-        <tr>
-            <td>Lampiran</td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>: -</td>
-        </tr>
-        <tr>
-            <td>Perihal</td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>: {{ $load->hal }}</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Kepada Yth.</td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td> &nbsp;{{ $load->kepada }}</td>
-        </tr>
-    </table>
-    <br>
-    <br>
-    <p style="line-height: 20px;">
-        Dengan hormat,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $load->keterangan }}
-    </p>
-    <table style="line-height: 20px;">
-        <tr>
-            <td>hari, tanggal</td>
-            <td>&nbsp;&nbsp;</td>
-            <td>: <?php echo date('l, d F Y', strtotime($load->tanggal)); ?></td>
-        </tr>
-        <tr>
-            <td>waktu</td>
-            <td>&nbsp;&nbsp;</td>
-            <td>: <?php echo date('H:i', strtotime($load->waktu)); ?></td>
-        </tr>
-        <tr>
-            <td>tempat</td>
-            <td>&nbsp;&nbsp;</td>
-            <td>: {{ $load->tempat }}</td>
-        </tr>
-    </table>
-    <br>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan dari kami. Atas perhatian dan kebijaksanaan Ibu/Bapak, kami mengucapkan terima kasih.
-    </p>
-    <br>
-    <p style="text-align: right;">
-        Yogyakarta, <?php echo date('d F Y'); ?>
-    </p>
-    <div class="row">
-        <div class="col-lg-9"></div>
-        <div class="col-lg-2" align="">
-            {{ $jabat->jabatan }}
-            <br>
-            <br>
-            <u>Y{{ $jabat->nama }}</u>
-            {{ $jabat->nidn }}
-        </div>
-        <div class="col-lg-1"></div>
+    <div class="row disp">
+        <img class="logodisp" src="{{ public_path($inst->file) }}"/>
+        <h6>{{ $inst->nama }}</h6><br/>
+        <h5>{{ $inst->namaFak }} </h5>
+        <p>PROGRAM STUDI INFORMATIKA</p>
+        <p>PROGRAM STUDI SISTEM INFORMASI</p>
+        <hr>
     </div>
+    <table class="table table-bordered table-active" bgcolor="#FFFFFF">
+        <tr>
+            <td colspan="6" align="center">
+                <h6>Surat Keterangan</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tanggal Surat
+            </td>
+            <td colspan="4"> {{ $smasuk->tgl_surat }}</td>
+            <td rowspan="2">Kode : <br> <b>{{ $smasuk->kode }}</b></td>
+        </tr>
+        <tr>
+            <td>
+                Nomor Surat
+            </td>
+            <td colspan="4"> {{ $smasuk->no_surat }}</td>
+        </tr>
+        <tr>
+            <td>
+                Asal Surat
+            </td>
+            <td colspan="5"> {{ $smasuk->asal_surat }}</td>
+        </tr>
+        <tr>
+            <td>
+                Isi Ringkas
+            </td>
+            <td colspan="5"> {{ $smasuk->isi }}</td>
+        </tr>
+        <tr>
+            <td>
+                Diterima Tanggal
+            </td>
+            <td colspan="5">
+                {{ $smasuk->tgl_terima }}<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                No. Agenda
+            </td>
+            <td colspan="5">
+                {{ $smasuk->id  }}<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Diteruskan Kepada
+            </td>
+            <td colspan="5">
+                {{ $disp->tujuan }}<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Isi Disposisi
+            </td>
+            <td colspan="5">
+                {{ $disp->isi }}<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Batas Waktu
+            </td>
+            <td colspan="5">
+                {{ $disp->batas_waktu }}<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sifat
+            </td>
+            <td colspan="5">
+                {{ $disp->sifat }}<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Catatan
+            </td>
+            <td colspan="5">
+                {{ $disp->catatan }}<br>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <p align="right"> Dekan, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br><br><br><br> <u><b>{{ $inst->pimpinan}}</b></u> </p>
+    </div>
+    <!--footer>
+        Copyright &copy; | Aplikasi Manajemen Surat | <?php echo date("d-m-Y h:i:s");?>
+    </footer-->
 </body>
 
 </html>

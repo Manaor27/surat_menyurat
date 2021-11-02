@@ -66,7 +66,18 @@
                 </div>
                 <div class="form-group">
                   <label>Status</label>
-                  <input type="text" class="form-control pull-right" id="reservation" name="status" value="{{ $in->status }}">
+                  <select name="pejabat" class="form-control select2" style="width: 100%;" required>
+                        <option value="{{ $in->status }}">{{ $in->status }}</option>
+                        <option value="disetujui">
+                          Disetujui
+                        </option>
+                        <option value="alamat kurang jelas">
+                          Alamat kurang jelas
+                        </option>
+                        <option value="perihal kurang jelas">
+                          Perihal kurang jelas
+                        </option>
+                    </select>
                 </div>
               </div>
               <div class="box-footer">

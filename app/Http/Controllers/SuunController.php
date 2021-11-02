@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ManajemenSurat;
 use App\Models\Informasi;
-use App\Models\Suun;
+use App\Models\Suket;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +31,7 @@ class SuunController extends Controller
                 $b = ($cy->banyak+1)."/C/FTI/".date('Y');
             }
         }
-        Suket::create([
+        DB::table('surat')->insert([
             'no_surat' => $b,
             'perihal' => $request->perihal,
             'kepada' => $request->kepada,

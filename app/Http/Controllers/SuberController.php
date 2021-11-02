@@ -31,9 +31,9 @@ class SuberController extends Controller
                 $b = ($cy->banyak+1)."/E/FTI/".date('Y');
             }
         }
-        Suber::create([
+        DB::table('surat')->insert([
             'no_surat' => $b,
-            'tema' => $request->tema,
+            'perihal' => $request->tema,
             'tanggal' => $request->tanggal,
             'target' => $request->target,
             'pembicara' => $request->pembicara,

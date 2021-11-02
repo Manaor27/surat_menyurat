@@ -132,7 +132,11 @@
                 @foreach($tab as $tbl => $item)
                 <tr>
                   <td>{{ $no++ }}</td>
+                  @if($item->pejabat==null)
+                  <td></td>
+                  @else
                   <td>{{ $item->no_surat }}</td>
+                  @endif
                   <td>{{ $item->tema }}</td>
                   @if($item->status=='disetujui')
                   <td><span class="label bg-green">{{ $item->status }}</span></td>

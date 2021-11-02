@@ -69,7 +69,7 @@ class MahasiswaController extends Controller
         foreach ($down as $load) {
             $jabat = Pejabat::find($load->pejabat);
             if ($load->jenis=='2') {
-                $pdf = PDF::loadview('dsuket', compact('load','jabat','barcode'));
+                $pdf = PDF::loadview('dsuket', compact('load','jabat'));
                 return $pdf->download('Surat Keterangan.pdf');
             }
         }

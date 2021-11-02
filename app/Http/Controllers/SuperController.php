@@ -32,7 +32,7 @@ class SuperController extends Controller
             }
         }
         $ket = implode(",", $request->get('keterangan'));
-        Super::create([
+        DB::table('surat')->insert([
             'no_surat' => $b,
             'perihal' => $request->perihal,
             'keterangan' => $ket,

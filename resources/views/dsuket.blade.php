@@ -1,13 +1,11 @@
 <html>
-
 <head>
     <title>LEMBAR DISPOSISI SURAT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 <body>
-    <style type="text/css">
+<style type="text/css">
         table tr td,
         table tr th {
             font-size: 11pt;
@@ -29,16 +27,28 @@
         .line {
             line-height: 50%;
         }
+
+        .disp {
+            text-align: center;
+            margin: -.5rem 0;
+        }
+        .logodisp {
+            float: left;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: .5rem 0 0 .5rem;
+        }
     </style>
-    <div class="row">
-        <center class="line">
-            <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="80">
-            <h5>UNIVERSITAS KRISTEN DUTA WACANA</h5>
-            <h4>FAKULTAS TEKNOLOGI INFORMASI</h4>
-            <p>Jl. Dr. Wahidin Sudiro Husodo No. 5 – 25, Yogyakarta 55224 </p>
-            <hr>
-        </center>
-    </div> 
+    <div class="row disp">
+        <img class="logodisp" src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="75" height="90"/>
+        <h5>UNIVERSITAS KRISTEN DUTA WACANA</h5><br/>
+        <h6>FAKULTAS TEKNOLOGI INFORMASI</h6>
+        <p>PROGRAM STUDI INFORMATIKA</p>
+        <p>PROGRAM STUDI SISTEM INFORMASI</p>
+        
+    </div>
+    <hr>
     <table>
         <tr>
             <td>Nomor</td>
@@ -63,7 +73,12 @@
         <tr>
             <td>Kepada Yth.</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
-            <td> &nbsp;{{ $load->kepada }}</td>
+            <td> &nbsp;</td>
+        </tr>
+        <tr>
+            <td>{{ $load->kepada }}</td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
     <br>
