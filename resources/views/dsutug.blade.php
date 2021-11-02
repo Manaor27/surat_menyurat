@@ -37,8 +37,8 @@
                 </font>
                 <br>
                 <font size="2">
-                    ■ &nbsp;PROGRAM STUDI INFORMATIKA<br>
-                    ■ &nbsp;PROGRAM STUDI SISTEM INFORMASI
+                    &#9744; &nbsp;PROGRAM STUDI INFORMATIKA<br>
+                    &#9744; &nbsp;PROGRAM STUDI SISTEM INFORMASI
                 </font>
             </td>
         </tr>
