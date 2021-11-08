@@ -21,7 +21,7 @@ class CreateInformasiTable extends Migration
             $table->unsignedBigInteger('id_surat');
             $table->foreign('id_surat')->references('id')->on('surat')->onDelete('CASCADE');
             $table->unsignedBigInteger('id_pejabat')->nullable();
-            $table->foreign('id_pejabat')->references('id')->on('pejabat')->onDelete('CASCADE');
+            $table->foreign('id_pejabat')->references('id')->on('tanda_tangan')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

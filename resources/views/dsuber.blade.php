@@ -47,15 +47,15 @@
     <center>
         <b><font size="4" face="Times New Roman">Berita Acara</font></b><br>
         <b>Kuliah Umum</b><br>
-        <b><i>{{ $load->hal }}</i></b>
-        Nomor: {{ $load->no_surat }}
+        <b><i>{{ $down->surat->perihal }}</i></b>
+        Nomor: {{ $down->no_surat }}
     </center>
     <br>
     <br>
     <br>
     <font size="3" face="Times New Roman" class="element">
         <p style="text-align: justify;">
-            Pada hari ini: {{ $load->tanggal }} bertempat di {{ $load->tempat }} telah dilangsungkan Kuliah Umum dengan tema: <i>"{{ $load->hal }}"</i> dengan mengundang pembicara yaitu {{ $load->tamu }}. Acara ini diikuti oleh {{ $load->target }}.
+            Pada hari ini: {{ $down->surat->tanggal }} bertempat di {{ $down->surat->tempat }} telah dilangsungkan Kuliah Umum dengan tema: <i>"{{ $down->surat->perihal }}"</i> dengan mengundang pembicara yaitu {{ $down->surat->tamu }}. Acara ini diikuti oleh {{ $down->surat->target }}.
         </p>
         <p style="text-align: justify;">
             Adapun TOR acara, daftar kehadiran peserta, foto kegiatan seperti terlampir pada berita acara ini.
@@ -65,15 +65,15 @@
         </p>
         <br>
         <center>
-            Yogyakarta, <?php echo date('d F Y', strtotime($load->tanggal)); ?>
+            Yogyakarta, <?php echo date('d F Y', strtotime($down->surat->tanggal)); ?>
             <br>
             Mengetahui
         </center>
         <p align="left" style="text-align: center;">
             <!--p style="text-align: center;"-->
-                {{ $jabat->jabatan }},<br><br>
+                {{ $down->pejabat->jabatan }},<br><br>
                 <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                ({{ $jabat->nama }})
+                ({{ $down->pejabat->nama }})
             <!--/p-->
         </p>
     </font>

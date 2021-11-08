@@ -14,7 +14,7 @@ class PejabatSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pejabat')->insert([
+        DB::table('tanda_tangan')->insert([
             'nidn' => '72190349',
             'nama' => 'Alex Septimand Gulo',
             'jabatan' => 'Wakil HMSI',

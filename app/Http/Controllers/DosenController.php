@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\JenisSurat;
-use App\Models\ManajemenSurat;
+use App\Models\Informasi;
 use Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -15,9 +15,9 @@ class DosenController extends Controller
         $user = Auth::user();
         $super = JenisSurat::find(1);
         $sutug = JenisSurat::find(4);
-        $count_super = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_user',Auth::id())->where('manajemen_surat.id_jenis',1)->get();
-        $count_sutug = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('count(manajemen_surat.id_jenis) as banyak'))->where('manajemen_surat.id_user',Auth::id())->where('manajemen_surat.id_jenis',4)->get();
-        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid'))->where('manajemen_surat.id_user',Auth::id())->get();
+        $count_super = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',1)->get();
+        $count_sutug = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',4)->get();
+        $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->select(DB::raw('informasi.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid'))->where('surat.id_user',Auth::id())->get();
         foreach ($count_super as $csuper) {
             $banyak_super = $csuper->banyak;
         }
@@ -34,14 +34,9 @@ class DosenController extends Controller
     }
 
     public function simpan($id){
-        $jenis = JenisSurat::find($id);
-        ManajemenSurat::create([
-            'id_user' => Auth::id(),
-            'id_jenis' => $jenis->id
-        ]);
-        if ($jenis->id=='1') {
+        if ($id=='1') {
             return redirect("/suratPersonalia");
-        }elseif ($jenis->id=='4'){
+        }elseif ($id=='4'){
             return redirect("/suratTugas");
         }
     }
@@ -53,16 +48,13 @@ class DosenController extends Controller
     }
 
     public function download($id) {
-        $down = DB::table('informasi')->join('surat','id_surat','=','surat.id')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('informasi.id_pejabat as pejabat, surat.no_surat as no_surat, surat.perihal as hal, surat.kepada as kepada, surat.keterangan as keterangan, surat.tanggal as tanggal, surat.waktu as waktu, surat.tempat as tempat, surat.kode as kode, surat.nama as nama, surat.penyelenggara as penyelenggara, surat.target as target, surat.tamu as tamu, manajemen_surat.id_jenis as jenis'))->where('informasi.id',$id)->get();
-        foreach ($down as $load) {
-            $jabat = Pejabat::find($load->pejabat);
-            if ($load->jenis=='1') {
-                $pdf = PDF::loadview('dsuper', compact('load','jabat'));
-                return $pdf->download('Surat Personalia.pdf');
-            }elseif ($load->jenis=='4') {
-                $pdf = PDF::loadview('dsutug', compact('load','jabat'));
-                return $pdf->download('Surat Tugas.pdf');
-            }
+        $down = Informasi::find($id);
+        if ($down->surat->id_jenis=='1') {
+            $pdf = PDF::loadview('dsuper', compact('down'));
+            return $pdf->download('Surat Personalia.pdf');
+        }elseif ($down->surat->id_jenis=='4') {
+            $pdf = PDF::loadview('dsutug', compact('down'));
+            return $pdf->download('Surat Tugas.pdf');
         }
     }
 }

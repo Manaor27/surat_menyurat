@@ -76,14 +76,10 @@
                 <tbody>
                   <tr>
                     <td>{{ $no++ }}</td>
-                    @if($tbl->pejabat==null)
-                    <td></td>
-                    @else
                     <td>{{ $tbl->no_surat }}</td>
-                    @endif
-                    <td>{{ $tbl->tgl }}</td>
-                    <td>{{ $tbl->tema }}</td>
-                    <td>{{ $tbl->code }}</td>
+                    <td>{{ $tbl->surat->tanggal }}</td>
+                    <td>{{ $tbl->surat->perihal }}</td>
+                    <td>{{ $tbl->surat->user->kode }}</td>
                     @if($tbl->pejabat==null)
                     <td></td>
                     @else
@@ -91,16 +87,16 @@
                     <td>{{ $jab->jabatan }}</td>
                     @endforeach
                     @endif
-                    @if($tbl->pejabat==null)
+                    @if($tbl->id_pejabat==null)
                     <td><span class="label bg-red">Belum Terkirim</span></td>
                     @else
                     <td><span class="label bg-green">Terkirim</span></td>
                     @endif
                     <td>
-                      <a data-attr="{{url('/admin/preview/'. $tbl->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
+                      <a data-attr="{{url('/admin/preview/'. $tbl->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                         <i class="fa fa-eye"></i> Preview
                       </a>
-                      <a class="btn btn-app bg-aqua" href="{{url('/terkirim/edit/'. $tbl->informasiid)}}">
+                      <a class="btn btn-app bg-aqua" href="{{url('/terkirim/edit/'. $tbl->id)}}">
                         <i class="fa fa-edit"></i> Edit
                       </a>
                       <!--a class="btn btn-app bg-red" href="">

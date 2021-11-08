@@ -48,13 +48,13 @@
         <b><font size="4" face="Times New Roman">SURAT KEPUTUSAN DEKAN</font></b><br>
         <b><font size="4" face="Times New Roman">FAKULTAS TEKNOLOGI INFORMASI</font></b><br>
         UNIVERSITAS KRISTEN DUTA WACANA <br>
-        NOMOR: <b>{{ $load->no_surat }}</b>
+        NOMOR: <b>{{ $down->no_surat }}</b>
         <br>
         <br>
         <font size="3" face="Times New Roman">Tentang:</font>
         <br>
         <br>
-        <b><?php echo strtoupper($load->hal); ?></b>
+        <b><?php echo strtoupper($down->surat->perihal); ?></b>
     </center>
     <br>
     <br>
@@ -88,27 +88,27 @@
                 <td rowspan="6" valign="top">Mengingat</td>
                 <td rowspan="6" valign="top"> : </td>
                 <td valign="top"> 1. </td>
-                <td>Undang-undang Republik Indonesia Nomor 14 Tahun 2004 tentang Guru dan Dosen.</td>
+                <td style="text-align: justify;">Undang-undang Republik Indonesia Nomor 14 Tahun 2004 tentang Guru dan Dosen.</td>
             </tr>
             <tr>
                 <td valign="top"> 2. </td>
-                <td>Peraturan Pemerintah RI Nomor 37 Tahun 2009 tentang Dosen(lembaran Negara Republik Indonesia dan tambahan Lembaran Negara    Republik Indonesia Nomor 5007).</td>
+                <td style="text-align: justify;">Peraturan Pemerintah RI Nomor 37 Tahun 2009 tentang Dosen(lembaran Negara Republik Indonesia dan tambahan Lembaran Negara    Republik Indonesia Nomor 5007).</td>
             </tr>
             <tr>
                 <td valign="top"> 3. </td>
-                <td>Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Nomor 17 Tahun 2013 tentang Jabatan Fungsional Dosen dan Angka Kreditnya.</td>
+                <td style="text-align: justify;">Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Nomor 17 Tahun 2013 tentang Jabatan Fungsional Dosen dan Angka Kreditnya.</td>
             </tr>
             <tr>
                 <td valign="top"> 4. </td>
-                <td>Statuta Universitas Kristen Duta Wacana Yogyakarta tahun 2010 dengan nomor QADW-110-SU-10.01.001 Bab 4 Pasal 33.</td>
+                <td style="text-align: justify;">Statuta Universitas Kristen Duta Wacana Yogyakarta tahun 2010 dengan nomor QADW-110-SU-10.01.001 Bab 4 Pasal 33.</td>
             </tr>
             <tr>
                 <td valign="top"> 5. </td>
-                <td>Kebijakan Akademik Universitas Kristen Duta Wacana Yogyakarta tahun 2008-2013.</td>
+                <td style="text-align: justify;">Kebijakan Akademik Universitas Kristen Duta Wacana Yogyakarta tahun 2008-2013.</td>
             </tr>
             <tr>
                 <td valign="top"> 6. </td>
-                <td>Peraturan Akademik Universitas Kristen Duta Wacana tahun 2009-2014 Bab 3 pasal 5.</td>
+                <td style="text-align: justify;">Peraturan Akademik Universitas Kristen Duta Wacana tahun 2009-2014 Bab 3 pasal 5.</td>
             </tr>
         </table>
         <br>
@@ -122,9 +122,15 @@
                 <td></td>
             </tr>
             <tr>
-                <td><b>Pertama</b></td>
-                <td><b> : </b></td>
-                <td>Terhitung mulai tanggal 31 Desember 2018 membebas tugaskan Umi Proboyekti, S.Kom., MLIS. sebagai Koordinator Laboratorium FTI UKDW, serta kepada beliau disampaikan penghargaan dan ucapan terima kasih atas jasa-jasanya selama menjalakan tugas tersebut</td>
+                @php
+                    $urut = array("Pertama","Kedua","Ketiga","Keempat","Kelima","Keenam","Ketujuh","Kedelapan","Kesembilan","Kesepuluh");
+                    $ket = array();
+                    $ket = explode(',', $down->surat->keterangan);
+                @endphp
+                @foreach($ket as $key => $value)
+                <td valign="top"><b>{{ $urut[$key] }}</b></td>
+                <td valign="top"><b> : </b></td>
+                <td style="text-align: justify;">{{ $ket[$key] }}</td>
             </tr>
             <tr><td colspan="3">&nbsp;</td></tr>
             <tr><td colspan="3">&nbsp;</td></tr>
@@ -134,16 +140,16 @@
                 <td rowspan="5">&nbsp;</td>
                 <td>
                     Ditetapkan di: Yogyakarta <br>
-                    Pada tanggal : 8 Januari 2019
+                    Pada tanggal : <?php echo date('d F Y'); ?>
                 </td>
             </tr>
             <tr><td>&nbsp;</td></tr>
-            <tr><td>Dekan,</td></tr>
+            <tr><td>{{ $down->pejabat->jabatan }},</td></tr>
             <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
             <tr>
                 <td>
-                    Budi Susanto, S.Kom., M.T. <br>
-                    NIK: 984E249
+                    {{ $down->pejabat->nama }} <br>
+                    NIK: {{ $down->pejabat->nidn }}
                 </td>
             </tr>
         </table>

@@ -13,7 +13,7 @@ class CreatePejabatTable extends Migration
      */
     public function up()
     {
-        Schema::create('pejabat', function (Blueprint $table) {
+        Schema::create('tanda_tangan', function (Blueprint $table) {
             $table->id();
             $table->string('nidn')->unique();
             $table->string('nama');

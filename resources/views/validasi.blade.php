@@ -50,19 +50,18 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            @foreach($infor as $in)
-            <form role="form" method="POST" action="/terkirim/update/{{ $in->id }}">
+            <form role="form" method="POST" action="/terkirim/update/{{ $info->id }}">
                 @csrf
                 @method('put')
-                <input type="hidden" class="form-control" name="id" value="{{ $in->id }}">
+                <input type="hidden" class="form-control" name="id" value="{{ $info->id }}">
               <div class="box-body">
-                <div class="form-group">
+                <!--div class="form-group">
                   <label>Nomor Surat</label>
-                  <input type="text" class="form-control" name="no_surat" placeholder="Perihal" value="{{ $in->no_surat }}" disabled>
-                </div>
+                  <input type="text" class="form-control" name="no_surat" placeholder="Perihal" value="{{ $info->no_surat }}" disabled>
+                </div-->
                 <div class="form-group">
                   <label>Kepentingan Surat</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Kepada" value="{{ $in->hal }}" disabled>
+                  <input type="text" class="form-control" name="perihal" placeholder="Kepada" value="{{ $info->surat->perihal }}" disabled>
                 </div>
                 <div class="form-group">
                   <label>Penanda Tangan</label></br>
@@ -79,7 +78,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
-            @endforeach
     </section>
     <!-- /.content -->
   </div>

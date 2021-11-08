@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\JenisSurat;
 use App\Models\Informasi;
 use App\Models\Pejabat;
+use App\Models\Surat;
 use Auth;
 use PDF;
 use Illuminate\Support\Facades\DB;
@@ -76,7 +77,7 @@ class AdminController extends Controller
     }
 
     public function edit($id) {
-        $infor = DB::table('informasi')->join('surat','id_surat','=','surat.id')->select(DB::raw('surat.id as surid, surat.no_surat as no_surat ,surat.perihal as hal, informasi.status as status, informasi.id as id'))->where('informasi.id',$id)->get();
+        $infor = Informasi::find($id);
         return view('editstatus', compact('infor'));
     }
 
@@ -90,10 +91,21 @@ class AdminController extends Controller
 
     public function download($id) {
         $down = Informasi::find($id);
-        $jabat = Pejabat::find($down->id_pejabat);
         if ($down->surat->id_jenis=='2') {
-            $pdf = PDF::loadview('dsuket', compact('down','jabat'));
+            $pdf = PDF::loadview('dsuket', compact('down'));
             return $pdf->download('Surat Keterangan.pdf');
+        }elseif ($down->surat->id_jenis=='4') {
+            $pdf = PDF::loadview('dsutug', compact('down'));
+            return $pdf->download('Surat Tugas.pdf');
+        }elseif ($down->surat->id_jenis=='1') {
+            $pdf = PDF::loadview('dsuper', compact('down'));
+            return $pdf->download('Surat Personalia.pdf');
+        }elseif ($down->surat->id_jenis=='5') {
+            $pdf = PDF::loadview('dsuber', compact('down'));
+            return $pdf->download('Surat Berita Acara.pdf');
+        }else {
+            $pdf = PDF::loadview('dsuun', compact('down'));
+            return $pdf->download('Surat Undangan.pdf');
         }
     }
 }

@@ -50,24 +50,23 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            @foreach($infor as $in)
-            <form role="form" method="POST" action="/admin/update/{{ $in->id }}">
+            <form role="form" method="POST" action="/admin/update/{{ $infor->id }}">
                 @csrf
                 @method('put')
-                <input type="hidden" class="form-control" name="id" value="{{ $in->id }}">
+                <input type="hidden" class="form-control" name="id" value="{{ $infor->id }}">
               <div class="box-body">
                 <div class="form-group">
                   <label>Nomor Surat</label>
-                  <input type="text" class="form-control" name="no_surat" placeholder="Perihal" value="{{ $in->no_surat }}" disabled>
+                  <input type="text" class="form-control" name="no_surat" placeholder="Perihal" value="{{ $infor->no_surat }}" disabled>
                 </div>
                 <div class="form-group">
-                  <label>Perihal/Tema</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Kepada" value="{{ $in->hal }}" disabled>
+                  <label>Kepentingan Surat</label>
+                  <input type="text" class="form-control" name="perihal" placeholder="Kepada" value="{{ $infor->surat->perihal }}" disabled>
                 </div>
                 <div class="form-group">
                   <label>Status</label>
                   <select name="status" class="form-control select2" style="width: 100%;" required>
-                        <option value="{{ $in->status }}">{{ $in->status }}</option>
+                        <option value="{{ $infor->status }}">{{ $infor->status }}</option>
                         <option value="disetujui">
                           Disetujui
                         </option>
@@ -84,7 +83,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
-            @endforeach
     </section>
     <!-- /.content -->
   </div>

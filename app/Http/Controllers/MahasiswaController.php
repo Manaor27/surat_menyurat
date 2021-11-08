@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use PDF;
 use App\Models\JenisSurat;
-use App\Models\ManajemenSurat;
+use App\Models\Informasi;
 use App\Models\Pejabat;
 use Illuminate\Support\Facades\DB;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -61,12 +61,11 @@ class MahasiswaController extends Controller
 
     public function download($id) {
         $down = Informasi::find($id);
-        $jabat = Pejabat::find($load->pejabat);
         if ($down->surat->id_jenis=='2') {
-            $pdf = PDF::loadview('dsuket', compact('down','jabat'));
+            $pdf = PDF::loadview('dsuket', compact('down'));
             return $pdf->download('Surat Keterangan.pdf');
         }elseif ($down->surat->id_jenis=='4') {
-            $pdf = PDF::loadview('dsutug', compact('down','jabat'));
+            $pdf = PDF::loadview('dsutug', compact('down'));
             return $pdf->download('Surat Tugas.pdf');
         }
     }
