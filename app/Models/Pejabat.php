@@ -12,6 +12,6 @@ class Pejabat extends Model
     protected $fillable = ['nidn','nama','jabatan','ttd'];
 
     public function informasi() {
-        return $this->hasOne('App\Models\Informasi','id_pejabat');
+        return $this->hasOne(Informasi::class,'id_pejabat');
     }
 }

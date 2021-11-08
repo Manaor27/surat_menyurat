@@ -165,12 +165,8 @@
                 @foreach($tab as $tbl => $item)
                 <tr>
                   <td>{{ $no++ }}</td>
-                  @if($item->pejabat==null)
-                  <td></td>
-                  @else
                   <td>{{ $item->no_surat }}</td>
-                  @endif
-                  <td>{{ $item->tema }}</td>
+                  <td>{{ $item->surat->perihal }}</td>
                   @if($item->status=='disetujui')
                   <td><span class="label bg-green">{{ $item->status }}</span></td>
                   @elseif($item->status=='on process')
@@ -179,27 +175,27 @@
                   <td><span class="label bg-red">{{ $item->status }}</span></td>
                   @endif
                   <td>
-                  @if($item->pejabat==null)
-                    <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
+                  @if($item->id_pejabat==null)
+                    <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                       <i class="fa fa-eye"></i> Preview
                     </a>
-                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->informasiid)}}">
+                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->suratid)}}">
+                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
                   @else
-                    <a data-attr="{{url('/admin/preview/'. $item->suratid)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
+                    <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                       <i class="fa fa-eye"></i> Preview
                     </a>
-                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->informasiid)}}">
+                    <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
                       <i class="fa fa-edit"></i> Edit
                     </a>
-                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->suratid)}}">
+                    <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
-                    <a class="btn btn-app bg-grey" href="{{url('/admin/download/'. $item->informasiid)}}">
+                    <a class="btn btn-app bg-grey" href="{{url('/admin/download/'. $item->id)}}">
                       <i class="fa fa-download"></i> Download
                     </a>
                   @endif

@@ -16,7 +16,6 @@ class CreateJenisTable extends Migration
         Schema::create('jenis', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_surat');
-            $table->string('href');
             $table->timestamps();
         });
     }

@@ -36,6 +36,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function surat() {
+        return $this->hasOne(Surat::class, 'id_surat');
+    }
+
     /**
      * The attributes that should be cast.
      *

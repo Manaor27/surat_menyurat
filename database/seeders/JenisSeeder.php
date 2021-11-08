@@ -15,24 +15,19 @@ class JenisSeeder extends Seeder
     public function run()
     {
         DB::table('jenis')->insert([
-            'jenis_surat' => 'Surat Personalia & SK',
-            'href' => 'suratPersonalia'
+            'jenis_surat' => 'Surat Personalia & SK'
         ]);
         DB::table('jenis')->insert([
-            'jenis_surat' => 'Surat Kegiatan Mahasiswa',
-            'href' => 'suratKeterangan'
+            'jenis_surat' => 'Surat Kegiatan Mahasiswa'
         ]);
         DB::table('jenis')->insert([
-            'jenis_surat' => 'Surat Undangan',
-            'href' => 'suratUndangan'
+            'jenis_surat' => 'Surat Undangan'
         ]);
         DB::table('jenis')->insert([
-            'jenis_surat' => 'Surat Tugas',
-            'href' => 'suratTugas'
+            'jenis_surat' => 'Surat Tugas'
         ]);
         DB::table('jenis')->insert([
-            'jenis_surat' => 'Surat Berita Acara Kegiatan',
-            'href' => 'suratBerita'
+            'jenis_surat' => 'Surat Berita Acara Kegiatan'
         ]);
     }
 }

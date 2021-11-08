@@ -15,7 +15,7 @@ class CreatePejabatTable extends Migration
     {
         Schema::create('pejabat', function (Blueprint $table) {
             $table->id();
-            $table->string('nidn');
+            $table->string('nidn')->unique();
             $table->string('nama');
             $table->string('jabatan');
             $table->string('ttd');

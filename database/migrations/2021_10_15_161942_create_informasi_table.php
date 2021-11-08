@@ -15,6 +15,7 @@ class CreateInformasiTable extends Migration
     {
         Schema::create('informasi', function (Blueprint $table) {
             $table->id();
+            $table->string('no_surat')->nullable();
             $table->string('status');
             $table->date('tanggal');
             $table->unsignedBigInteger('id_surat');

@@ -82,10 +82,4 @@ Route::middleware(['auth'])->group(function () {
         Route::get('suratMasukm', [MahasiswaController::class, 'smasuk']);
     });
  
-    /*Route::get('/logout', function(Request $request) {
-        $request->session()->flush();
-        Auth::logout();
-        return Redirect('login');
-    });*/
- 
 });

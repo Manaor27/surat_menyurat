@@ -15,7 +15,6 @@ class CreateSuratTable extends Migration
     {
         Schema::create('surat', function (Blueprint $table) {
             $table->id();
-            $table->string('no_surat');
             $table->string('perihal');
             $table->string('kepada')->nullable();
             $table->string('keterangan')->nullable();
@@ -27,8 +26,10 @@ class CreateSuratTable extends Migration
             $table->string('penyelenggara')->nullable();
             $table->string('target')->nullable();
             $table->string('tamu')->nullable();
-            $table->unsignedbigInteger('id_manajemen');
-            $table->foreign('id_manajemen')->references('id')->on('manajemen_surat')->onDelete('CASCADE');
+            $table->unsignedbigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('CASCADE');
+            $table->unsignedbigInteger('id_jenis');
+            $table->foreign('id_jenis')->references('id')->on('jenis')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
