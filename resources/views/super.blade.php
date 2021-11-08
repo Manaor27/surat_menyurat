@@ -55,7 +55,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Perihal</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Tentang">
+                  <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
                 </div>
                 <div class="form-group">
                     <table class="table" id="dynamicRemove">
@@ -63,7 +63,7 @@
                             <td style="width: 850px">
                                 <label for="exampleInputPassword1">Keterangan</label></br>
                                 <textarea placeholder="Place some text here"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]"></textarea>
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
                             </td>
                             <td>
                                 </br>

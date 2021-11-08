@@ -55,7 +55,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Tema</label>
-                  <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan">
+                  <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" required>
                 </div>
                 <div class="form-group">
                   <table class="table" id="dynamicAddRemove">
@@ -63,22 +63,22 @@
                     @if(Auth::user()->role=='mahasiswa')
                       <td>
                         <label>NIM</label></br>
-                        <input type="text" class="form-control" name="kode[]" placeholder="NIM">
+                        <input type="text" class="form-control" name="kode[]" placeholder="NIM" required>
                       </td>
                     @elseif(Auth::user()->role=='dosen')
                       <td>
                         <label>NIDN</label></br>
-                        <input type="text" class="form-control" name="kode[]" placeholder="NIDN">
+                        <input type="text" class="form-control" name="kode[]" placeholder="NIDN" required>
                       </td>
                     @else
                       <td>
                         <label>Kode</label></br>
-                        <input type="text" class="form-control" name="kode[]" placeholder="Kode">
+                        <input type="text" class="form-control" name="kode[]" placeholder="Kode" required>
                       </td>
                     @endif
                       <td style="width: 500px">
                         <label>Nama</label></br>
-                        <input type="text" class="form-control" name="nama[]" placeholder="Nama">
+                        <input type="text" class="form-control" name="nama[]" placeholder="Nama" required>
                       </td>
                       <td >
                         </br>
@@ -94,7 +94,7 @@
                 </div-->
                 <div class="form-group">
                   <label>Penyelenggara Kegiatan</label>
-                  <input type="text" class="form-control" id="reservation" name="penyelenggara">
+                  <input type="text" class="form-control" id="reservation" name="penyelenggara" required>
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="form-group">
                   <label>Tempat</label>
-                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan">
+                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" required>
                 </div>
               </div>
               <div class="box-footer">

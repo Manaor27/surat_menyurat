@@ -55,23 +55,23 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Tema</label>
-                  <input type="text" class="form-control" name="tema" placeholder="Tema">
+                  <input type="text" class="form-control" name="tema" placeholder="Tema" required>
                 </div>
                 <div class="form-group">
                   <label>Tamu Pembicara</label>
-                  <input type="text" class="form-control" name="pembicara" placeholder="Tamu Pembicara">
+                  <input type="text" class="form-control" name="pembicara" placeholder="Tamu Pembicara" required>
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal">
+                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal" required>
                 </div>
                 <div class="form-group">
                   <label>Target Peserta</label>
-                  <input type="text" class="form-control" name="target">
+                  <input type="text" class="form-control" name="target" required>
                 </div>
                 <div class="form-group">
                   <label>Tempat</label>
-                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan">
+                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" required>
                 </div>
               </div>
               <div class="box-footer">

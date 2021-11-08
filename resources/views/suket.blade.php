@@ -55,28 +55,28 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Hal</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Perihal">
+                  <input type="text" class="form-control" name="perihal" placeholder="Perihal" required>
                 </div>
                 <div class="form-group">
                   <label>Kepada</label>
-                  <input type="text" class="form-control" name="kepada" placeholder="Kepada">
+                  <input type="text" class="form-control" name="kepada" placeholder="Kepada" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Keterangan</label>
                     <textarea placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan"></textarea>
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea>
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal">
+                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal" required>
                 </div>
                 <div class="form-group">
                   <label>Waktu</label>
-                  <input type="time" class="form-control timepicker" name="waktu">
+                  <input type="time" class="form-control timepicker" name="waktu" required>
                 </div>
                 <div class="form-group">
                   <label>Tempat</label>
-                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat">
+                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat" required>
                 </div>
               </div>
               <div class="box-footer">
