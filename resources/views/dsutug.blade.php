@@ -55,6 +55,15 @@
         <p style="text-align: justify;">
             Dengan ini {{ $down->pejabat->jabatan }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana Yogyakarta memberikan tugas kepada {{ Auth::user()->role }} tersebut di bawah ini:
         </p>
+        @php
+            $no = 1;
+            $name = array();
+            $name = explode(',', $down->surat->nama);
+            $code = array();
+            $code = explode(',', $down->surat->kode);
+        @endphp
+        @foreach($code as $key => $value)
+        @if(count($code)>1)
         <table class="table border" align="center">
             <thead>
                 <tr style="text-align: center;">
@@ -67,42 +76,32 @@
                     @endif
                 </tr>
             </thead>
-            @php
-                $no = 1;
-                $name = array();
-                $name = explode(',', $down->surat->nama);
-                $code = array();
-                $code = explode(',', $down->surat->kode);
-            @endphp
-            @foreach($code as $key => $value)
-                @if(count($code)>1)
-                <tbody>
-                    <tr>
-                        <td style="text-align: center;" width="50px">{{ $no++ }}.</td>
-                        <td width="350px">{{ $name[$key] }}</td>
-                        <td style="text-align: center;" width="200px">{{ $code[$key] }}</td>
-                    </tr>
-                </tbody>
-                @else
-                <tbody>
-                    <tr>
-                        <td><b>Nama </b></td>
-                        <td><b> : </b></td>
-                        <td> {{ $name[$key] }}</td>
-                    </tr>
-                    <tr>
-                        @if(Auth::user()->role=="dosen")
-                        <td>NIK</td>
-                        @else
-                        <td>NIM</td>
-                        @endif
-                        <td> : </td>
-                        <td width="200px"> {{ $code[$key] }}</td>
-                    </tr>
-                </tbody>
-                @endif
-            @endforeach
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" width="50px">{{ $no++ }}.</td>
+                    <td width="350px">{{ $name[$key] }}</td>
+                    <td style="text-align: center;" width="200px">{{ $code[$key] }}</td>
+                </tr>
+            </tbody>
         </table>
+        @else
+        <table>
+            <tr>
+                <td><b>Nama </b></td>
+                <td><b> : </b></td>
+                <td> {{ $name[$key] }}</td>
+            </tr>
+            <tr>
+                @if(Auth::user()->role=="dosen")
+                <td>NIK</td>
+                @else
+                <td>NIM</td>
+                @endif
+                <td> : </td>
+                <td width="200px"> {{ $code[$key] }}</td>
+            </tr>
+        </table>
+        @endif
         <br>
         <p style="text-align: justify;">
             Untuk mengikuti {{ $down->surat->perihal }} yang dilaksanakan oleh {{ $down->surat->penyelenggara }}. Kunjungan akan dilaksanakan pada hari <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?>.
