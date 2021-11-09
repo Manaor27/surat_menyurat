@@ -20,6 +20,6 @@ class Surat extends Model
     }
 
     public function informasi() {
-        return $this->hasOne(Informasi::class,'id_surat');
+        return $this->hasMany(Informasi::class,'id_surat');
     }
 }

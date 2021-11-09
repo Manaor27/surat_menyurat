@@ -100,6 +100,7 @@ class AdminController extends Controller
         }elseif ($down->surat->id_jenis=='1') {
             $pdf = PDF::loadview('dsuper', compact('down'));
             return $pdf->download('Surat Personalia.pdf');
+            //return $pdf->stream();
         }elseif ($down->surat->id_jenis=='5') {
             $pdf = PDF::loadview('dsuber', compact('down'));
             return $pdf->download('Surat Berita Acara.pdf');

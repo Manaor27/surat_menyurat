@@ -55,15 +55,15 @@
         <p style="text-align: justify;">
             Dengan ini {{ $down->pejabat->jabatan }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana Yogyakarta memberikan tugas kepada {{ Auth::user()->role }} tersebut di bawah ini:
         </p>
-        <table border="1" align="center">
+        <table class="table border" align="center">
             <thead>
                 <tr style="text-align: center;">
-                    <td width="50px">No.</td>
-                    <td width="350px">Nama</td>
-                    @if(Auth::user->role=="mahasiswa")
-                    <td width="200px">NIM</td>
+                    <td >No.</td>
+                    <td >Nama</td>
+                    @if(Auth::user()->role=="mahasiswa")
+                    <td >NIM</td>
                     @else
-                    <td width="200px">NIK</td>
+                    <td >NIK</td>
                     @endif
                 </tr>
             </thead>
@@ -74,37 +74,38 @@
                 $code = array();
                 $code = explode(',', $down->surat->kode);
             @endphp
-            @foreach($name as $key => $value)
-            @if(count($code)>1)
-            <tbody>
-                <tr>
-                    <td style="text-align: center;">{{ $no++ }}.</td>
-                    <td>{{ $name[$key] }}</td>
-                    <td style="text-align: center;">{{ $code[$key] }}</td>
-                </tr>
-            </tbody>
-            @else
-            <tbody>
-                <tr>
-                    <td><b>Nama </b></td>
-                    <td><b> : </b></td>
-                    <td> {{ $name[$key] }}</td>
-                </tr>
-                <tr>
-                    @if(Auth::user()->role=="dosen")
-                    <td>NIK</td>
-                    @else
-                    <td>NIM</td>
-                    @endif
-                    <td> : </td>
-                    <td> {{ $code[$key] }}</td>
-                </tr>
-            </tbody>
+            @foreach($code as $key => $value)
+                @if(count($code)>1)
+                <tbody>
+                    <tr>
+                        <td style="text-align: center;" width="50px">{{ $no++ }}.</td>
+                        <td width="350px">{{ $name[$key] }}</td>
+                        <td style="text-align: center;" width="200px">{{ $code[$key] }}</td>
+                    </tr>
+                </tbody>
+                @else
+                <tbody>
+                    <tr>
+                        <td><b>Nama </b></td>
+                        <td><b> : </b></td>
+                        <td> {{ $name[$key] }}</td>
+                    </tr>
+                    <tr>
+                        @if(Auth::user()->role=="dosen")
+                        <td>NIK</td>
+                        @else
+                        <td>NIM</td>
+                        @endif
+                        <td> : </td>
+                        <td width="200px"> {{ $code[$key] }}</td>
+                    </tr>
+                </tbody>
+                @endif
             @endforeach
         </table>
         <br>
         <p style="text-align: justify;">
-            Untuk mengikuti {{ $down->surat->perihal }} yang dilaksanakan oleh {{ $load->penyelenggara }}. Kunjungan akan dilaksanakan pada hari <?php echo date('l, d F Y', strtotime($load->tanggal)); ?>.
+            Untuk mengikuti {{ $down->surat->perihal }} yang dilaksanakan oleh {{ $down->surat->penyelenggara }}. Kunjungan akan dilaksanakan pada hari <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?>.
         </p>
         <p style="text-align: justify;">
             Demikian surat tugas ini dibuat untuk dapat dipergunakan sebagaimana perlunya. Kepada penerima tugas setelah menyelesaikan tugas dimohon menyampaikan laporan kepada pemberi tugas.

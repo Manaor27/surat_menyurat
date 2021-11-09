@@ -47,7 +47,7 @@
     <center>
         <b><font size="4" face="Times New Roman">Berita Acara</font></b><br>
         <b>Kuliah Umum</b><br>
-        <b><i>{{ $down->surat->perihal }}</i></b>
+        <b><i>{{ $down->surat->perihal }}</i></b><br>
         Nomor: {{ $down->no_surat }}
     </center>
     <br>
@@ -69,13 +69,11 @@
             <br>
             Mengetahui
         </center>
-        <p align="left" style="text-align: center;">
-            <!--p style="text-align: center;"-->
-                {{ $down->pejabat->jabatan }},<br><br>
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                ({{ $down->pejabat->nama }})
-            <!--/p-->
-        </p>
+        <table>
+            <tr style="text-align: center;"><td>{{ $down->pejabat->jabatan }},</td></tr>
+            <tr style="text-align: center;"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></tr>
+            <tr style="text-align: center;">({{ $down->pejabat->nama }})<td></td></tr>
+        </table>
     </font>
 </body>
 

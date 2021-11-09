@@ -15,17 +15,6 @@ class SuunController extends Controller
     }
 
     public function simpan(Request $request) {
-        $count = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',3)->get();
-        //$b = '';
-        foreach ($count as $cy) {
-            if ($cy->banyak>="0") {
-                $b = "00".($cy->banyak+1)."/C/FTI/".date('Y');
-            }elseif ($cy->banyak>="9") {
-                $b = "0".($cy->banyak+1)."/C/FTI/".date('Y');
-            }elseif ($cy->banyak>="99") {
-                $b = ($cy->banyak+1)."/C/FTI/".date('Y');
-            }
-        }
         Surat::create([
             'perihal' => $request->perihal,
             'kepada' => $request->kepada,
@@ -34,7 +23,7 @@ class SuunController extends Controller
             'waktu' => $request->waktu,
             'tempat' => $request->tempat,
             'id_user' => Auth::id(),
-            'id_user' => '3'
+            'id_jenis' => '3'
         ]);
         $surat = DB::table('surat')->orderBy('id','desc')->limit('1')->get();
         foreach ($surat as $srt) {

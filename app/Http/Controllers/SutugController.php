@@ -15,21 +15,9 @@ class SutugController extends Controller
     }
 
     public function simpan(Request $request) {
-        $count = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',4)->get();
-        //$b = '';
-        foreach ($count as $cy) {
-            if ($cy->banyak>="0") {
-                $b = "00".($cy->banyak+1)."/D/FTI/".date('Y');
-            }elseif ($cy->banyak>="9") {
-                $b = "0".($cy->banyak+1)."/D/FTI/".date('Y');
-            }elseif ($cy->banyak>="99") {
-                $b = ($cy->banyak+1)."/D/FTI/".date('Y');
-            }
-        }
         $kode = implode(",", $request->get('kode'));
         $nama = implode(",", $request->get('nama'));
         Surat::create([
-            'no_surat' => $b,
             'perihal' => $request->tema,
             'kode' => $kode,
             'nama' => $nama,

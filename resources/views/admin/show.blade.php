@@ -63,7 +63,7 @@
         Nama
     </div>
     <div class="col-lg-9">
-        {{ $pre->name }}
+        {{ $pre->nama }}
     </div>
     <div class="col-lg-3">
         Penyelenggara

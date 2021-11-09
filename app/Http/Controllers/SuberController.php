@@ -15,17 +15,6 @@ class SuberController extends Controller
     }
 
     public function simpan(Request $request) {
-        $count = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',5)->get();
-        //$b = '';
-        foreach ($count as $cy) {
-            if ($cy->banyak>="0") {
-                $b = "00".($cy->banyak+1)."/E/FTI/".date('Y');
-            }elseif ($cy->banyak>="9") {
-                $b = "0".($cy->banyak+1)."/E/FTI/".date('Y');
-            }elseif ($cy->banyak>="99") {
-                $b = ($cy->banyak+1)."/E/FTI/".date('Y');
-            }
-        }
         Surat::create([
             'perihal' => $request->tema,
             'tanggal' => $request->tanggal,

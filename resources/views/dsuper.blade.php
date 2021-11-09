@@ -66,7 +66,7 @@
             <tr>
                 <td rowspan="4" valign="top" width="100px">Menimbang </td>
                 <td rowspan="4" valign="top" width="20px"> : </td>
-                <td valign="top"> a. </td>
+                <td valign="top" width="20px"> a. </td>
                 <td style="text-align: justify;">bahwa untuk kelancaran perkuliahan dan dukungan penuh pelaksanaan penelitian dosen dan mahasiswa
                 pada fasilitas Laboratorium, dipandang perlu adanya koordinator laboratorium Fakultaas Teknologi Informasi(FTI) Universitas Kristen Duta Wacana (UKDW) Yogyakarta;</td>
             </tr>
@@ -131,6 +131,7 @@
                 <td valign="top"><b>{{ $urut[$key] }}</b></td>
                 <td valign="top"><b> : </b></td>
                 <td style="text-align: justify;">{{ $ket[$key] }}</td>
+                @endforeach
             </tr>
             <tr><td colspan="3">&nbsp;</td></tr>
             <tr><td colspan="3">&nbsp;</td></tr>

@@ -51,11 +51,9 @@ class MahasiswaController extends Controller
     }
 
     public function edit($id) {
-        $srt = DB::table('surat')->join('manajemen_surat','id_manajemen','=','manajemen_surat.id')->select(DB::raw('surat.id as id, surat.no_surat as no_surat ,surat.perihal as hal, surat.kepada as kepada, surat.keterangan as keterangan, surat.tanggal as tanggal, surat.waktu as waktu, surat.tempat as tempat, surat.kode as kode, surat.nama as nama, surat.penyelenggara as penyelenggara, surat.target as target, surat.tamu as tamu, manajemen_surat.id_jenis as jenis'))->where('surat.id',$id)->get();
-        foreach ($srt as $sur) {
-            if ($sur->jenis=='2') {
-                return view('editsuket', compact('srt'));
-            }
+        $srt = Surat::find($id);
+        if ($srt->id_jenis=='2') {
+            return view('editsuket', compact('srt'));
         }
     }
 
