@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Informasi;
 use App\Models\Surat;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SuketController extends Controller
 {
     public function index(){
-        return view('suket');
+        $pengguna = User::where('role','mahasiswa')->get();
+        return view('suket', compact('pengguna'));
     }
     
     public function simpan(Request $request) {
@@ -22,7 +24,7 @@ class SuketController extends Controller
             'tanggal' => $request->tanggal,
             'waktu' => $request->waktu,
             'tempat' => $request->tempat,
-            'id_user' => Auth::id(),
+            'id_user' => $request->pengguna,
             'id_jenis' => '2'
         ]);
         $surat = DB::table('surat')->orderBy('id','desc')->limit('1')->get();

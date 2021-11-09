@@ -51,14 +51,28 @@
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{ $banyak_sutug }}</h3>
+              <h3>{{ $banyak_sutugk }}</h3>
 
-              <p>Surat Tugas</p>
+              <p>Surat Tugas Kelompok</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
             <a href="{{url('/dosen/simpan/'. $sutug->id)}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>{{ $banyak_sutugp }}</h3>
+
+              <p>Surat Tugas Pribadi</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="{{url('/dosen/simpan/'. 0)}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">

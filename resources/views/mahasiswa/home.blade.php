@@ -64,14 +64,33 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ $banyak_sutug }}</h3>
-
-              <p>Surat Tugas</p>
+              @if($banyak_sutugk!=null)
+              <h3>{{ $banyak_sutugk }}</h3>
+              @else
+              <h3>0</h3>
+              @endif
+              <p>Surat Tugas Kelompok</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
             <a href="{{url('/mahasiswa/simpan/'. $sutug->id)}}" class="small-box-footer" type="submit">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-red">
+            <div class="inner">
+              @if($banyak_sutugp!=null)
+              <h3>{{ $banyak_sutugp }}</h3>
+              @else
+              <h3>0</h3>
+              @endif
+              <p>Surat Tugas Pribadi</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="{{url('/mahasiswa/simpan/'. 0)}}" class="small-box-footer" type="submit">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!--div class="col-md-3 col-sm-6 col-xs-12">

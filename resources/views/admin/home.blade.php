@@ -180,21 +180,25 @@
                       <i class="fa fa-eye"></i> Preview
                     </a>
                     <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Validasi
                     </a>
+                    @if($item->surat->user->role=='admin')
                     <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
+                    @endif
                   @else
                     <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                       <i class="fa fa-eye"></i> Preview
                     </a>
                     <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Validasi
                     </a>
+                    @if($item->surat->user->role=='admin')
                     <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
                       <i class="fa fa-remove"></i> Delete
                     </a>
+                    @endif
                     <a class="btn btn-app bg-grey" href="{{url('/admin/download/'. $item->id)}}">
                       <i class="fa fa-download"></i> Download
                     </a>

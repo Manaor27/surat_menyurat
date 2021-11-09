@@ -19,15 +19,18 @@ class MahasiswaController extends Controller
         $suket = JenisSurat::find(2);
         $sutug = JenisSurat::find(4);
         $count_suket = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',2)->get();
-        $count_sutug = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',4)->get();
+        $count_sutug = DB::table('surat')->select(DB::raw('kode'))->where('id_user',Auth::id())->where('id_jenis',4)->get();
         $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->select(DB::raw('informasi.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid, informasi.id as inforid, informasi.id_pejabat as pejabat'))->where('surat.id_user',Auth::id())->get();
         foreach ($count_suket as $csuket) {
             $banyak_suket = $csuket->banyak;
         }
+        $sutk = array();
         foreach ($count_sutug as $csutug) {
-            $banyak_sutug = $csutug->banyak;
+            $sutk = explode(',', $csutug->kode);
+            $banyak_sutugk = count($sutk)>1;
+            $banyak_sutugp = count($sutk)==1;
         }
-        return view('mahasiswa.home', compact('user','suket','sutug','banyak_suket','banyak_sutug','tab'));
+        return view('mahasiswa.home', compact('user','suket','sutug','banyak_suket','banyak_sutugk','banyak_sutugp','tab'));
     }
 
     public function smasuk()
@@ -41,6 +44,8 @@ class MahasiswaController extends Controller
             return redirect("/suratKeterangan");
         }elseif ($id=='4'){
             return redirect("/suratTugas");
+        }else {
+            return view("sutugp");
         }
     }
 

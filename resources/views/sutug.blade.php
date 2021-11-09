@@ -63,22 +63,22 @@
                     @if(Auth::user()->role=='mahasiswa')
                       <td>
                         <label>NIM</label></br>
-                        <input type="text" class="form-control" name="kode[]" placeholder="NIM" required>
+                        <input type="text" class="form-control" name="kode[]" placeholder="NIM" value="{{ Auth::user()->kode }}" disabled>
                       </td>
                     @elseif(Auth::user()->role=='dosen')
                       <td>
                         <label>NIDN</label></br>
-                        <input type="text" class="form-control" name="kode[]" placeholder="NIDN" required>
+                        <input type="text" class="form-control" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" disabled>
                       </td>
                     @else
                       <td>
-                        <label>Kode</label></br>
-                        <input type="text" class="form-control" name="kode[]" placeholder="Kode" required>
+                        <label>ID</label></br>
+                        <input type="text" class="form-control" name="kode[]" placeholder="ID" required>
                       </td>
                     @endif
                       <td style="width: 500px">
                         <label>Nama</label></br>
-                        <input type="text" class="form-control" name="nama[]" placeholder="Nama" required>
+                        <input type="text" class="form-control" name="nama[]" placeholder="Nama" value="{{ Auth::user()->name }}" disabled>
                       </td>
                       <td >
                         </br>

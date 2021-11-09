@@ -62,9 +62,8 @@
             $code = array();
             $code = explode(',', $down->surat->kode);
         @endphp
-        @foreach($code as $key => $value)
-        @if(count($code)>1)
-        <table class="table border" align="center">
+    @if(count($code)>1)
+        <table align="center" border="1">
             <thead>
                 <tr style="text-align: center;">
                     <td >No.</td>
@@ -76,6 +75,7 @@
                     @endif
                 </tr>
             </thead>
+            @foreach($code as $key => $value)
             <tbody>
                 <tr>
                     <td style="text-align: center;" width="50px">{{ $no++ }}.</td>
@@ -83,8 +83,10 @@
                     <td style="text-align: center;" width="200px">{{ $code[$key] }}</td>
                 </tr>
             </tbody>
+            @endforeach
         </table>
-        @else
+    @else
+        @foreach($code as $key => $value)
         <table>
             <tr>
                 <td><b>Nama </b></td>
@@ -101,7 +103,8 @@
                 <td width="200px"> {{ $code[$key] }}</td>
             </tr>
         </table>
-        @endif
+        @endforeach
+    @endif
         <br>
         <p style="text-align: justify;">
             Untuk mengikuti {{ $down->surat->perihal }} yang dilaksanakan oleh {{ $down->surat->penyelenggara }}. Kunjungan akan dilaksanakan pada hari <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?>.
