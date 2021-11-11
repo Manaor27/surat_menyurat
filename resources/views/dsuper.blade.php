@@ -10,6 +10,18 @@
         table tr th {
             font-size: 11pt;
         }
+        footer {
+            position: fixed;
+            bottom: -40px;
+            left: 0px;
+            right: 0px;
+            height: 50px;
+            font-size: 9pt;
+
+            /** Extra personal styles **/
+            text-align: center;
+            line-height: 35px;
+        }
         .letter5 { 
             letter-spacing: 1px; 
         }
@@ -111,50 +123,50 @@
                 <td style="text-align: justify;">Peraturan Akademik Universitas Kristen Duta Wacana tahun 2009-2014 Bab 3 pasal 5.</td>
             </tr>
         </table>
+    </font>
         <br>
-        <table>
+    <table>
             <tr>
-                <td colspan="3" style="text-align: center;"><b>MEMUTUSKAN:</b></td>
+                <td colspan="3" style="text-align: center;"><b><font size="3" face="Times New Roman" class="element">MEMUTUSKAN:</b></td>
             </tr>
             <tr>
-                <td width="100px"><b>Menetapkan</b></td>
-                <td width="30px"><b> : </b></td>
+                <td width="75px"><b><font size="3" face="Times New Roman" class="element">Menetapkan</b></td>
+                <td width="10px"><b><font size="3" face="Times New Roman" class="element"> : </b></td>
                 <td></td>
             </tr>
+            @php
+                $urut = array("Pertama","Kedua","Ketiga","Keempat","Kelima","Keenam","Ketujuh","Kedelapan","Kesembilan","Kesepuluh");
+                $ket = array();
+                $ket = explode(',', $down->surat->keterangan);
+            @endphp
+            @foreach($ket as $key => $value)
             <tr>
-                @php
-                    $urut = array("Pertama","Kedua","Ketiga","Keempat","Kelima","Keenam","Ketujuh","Kedelapan","Kesembilan","Kesepuluh");
-                    $ket = array();
-                    $ket = explode(',', $down->surat->keterangan);
-                @endphp
-                @foreach($ket as $key => $value)
-                <td valign="top"><b>{{ $urut[$key] }}</b></td>
-                <td valign="top"><b> : </b></td>
-                <td style="text-align: justify;">{{ $ket[$key] }}</td>
-                @endforeach
+                <td valign="top"><b><font size="3" face="Times New Roman" class="element">{{ $urut[$key] }}</font></b></td>
+                <td valign="top"><b><font size="3" face="Times New Roman" class="element"> : </font></b></td>
+                <td style="text-align: justify;"><font size="3" face="Times New Roman" class="element">{{ $ket[$key] }}</font></td>
             </tr>
+            @endforeach
             <tr><td colspan="3">&nbsp;</td></tr>
             <tr><td colspan="3">&nbsp;</td></tr>
             <tr><td colspan="3">&nbsp;</td></tr>
             <tr>
                 <td rowspan="5">&nbsp;</td>
                 <td rowspan="5">&nbsp;</td>
-                <td>
+                <td><font size="3" face="Times New Roman" class="element">
                     Ditetapkan di: Yogyakarta <br>
-                    Pada tanggal : <?php echo date('d F Y'); ?>
+                    Pada tanggal : <?php echo date('d F Y'); ?></font>
                 </td>
             </tr>
             <tr><td>&nbsp;</td></tr>
-            <tr><td>{{ $down->pejabat->jabatan }},</td></tr>
+            <tr><td><font size="3" face="Times New Roman" class="element">{{ $down->pejabat->jabatan }},</font></td></tr>
             <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
             <tr>
-                <td>
+                <td><font size="3" face="Times New Roman" class="element">
                     {{ $down->pejabat->nama }} <br>
-                    NIK: {{ $down->pejabat->nidn }}
+                    NIK: {{ $down->pejabat->nidn }}</font>
                 </td>
             </tr>
-        </table>
-    </font>
+    </table>
 </body>
 
 </html>
