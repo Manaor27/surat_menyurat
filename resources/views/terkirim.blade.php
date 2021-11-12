@@ -96,9 +96,15 @@
                       <a data-attr="{{url('/admin/preview/'. $tbl->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                         <i class="fa fa-eye"></i> Preview
                       </a>
+                      @if($tbl->status!="disetujui")
+                      <a class="btn btn-app bg-aqua" href="#" disabled>
+                        <i class="fa fa-edit"></i> Edit
+                      </a>
+                      @else
                       <a class="btn btn-app bg-aqua" href="{{url('/terkirim/edit/'. $tbl->id)}}">
                         <i class="fa fa-edit"></i> Edit
                       </a>
+                      @endif
                       <!--a class="btn btn-app bg-red" href="">
                         <i class="fa fa-remove"></i> Delete
                       </a-->

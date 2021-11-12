@@ -199,7 +199,7 @@
                       <i class="fa fa-remove"></i> Delete
                     </a>
                     @endif
-                    <a class="btn btn-app bg-grey" href="{{url('/admin/download/'. $item->id)}}">
+                    <a class="btn btn-app bg-grey no-print" href="{{url('/admin/download/'. $item->id)}}" target="_blank">
                       <i class="fa fa-download"></i> Download
                     </a>
                   @endif

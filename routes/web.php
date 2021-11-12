@@ -45,6 +45,7 @@ Route::put('/suket/update/{id}', [SuketController::class, 'update']);
 
 Route::get('/suratTugas', [SutugController::class, 'index']);
 Route::post('/sutug/simpan', [SutugController::class, 'simpan']);
+Route::put('/sutug/update/{id}', [SutugController::class, 'update']);
 
 Route::get('/suratPersonalia', [SuperController::class, 'index']);
 Route::post('/super/simpan', [SuperController::class, 'simpan']);

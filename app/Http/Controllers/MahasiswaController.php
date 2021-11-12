@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use PDF;
 use App\Models\JenisSurat;
+use App\Models\Surat;
 use App\Models\Informasi;
 use App\Models\Pejabat;
 use Illuminate\Support\Facades\DB;
@@ -59,6 +60,8 @@ class MahasiswaController extends Controller
         $srt = Surat::find($id);
         if ($srt->id_jenis=='2') {
             return view('editsuket', compact('srt'));
+        }elseif ($srt->id_jenis=='4') {
+            return view('editsutug', compact('srt'));
         }
     }
 

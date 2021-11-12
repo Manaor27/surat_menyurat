@@ -26,19 +26,19 @@ class UserSeeder extends Seeder
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
         DB::table('users')->insert([
-            'kode' => '72190331',
-            'name' => 'Mahasiswa',
-            'email' => 'mahasiswa@gmail.com',
-            'password' => Hash::make('mahasiswa123'),
+            'kode' => '72190273',
+            'name' => 'Yonathan Sebastian',
+            'email' => 'yonas@gmail.com',
+            'password' => Hash::make('yonas123'),
             'telpon' => '0812345678',
             'role' => 'mahasiswa',
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
         DB::table('users')->insert([
-            'kode' => '72190001',
-            'name' => 'Mahasiswa',
-            'email' => 'gabrielmanaor@gmail.com',
+            'kode' => '72190331',
+            'name' => 'Gabriel Manaor',
+            'email' => 'gabriel@gmail.com',
             'password' => Hash::make('gabriel123'),
             'telpon' => '0812345678',
             'role' => 'mahasiswa',

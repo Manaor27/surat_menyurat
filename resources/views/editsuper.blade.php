@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Surat Keterangan</title>
+    <title>Form Surat Personalia & SK</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -34,13 +34,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Surat Keterangan Kegiatan Mahasiswa
+        Surat Personalia & SK
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li>Jenis Surat</li>
-        <li class="active">Surat Keterangan</li>
+        <li class="active">Surat Personalia & SK</li>
       </ol>
     </section>
 
@@ -50,36 +50,28 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/suket/update/{{ $srt->id }}">
+            <form role="form" method="POST" action="/super/simpan">
                 @csrf
-                @method('put')
-                <input type="hidden" class="form-control" name="id" value="{{ $srt->id }}">
               <div class="box-body">
                 <div class="form-group">
-                  <label>Hal</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Perihal" value="{{ $srt->perihal }}">
+                  <label>Perihal</label>
+                  <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
                 </div>
                 <div class="form-group">
-                  <label>Kepada</label>
-                  <input type="text" class="form-control" name="kepada" placeholder="Kepada" value="{{ $srt->kepada }}">
+                    <table class="table" id="dynamicRemove">
+                        <tr>
+                            <td style="width: 850px">
+                                <label for="exampleInputPassword1">Keterangan</label></br>
+                                <textarea placeholder="Place some text here"
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
+                            </td>
+                            <td>
+                                </br>
+                                <button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Keterangan</label>
-                    <textarea style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan">{{ $srt->keterangan }}</textarea>
-                </div>
-                <div class="form-group">
-                  <label>Tanggal</label>
-                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal" value="{{ $srt->tanggal }}">
-                </div>
-                <div class="form-group">
-                  <label>Waktu</label>
-                  <input type="time" class="form-control timepicker" name="waktu" value="{{ $srt->waktu }}">
-                </div>
-                <div class="form-group">
-                  <label>Tempat</label>
-                  <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat" value="{{ $srt->tempat }}">
-                </div>
-              </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
@@ -89,4 +81,13 @@
   </div>
 @endsection
 </body>
+<script type="text/javascript">
+    $("#dynamic").click(function () {
+        $("#dynamicRemove").append('<tr><td style="width: 300px"><label for="exampleInputPassword1">Keterangan</label></br><textarea placeholder="Place some text here"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea></td><td></br><button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button></td></tr>'
+            );
+    });
+    $(document).on('click', '.remove-input-field', function () {
+        $(this).parents('tr').remove();
+    });
+</script>
 </html>
