@@ -6,8 +6,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Form Surat Tugas</title>
-  <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
+  <title>AdminLTE 2 | General Form Elements</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -184,36 +183,34 @@
                     <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" required>
                     </div>
                     <div class="form-group">
-                      <table class="table autocomplete_table" id="autocomplete_table">
-                        <tbody>
-                          <tr id="row_1">
-                            @if(Auth::user()->role=='mahasiswa')
-                            <td>
-                                <label>NIM</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIM" id='employee_search_1'>
-                            </td>
-                            @elseif(Auth::user()->role=='dosen')
-                            <td>
-                                <label>NIDN</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" readonly>
-                            </td>
-                            @else
-                            <td>
-                                <label>ID</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" required>
-                            </td>
-                            @endif
-                            <td style="width: 500px">
-                                <label>Nama</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' readonly>
-                            </td>
-                            <td >
-                                </br>
-                                <button type="button" id="addNew" class="btn btn-success"><b>[+]</b>Tambah Anggota</button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <table class="table" id="dynamicAddRemove">
+                        <tr>
+                        @if(Auth::user()->role=='mahasiswa')
+                        <td>
+                            <label>NIM</label></br>
+                            <input type="text" class="form-control" name="kode[]" placeholder="NIM" id='employee_search'>
+                        </td>
+                        @elseif(Auth::user()->role=='dosen')
+                        <td>
+                            <label>NIDN</label></br>
+                            <input type="text" class="form-control" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" readonly>
+                        </td>
+                        @else
+                        <td>
+                            <label>ID</label></br>
+                            <input type="text" class="form-control" name="kode[]" placeholder="ID" required>
+                        </td>
+                        @endif
+                        <td style="width: 500px">
+                            <label>Nama</label></br>
+                            <input type="text" class="form-control" name="nama[]" placeholder="Nama" id='employeeid' readonly>
+                        </td>
+                        <td >
+                            </br>
+                            <button type="button" name="add" id="dynamic-ar" class="btn btn-success"><b>[+]</b>Tambah Anggota</button>
+                        </td>
+                        </tr>
+                    </table>
                     </div>
                     <!--div class="form-group">
                         <label for="exampleInputPassword1">Keterangan</label>
@@ -262,94 +259,9 @@
 <script src="{{ asset('style/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('style/dist/js/demo.js') }}"></script>
-<script>
-  $(document).ready(function(){
-    var rowcount, addBtn, tableBody, imgPath, basePath;
-
-    addBtn = $("#addNew");
-    rowcount = $("#autocomplete_table tbody tr").length+1;
-    tableBody = $("#autocomplete_table tbody");
-    imgPath = $("#imgPath").val();
-    basePath = $("#base_path").val();
-
-    function formHtml() {
-      html = '<tr id="row_'+rowcount+'">';
-      html += '<td>';
-      html += '</br><input type="text" class="form-control" name="kode[]" id="employee_search_'+rowcount+'">';
-      html += '</td>';
-      html += '<td>';
-      html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" readonly>';
-      html += '</td>';
-      html += '<td id="delete_'+rowcount+' scope="row">';
-      html += '</br><button type="button" class="btn btn-danger delete_row">[X]Delete</button>';
-      html += '</td>';
-      html += '</tr>';
-      rowcount++;
-      return html;
-    }
-
-    function addNewRow() {
-      var html = formHtml();
-      console.log(html);
-      tableBody.append(html);
-    }
-
-    function deleteRow() {
-      // var rowNo;
-      // id = $(this).attr('id');
-      // console.log('id');
-      // idArr = id.split("_");
-      // console.log(idArr);
-      // rowNo = idArr[idArr.length - 1];
-      // console.log(rowNo);
-      // $("#row_"+rowNo).remove();
-
-      //console.log($(this).parent('tr'));
-      $(this).parent('tr').remove();
-    }
-
-    function handleAutocomplete() {
-      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-      $(document).ready(function(){
-
-        $( "#employee_search_"+rowcount+"" ).autocomplete({
-          source: function( request, response ) {
-              $.ajax({
-                url:"{{route('getEmployees')}}",
-                type: 'post',
-                dataType: "json",
-                data: {
-                  _token: CSRF_TOKEN,
-                  search: request.term
-                },
-                success: function( data ) {
-                  response( data );
-                }
-              });
-          },
-          select: function (event, ui) {
-            $('#employee_search_'+rowcount+'').val(ui.item.label);
-            $('#employeeid_'+rowcount+'').val(ui.item.value);
-            return false;
-          }
-        });
-      });
-      rowcount++;
-    }
-
-    function registrationEvents() {
-      addBtn.on("click", addNewRow);
-      $(document).on('click', '.delete_row', function () {
-        $(this).parents('tr').remove();
-      });
-      handleAutocomplete();
-    }
-    registrationEvents();
-  });
-</script>
 <script type="text/javascript">
     $("#dynamic-ar").click(function () {
-        $("#dynamicAddRemove").append('<tr>@if(Auth::user()->role=="mahasiswa")<td><label>NIM</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIM" id="employee_search"></td>@elseif(Auth::user()->role=="dosen")<td><label>NIDN</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIDN"></td>@else<td><label>Kode</label></br><input type="text" class="form-control" name="kode[]" placeholder="Kode"></td>@endif<td style="width: 500px"><label>Nama</label></br><input type="text" class="form-control" name="nama[]" placeholder="Nama" id="employeeid" readonly></td><td></br><button type="button" class="btn btn-danger remove-input-field">[X]Delete</button></td></tr>');
+        $("#dynamicAddRemove").append('<tr>@if(Auth::user()->role=="mahasiswa")<td><label>NIM</label></br><input type="text" class="form-control ui-autocomplete-input" name="kode[]" placeholder="NIM" id="employee_search" autocomplete="off"></td>@elseif(Auth::user()->role=="dosen")<td><label>NIDN</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIDN"></td>@else<td><label>Kode</label></br><input type="text" class="form-control" name="kode[]" placeholder="Kode"></td>@endif<td style="width: 500px"><label>Nama</label></br><input type="text" class="form-control" name="nama[]" placeholder="Nama" id="employeeid" readonly></td><td></br><button type="button" class="btn btn-danger remove-input-field">[X]Delete</button></td></tr>');
     });
     $(document).on('click', '.remove-input-field', function () {
         $(this).parents('tr').remove();
@@ -357,11 +269,14 @@
 </script>
 <!-- Script -->
 <script type="text/javascript">
+
+// CSRF Token
 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 $(document).ready(function(){
 
   $( "#employee_search" ).autocomplete({
      source: function( request, response ) {
+        // Fetch data
         $.ajax({
           url:"{{route('getEmployees')}}",
           type: 'post',
@@ -376,13 +291,14 @@ $(document).ready(function(){
         });
      },
      select: function (event, ui) {
-       $('#employee_search').val(ui.item.label);
-       $('#employeeid').val(ui.item.value);
+       // Set selection
+       $('#employee_search').val(ui.item.label); // display the selected text
+       $('#employeeid').val(ui.item.value); // save selected id to input
        return false;
      }
   });
+
 });
 </script>
-
 </body>
 </html>

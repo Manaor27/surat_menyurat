@@ -51,7 +51,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{ $banyak_suket }}</h3>
+              <h3>{{ $count_suket }}</h3>
 
               <p>Surat Kegiatan Mahasiswa</p>
             </div>
@@ -64,11 +64,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              @if($banyak_sutugk!=null)
-              <h3>{{ $banyak_sutugk }}</h3>
-              @else
-              <h3>0</h3>
-              @endif
+              <h3>{{ $count_sutug }}</h3>
               <p>Surat Tugas Kelompok</p>
             </div>
             <div class="icon">
@@ -80,11 +76,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-red">
             <div class="inner">
-              @if($banyak_sutugp!=null)
-              <h3>{{ $banyak_sutugp }}</h3>
-              @else
-              <h3>0</h3>
-              @endif
+              <h3>{{ $count_sutugp }}</h3>
               <p>Surat Tugas Pribadi</p>
             </div>
             <div class="icon">

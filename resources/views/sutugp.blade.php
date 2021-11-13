@@ -60,10 +60,10 @@
                 <div class="form-group">
                     @if(Auth::user()->role=='mahasiswa')
                         <label>NIM</label>
-                        <input type="text" class="form-control" name="kode[]" placeholder="NIM" value="{{ Auth::user()->kode }}" disabled>
+                        <input type="text" class="form-control" name="kode[]" placeholder="NIM" value="{{ Auth::user()->kode }}" readonly>
                     @elseif(Auth::user()->role=='dosen')
                         <label>NIDN</label>
-                        <input type="text" class="form-control" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" disabled>
+                        <input type="text" class="form-control" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" readonly>
                     @else
                         <label>NIK</label></br>
                         <input type="text" class="form-control" name="kode[]" placeholder="Kode" required>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nama</label></br>
-                    <input type="text" class="form-control" name="nama[]" placeholder="Nama" value="{{ Auth::user()->name }}" disabled>
+                    <input type="text" class="form-control" name="nama[]" placeholder="Nama" value="{{ Auth::user()->name }}" readonly>
                 </div>
                 <!--div class="form-group">
                     <label for="exampleInputPassword1">Keterangan</label>

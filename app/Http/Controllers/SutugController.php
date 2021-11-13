@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Informasi;
 use App\Models\Surat;
+use App\Models\Employees;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class SutugController extends Controller
 {
     public function index(){
-        return view('sutug');
+        return view('s');
     }
 
     public function simpan(Request $request) {
@@ -39,5 +41,34 @@ class SutugController extends Controller
             'id_pejabat' => null
         ]);
         return redirect("/home");
+    }
+
+    public function getEmployees(Request $request){
+        $search = $request->search;
+  
+        if($search == ''){
+            $employees = User::orderby('kode','asc')->select('kode','name')->limit(5)->get();
+        }else{
+            $employees = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+  
+        $response = array();
+        foreach($employees as $employee){
+           $response[] = array("value"=>$employee->name,"label"=>$employee->kode);
+        }
+  
+        return response()->json($response); 
+     } 
+
+    public function getCountries(Request $request){
+        $name = $request->get('name');
+        $fieldName = $request->get('fieldName');
+        
+        $name = strtolower(trim($name));
+        if (empty($fieldName)) {
+            $fieldName = 'name';
+        }
+
+        $countries = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$name . '%')->limit(5)->get();
     }
 }

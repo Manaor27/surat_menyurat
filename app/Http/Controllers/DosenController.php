@@ -24,7 +24,7 @@ class DosenController extends Controller
         $sutk = array();
         foreach ($count_sutug as $csutug) {
             $sutk = explode(',', $csutug->kode);
-            $banyak_sutugk = count($sutk)>1;
+            $banyak_sutugk = count($sutk)>=1;
             $banyak_sutugp = count($sutk)==1;
         }
         return view('dosen.home', compact('user','sutug','super','banyak_super','banyak_sutugk','banyak_sutugp','tab'));
