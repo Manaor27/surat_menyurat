@@ -141,7 +141,7 @@
                   <td><span class="label bg-red">{{ $item->status }}</span></td>
                   @endif
                   <td>
-                  @if($item->status=='on process')
+                  @if($item->status=='sedang diproses')
                     <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}" disabled>
                       <i class="fa fa-edit"></i> Ubah
                     </a>

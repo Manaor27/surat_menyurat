@@ -145,7 +145,7 @@
                   <td>{{ $item->tema }}</td>
                   @if($item->status=='disetujui')
                   <td><span class="label bg-green">{{ $item->status }}</span></td>
-                  @elseif($item->status=='on process')
+                  @elseif($item->status=='sedang diproses')
                   <td><span class="label bg-yellow">{{ $item->status }}</span></td>
                   @else
                   <td><span class="label bg-red">{{ $item->status }}</span></td>
