@@ -100,7 +100,7 @@
         <!--li class="header">MAIN NAVIGATION</li-->
         <li class="active">
           <a href="/home">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Beranda</span>
           </a>
         </li>
         <li class="treeview">
@@ -159,10 +159,9 @@
     <section class="content-header">
       <h1>
         Surat Tugas
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li>Jenis Surat</li>
         <li class="active">Surat Tugas</li>
       </ol>
@@ -204,10 +203,17 @@
                                 <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" id='employee_search_1' required>
                             </td>
                             @endif
+                            @if(Auth::user()->role=='admin')
+                            <td style="width: 500px">
+                                <label>Nama</label></br>
+                                <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' readonly>
+                            </td>
+                            @else
                             <td style="width: 500px">
                                 <label>Nama</label></br>
                                 <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ Auth::user()->name }}" readonly>
                             </td>
+                            @endif
                             <td >
                                 </br>
                                 <button type="button" id="addNew" class="btn btn-success"><b>[+]</b>Tambah Anggota</button>
@@ -235,7 +241,7 @@
                     </div>
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
                 </div>
             </form>
           </div>
@@ -282,7 +288,7 @@
       html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" data-type="name" readonly>';
       html += '</td>';
       html += '<td id="delete_'+rowcount+' scope="row">';
-      html += '</br><button type="button" class="btn btn-danger delete_row">[X]Delete</button>';
+      html += '</br><button type="button" class="btn btn-danger delete_row">[X]Hapus</button>';
       html += '</td>';
       html += '</tr>';
       rowcount++;

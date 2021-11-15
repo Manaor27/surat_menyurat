@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Surat Personalia & SK
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li>Jenis Surat</li>
         <li class="active">Surat Personalia & SK</li>
       </ol>
@@ -62,7 +61,7 @@
                         <tr>
                             <td style="width: 850px">
                                 <label for="exampleInputPassword1">Keterangan</label></br>
-                                <textarea placeholder="Place some text here"
+                                <textarea placeholder="Isi Keterangan"
                                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
                             </td>
                             <td>
@@ -73,7 +72,7 @@
                     </table>
                 </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </form>
     </section>

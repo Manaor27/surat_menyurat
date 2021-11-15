@@ -35,7 +35,6 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
 
     <form action="{{ route('login') }}" method="post">
     @csrf
@@ -59,7 +58,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
         </div>
         <!-- /.col -->
       </div>

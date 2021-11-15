@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Manajemen User
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-group"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-group"></i> Beranda</a></li>
         <li class="active">Manajemen User</li>
       </ol>
     </section>
@@ -65,7 +64,7 @@
                   <th>EMAIL</th>
                   <th>No. TELPON</th>
                   <th>JABATAN</th>
-                  <th colspan="2">ACTION</th>
+                  <th colspan="2">AKSI</th>
                 </tr>
                 </thead>
                 @php
@@ -82,10 +81,10 @@
                   <td>{{ $u->role }}</td>
                   <td>
                     <a class="btn btn-app bg-aqua" href="{{url('/user/edit/'. $u->id)}}">
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Ubah
                     </a>
                     <a class="btn btn-app bg-red" href="{{url('/user/delete/'. $u->id)}}">
-                      <i class="fa fa-remove"></i> Delete
+                      <i class="fa fa-remove"></i> Hapus
                     </a>
                   </td>
                 </tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Surat Keterangan</title>
+    <title>Validasi Surat</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Form Validasi Permohonan Surat
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/home"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li>Jenis Surat</li>
         <li class="active">Klasifikasi Surat</li>
       </ol>
@@ -75,7 +74,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </form>
     </section>

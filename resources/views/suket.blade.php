@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Surat Keterangan Kegiatan Mahasiswa
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li>Jenis Surat</li>
         <li class="active">Surat Keterangan</li>
       </ol>
@@ -76,7 +75,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Keterangan</label>
-                    <textarea placeholder="Place some text here"
+                    <textarea placeholder="Isi Keterangan"
                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea>
                 </div>
                 <div class="form-group">
@@ -93,7 +92,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </form>
     </section>

@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Surat Terkirim
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/home"><i class="fa fa-group"></i> Home</a></li>
+        <li><a href="/home"><i class="fa fa-group"></i> Beranda</a></li>
         <li class="active">Surat Terkirim</li>
       </ol>
     </section>
@@ -66,7 +65,7 @@
                   <th>Pemohon</th>
                   <th>Bertanda Tangan</th>
                   <th>Status Pengiriman</th>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 @php
@@ -94,15 +93,15 @@
                     @endif
                     <td>
                       <a data-attr="{{url('/admin/preview/'. $tbl->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
-                        <i class="fa fa-eye"></i> Preview
+                        <i class="fa fa-eye"></i> Pratinjau
                       </a>
                       @if($tbl->status!="disetujui")
                       <a class="btn btn-app bg-aqua" href="#" disabled>
-                        <i class="fa fa-edit"></i> Edit
+                        <i class="fa fa-edit"></i> Ubah
                       </a>
                       @else
                       <a class="btn btn-app bg-aqua" href="{{url('/terkirim/edit/'. $tbl->id)}}">
-                        <i class="fa fa-edit"></i> Edit
+                        <i class="fa fa-edit"></i> Ubah
                       </a>
                       @endif
                       <!--a class="btn btn-app bg-red" href="">
@@ -129,7 +128,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title">Show Data</h3>
+                    <h3 class="modal-title">Tampilan Data</h3>
                 </div>
                 <div class="modal-body">
                     <h4 id="mediumBody">

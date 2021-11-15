@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit User</title>
+    <title>Ubah User</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Manajemen User
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-group"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-group"></i> Beranda</a></li>
         <li>Manajemen User</li>
         <li class="active">Tambah User</li>
       </ol>
@@ -48,9 +47,6 @@
     <section class="content">
       <!-- Main row -->
       <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
-            </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" method="POST" action="/user/update/{{ $user->id }}">
@@ -59,19 +55,19 @@
                 <input type="hidden" class="form-control" name="id" value="{{ $user->id }}">
               <div class="box-body">
                 <div class="form-group">
-                  <label>Kode</label>
+                  <label>ID</label>
                   <input type="text" class="form-control" name="kode" placeholder="Input Kode Identitas" value="{{ $user->kode }}">
                 </div>
                 <div class="form-group">
                   <label>Name</label>
-                  <input type="text" class="form-control" name="name" placeholder="Enter name" value="{{ $user->name }}">
+                  <input type="text" class="form-control" name="name" placeholder="Input name" value="{{ $user->name }}">
                 </div>
                 <div class="form-group">
-                  <label>Email address</label>
-                  <input type="email" class="form-control" name="email" placeholder="Enter email" value="{{ $user->email }}">
+                  <label>Alamat Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="Input email" value="{{ $user->email }}">
                 </div>
                 <div class="form-group">
-                  <label>New Password</label>
+                  <label>Password Baru</label>
                   <input type="password" class="form-control" name="password1" placeholder="Password">
                   <p>Jika tidak ingin mengubah password silahkan kosongkan saja!</p>
                   <input type="hidden" class="form-control" name="password2" value="{{ $user->password }}">
@@ -92,7 +88,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </form>
     </section>

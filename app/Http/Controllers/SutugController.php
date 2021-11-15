@@ -35,7 +35,7 @@ class SutugController extends Controller
         }
         Informasi::create([
             'no_surat' => null,
-            'status' => 'on process',
+            'status' => 'sedang diproses',
             'tanggal' => date('Y-m-d'),
             'id_surat' => $id_srt,
             'id_pejabat' => null

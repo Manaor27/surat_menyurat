@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Dashboard</title>
+  <title>Beranda</title>
   <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -84,7 +84,7 @@
                   Email &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->email }}<br/>
                   No. Telpon: {{ Auth::user()->telpon }}
                 </p>
-                <a href="{{ route('logout') }}" class="btn btn-default btn-flat"><b>Sign out</b></a>
+                <a href="{{ route('logout') }}" class="btn btn-default btn-flat"><b>Keluar</b></a>
               </li>
             </ul>
           </li>
@@ -112,7 +112,7 @@
         <!--li class="header">MAIN NAVIGATION</li-->
         <li class="active">
           <a href="/home">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Beranda</span>
           </a>
         </li>
         <li class="treeview">
@@ -154,11 +154,11 @@
             <i class="fa fa-reply"></i> <span>Terkirim</span>
           </a>
         </li>
-        <!--li>
+        <li>
           <a href="/user">
             <i class="fa fa-group"></i> <span>Manajemen User</span>
           </a>
-        </li-->
+        </li>
         @endif
       </ul>
     </section>

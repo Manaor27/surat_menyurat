@@ -35,10 +35,9 @@
     <section class="content-header">
       <h1>
         Form Validasi Permohonan Surat
-        <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li>Jenis Surat</li>
         <li class="active">Klasifikasi Surat</li>
       </ol>
@@ -80,7 +79,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
               </div>
             </form>
     </section>

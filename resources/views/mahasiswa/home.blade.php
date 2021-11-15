@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Beranda</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -34,12 +34,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard
-        <small>Control panel</small>
+        Beranda
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
       </ol>
     </section>
 
@@ -58,7 +56,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/mahasiswa/simpan/'. $suket->id)}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/mahasiswa/simpan/'. $suket->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -70,7 +68,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/mahasiswa/simpan/'. $sutug->id)}}" class="small-box-footer" type="submit">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/mahasiswa/simpan/'. $sutug->id)}}" class="small-box-footer" type="submit">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -82,7 +80,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/mahasiswa/simpan/'. 0)}}" class="small-box-footer" type="submit">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/mahasiswa/simpan/'. 0)}}" class="small-box-footer" type="submit">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!--div class="col-md-3 col-sm-6 col-xs-12">
@@ -133,7 +131,7 @@
                   <th>No. Surat</th>
                   <th>Kepentingan Surat</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 @php
@@ -153,38 +151,38 @@
                   <td><span class="label bg-red">{{ $item->status }}</span></td>
                   @endif
                   <td>
-                  @if($item->status=='on process')
+                  @if($item->status=='sedang diproses')
                     <a class="btn btn-app bg-aqua" href="#" disabled>
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Ubah
                     </a>
                     <a class="btn btn-app bg-red" href="#" disabled>
-                      <i class="fa fa-remove"></i> Delete
+                      <i class="fa fa-remove"></i> Hapus
                     </a>
                   @elseif($item->status=='disetujui')
                     @if($item->pejabat==null)
                     <a class="btn btn-app bg-aqua" href="#" disabled>
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Ubah
                     </a>
                     <a class="btn btn-app bg-red" href="#" disabled>
-                      <i class="fa fa-remove"></i> Delete
+                      <i class="fa fa-remove"></i> Hapus
                     </a>
                     @else
                     <a class="btn btn-app bg-aqua" href="#" disabled>
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Ubah
                     </a>
                     <a class="btn btn-app bg-red" href="#" disabled>
-                      <i class="fa fa-remove"></i> Delete
+                      <i class="fa fa-remove"></i> Hapus
                     </a>
                     <a class="btn btn-app bg-green" href="{{url('/mahasiswa/download/'. $item->inforid)}}">
-                      <i class="fa fa-download"></i> Download
+                      <i class="fa fa-download"></i> Unduh
                     </a>
                     @endif
                   @else
                     <a class="btn btn-app bg-aqua" href="{{url('/mahasiswa/edit/'. $item->suratid)}}">
-                      <i class="fa fa-edit"></i> Edit
+                      <i class="fa fa-edit"></i> Ubah
                     </a>
                     <a class="btn btn-app bg-red" href="{{url('/mahasiswa/delete/'. $item->suratid)}}">
-                      <i class="fa fa-remove"></i> Delete
+                      <i class="fa fa-remove"></i> Hapus
                     </a>
                   @endif
                   </td>
