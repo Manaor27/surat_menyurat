@@ -52,7 +52,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>SISM</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Surat Menyurat</b> FTI</span>
+      <span class="logo-lg"><b>Surat Menyurat</b> <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" style="width:30px;height:25px;"></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
