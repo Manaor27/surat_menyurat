@@ -43,22 +43,22 @@ class SutugController extends Controller
         return redirect("/home");
     }
 
-    public function getEmployees(Request $request){
+    public function getData(Request $request){
         $search = $request->search;
   
         if($search == '' && Auth::user()->role=='mahasiswa'){
-            $employees = User::orderby('kode','asc')->select('kode','name')->where('role','mahasiswa')->limit(5)->get();
+            $data = User::orderby('kode','asc')->select('kode','name')->where('role','mahasiswa')->limit(5)->get();
         }elseif($search != '' && Auth::user()->role=='mahasiswa'){
-            $employees = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','mahasiswa')->limit(5)->get();
+            $data = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','mahasiswa')->limit(5)->get();
         }elseif($search == '' && Auth::user()->role=='dosen'){
-            $employees = User::orderby('kode','asc')->select('kode','name')->where('role','dosen')->limit(5)->get();
+            $data = User::orderby('kode','asc')->select('kode','name')->where('role','dosen')->limit(5)->get();
         }elseif($search != '' && Auth::user()->role=='dosen'){
-            $employees = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','dosen')->limit(5)->get();
+            $data = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','dosen')->limit(5)->get();
         }
   
         $response = array();
-        foreach($employees as $employee){
-           $response[] = array("value"=>$employee->name,"label"=>$employee->kode);
+        foreach($data as $dt){
+           $response[] = array("value"=>$dt->name,"label"=>$dt->kode);
         }
   
         return response()->json($response); 

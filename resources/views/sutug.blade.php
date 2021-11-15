@@ -318,7 +318,7 @@ $(document).on('focus','.autocomplete_txt',function(){
     minLength: 0,
      source: function( request, response ) {
         $.ajax({
-          url:"{{route('getEmployees')}}",
+          url:"{{route('getData')}}",
           dataType: "json",
           data: {
              type : type,
