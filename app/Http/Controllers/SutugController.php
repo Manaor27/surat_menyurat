@@ -13,7 +13,7 @@ use App\Models\User;
 class SutugController extends Controller
 {
     public function index(){
-        return view('s');
+        return view('sutug');
     }
 
     public function simpan(Request $request) {
@@ -46,10 +46,14 @@ class SutugController extends Controller
     public function getEmployees(Request $request){
         $search = $request->search;
   
-        if($search == ''){
-            $employees = User::orderby('kode','asc')->select('kode','name')->limit(5)->get();
-        }else{
-            $employees = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->limit(5)->get();
+        if($search == '' && Auth::user()->role=='mahasiswa'){
+            $employees = User::orderby('kode','asc')->select('kode','name')->where('role','mahasiswa')->limit(5)->get();
+        }elseif($search != '' && Auth::user()->role=='mahasiswa'){
+            $employees = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','mahasiswa')->limit(5)->get();
+        }elseif($search == '' && Auth::user()->role=='dosen'){
+            $employees = User::orderby('kode','asc')->select('kode','name')->where('role','dosen')->limit(5)->get();
+        }elseif($search != '' && Auth::user()->role=='dosen'){
+            $employees = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','dosen')->limit(5)->get();
         }
   
         $response = array();
@@ -59,16 +63,4 @@ class SutugController extends Controller
   
         return response()->json($response); 
      } 
-
-    public function getCountries(Request $request){
-        $name = $request->get('name');
-        $fieldName = $request->get('fieldName');
-        
-        $name = strtolower(trim($name));
-        if (empty($fieldName)) {
-            $fieldName = 'name';
-        }
-
-        $countries = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$name . '%')->limit(5)->get();
-    }
 }

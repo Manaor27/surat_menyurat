@@ -178,6 +178,7 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" method="POST" action="/sutug/simpan">
+              @csrf
                 <div class="box-body">
                     <div class="form-group">
                     <label>Tema</label>
@@ -190,22 +191,22 @@
                             @if(Auth::user()->role=='mahasiswa')
                             <td>
                                 <label>NIM</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIM" id='employee_search_1'>
+                                <input type="text" class="form-control autocomplete_txt ui-autocomplete-input" name="kode[]" placeholder="NIM" id='employee_search_1' value="{{ Auth::user()->kode }}" autocomplete="off" readonly>
                             </td>
                             @elseif(Auth::user()->role=='dosen')
                             <td>
                                 <label>NIDN</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" readonly>
+                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" id='employee_search_1' value="{{ Auth::user()->kode }}" autocomplete="off" readonly>
                             </td>
                             @else
                             <td>
                                 <label>ID</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" required>
+                                <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" id='employee_search_1' required>
                             </td>
                             @endif
                             <td style="width: 500px">
                                 <label>Nama</label></br>
-                                <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' readonly>
+                                <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ Auth::user()->name }}" readonly>
                             </td>
                             <td >
                                 </br>
@@ -275,10 +276,10 @@
     function formHtml() {
       html = '<tr id="row_'+rowcount+'">';
       html += '<td>';
-      html += '</br><input type="text" class="form-control" name="kode[]" id="employee_search_'+rowcount+'">';
+      html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off">';
       html += '</td>';
       html += '<td>';
-      html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" readonly>';
+      html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" data-type="name" readonly>';
       html += '</td>';
       html += '<td id="delete_'+rowcount+' scope="row">';
       html += '</br><button type="button" class="btn btn-danger delete_row">[X]Delete</button>';
@@ -294,80 +295,27 @@
       tableBody.append(html);
     }
 
-    function deleteRow() {
-      // var rowNo;
-      // id = $(this).attr('id');
-      // console.log('id');
-      // idArr = id.split("_");
-      // console.log(idArr);
-      // rowNo = idArr[idArr.length - 1];
-      // console.log(rowNo);
-      // $("#row_"+rowNo).remove();
-
-      //console.log($(this).parent('tr'));
-      $(this).parent('tr').remove();
-    }
-
-    function handleAutocomplete() {
-      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-      $(document).ready(function(){
-
-        $( "#employee_search_"+rowcount+"" ).autocomplete({
-          source: function( request, response ) {
-              $.ajax({
-                url:"{{route('getEmployees')}}",
-                type: 'post',
-                dataType: "json",
-                data: {
-                  _token: CSRF_TOKEN,
-                  search: request.term
-                },
-                success: function( data ) {
-                  response( data );
-                }
-              });
-          },
-          select: function (event, ui) {
-            $('#employee_search_'+rowcount+'').val(ui.item.label);
-            $('#employeeid_'+rowcount+'').val(ui.item.value);
-            return false;
-          }
-        });
-      });
-      rowcount++;
-    }
-
     function registrationEvents() {
       addBtn.on("click", addNewRow);
       $(document).on('click', '.delete_row', function () {
         $(this).parents('tr').remove();
       });
-      handleAutocomplete();
     }
     registrationEvents();
   });
 </script>
-<script type="text/javascript">
-    $("#dynamic-ar").click(function () {
-        $("#dynamicAddRemove").append('<tr>@if(Auth::user()->role=="mahasiswa")<td><label>NIM</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIM" id="employee_search"></td>@elseif(Auth::user()->role=="dosen")<td><label>NIDN</label></br><input type="text" class="form-control" name="kode[]" placeholder="NIDN"></td>@else<td><label>Kode</label></br><input type="text" class="form-control" name="kode[]" placeholder="Kode"></td>@endif<td style="width: 500px"><label>Nama</label></br><input type="text" class="form-control" name="nama[]" placeholder="Nama" id="employeeid" readonly></td><td></br><button type="button" class="btn btn-danger remove-input-field">[X]Delete</button></td></tr>');
-    });
-    $(document).on('click', '.remove-input-field', function () {
-        $(this).parents('tr').remove();
-    });
-</script>
 <!-- Script -->
 <script type="text/javascript">
-var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-$(document).ready(function(){
-
-  $( "#employee_search" ).autocomplete({
+$(document).on('focus','.autocomplete_txt',function(){
+  type = $(this).data('type');
+  $(this).autocomplete({
+    minLength: 0,
      source: function( request, response ) {
         $.ajax({
           url:"{{route('getEmployees')}}",
-          type: 'post',
           dataType: "json",
           data: {
-             _token: CSRF_TOKEN,
+             type : type,
              search: request.term
           },
           success: function( data ) {
@@ -376,8 +324,12 @@ $(document).ready(function(){
         });
      },
      select: function (event, ui) {
-       $('#employee_search').val(ui.item.label);
-       $('#employeeid').val(ui.item.value);
+       var data = ui.item.data;
+       id_arr = $(this).attr('id');
+       id = id_arr.split("_");
+       elementId = id[id.length-1];
+       $('#employee_search_'+elementId).val(ui.item.label);
+       $('#employeeid_'+elementId).val(ui.item.value);
        return false;
      }
   });

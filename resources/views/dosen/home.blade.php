@@ -51,7 +51,7 @@
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{ $banyak_sutugk }}</h3>
+              <h3>{{ $count_sutug }}</h3>
 
               <p>Surat Tugas Kelompok</p>
             </div>
@@ -63,9 +63,9 @@
         </div>
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-blue">
+          <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ $banyak_sutugp }}</h3>
+              <h3>{{ $count_sutugp }}</h3>
 
               <p>Surat Tugas Pribadi</p>
             </div>
