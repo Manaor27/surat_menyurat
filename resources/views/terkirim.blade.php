@@ -78,7 +78,7 @@
                     <td>{{ $tbl->no_surat }}</td>
                     <td>{{ $tbl->tanggal }}</td>
                     <td>{{ $tbl->surat->perihal }}</td>
-                    <td>{{ $tbl->surat->user->kode }}</td>
+                    <td>{{ $tbl->surat->user->name }}</td>
                     @if($tbl->pejabat==null)
                     <td></td>
                     @else

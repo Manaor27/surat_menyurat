@@ -61,7 +61,7 @@
                         <tr>
                             <td style="width: 850px">
                                 <label for="exampleInputPassword1">Keterangan</label></br>
-                                <textarea placeholder="Isi Keterangan"
+                                <textarea placeholder="Isi Keterangan" class="textarea" 
                                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
                             </td>
                             <td>

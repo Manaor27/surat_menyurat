@@ -130,7 +130,8 @@
             <li><a href="{{url('/admin/simpan/'. '5')}}"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
             <li><a href="{{url('/admin/simpan/'. '3')}}"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
             @elseif(Auth::user()->role=='mahasiswa')
-            <li><a href="{{url('/mahasiswa/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+            <li><a href="{{url('/mahasiswa/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas Kelompok</a></li>
+            <li><a href="{{url('/mahasiswa/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
             <li><a href="{{url('/mahasiswa/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Kegiatan Mahasiswa</a></li>
             @else
             <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
@@ -229,7 +230,6 @@
 <script src="{{ asset('style/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
 <!-- Select2 -->
 <script src="{{ asset('style/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
-
 <!-- page script -->
 <script>
   $(function () {
@@ -265,7 +265,7 @@
 </script>
 <script type="text/javascript">
     $("#dynamic").click(function () {
-        $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Place some text here"style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]"></textarea></td><td></br><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
+        $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Place some text here" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]"></textarea></td><td></br><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
             );
     });
     $(document).on('click', '.remove-field', function () {

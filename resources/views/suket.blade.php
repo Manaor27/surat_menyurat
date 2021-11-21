@@ -73,14 +73,14 @@
                   <label>Kepada</label>
                   <input type="text" class="form-control" name="kepada" placeholder="Kepada" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group box-body pad">
                     <label for="exampleInputPassword1">Keterangan</label>
-                    <textarea placeholder="Isi Keterangan"
+                    <textarea placeholder="Isi Keterangan" class="textarea"
                           style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea>
                 </div>
                 <div class="form-group">
                   <label>Tanggal</label>
-                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal" required>
+                  <input type="date" class="form-control pull-right" id="reservation" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
                 </div>
                 <div class="form-group">
                   <label>Waktu</label>
