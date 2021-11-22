@@ -45,7 +45,6 @@ class SutugController extends Controller
 
     public function getData(Request $request){
         $search = $request->search;
-  
         if($search == '' && Auth::user()->role=='mahasiswa'){
             $data = User::orderby('kode','asc')->select('kode','name')->where('role','mahasiswa')->limit(5)->get();
         }elseif($search != '' && Auth::user()->role=='mahasiswa'){
@@ -55,12 +54,10 @@ class SutugController extends Controller
         }elseif($search != '' && Auth::user()->role=='dosen'){
             $data = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','dosen')->limit(5)->get();
         }
-  
         $response = array();
         foreach($data as $dt){
            $response[] = array("value"=>$dt->name,"label"=>$dt->kode);
         }
-  
         return response()->json($response); 
      } 
 }

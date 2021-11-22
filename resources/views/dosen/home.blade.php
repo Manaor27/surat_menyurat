@@ -6,32 +6,11 @@
     <title>Dashboard</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/font-awesome/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/Ionicons/css/ionicons.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('style/dist/css/AdminLTE.min.css') }}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ asset('style/dist/css/skins/_all-skins.min.css') }}">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/morris.js/morris.css') }}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/jvectormap/jquery-jvectormap.css') }}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{ asset('style/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 </head>
 <body>
-    @extends('layouts.app')
-    @section('content')
-    <!-- Content Wrapper. Contains page content -->
+  @extends('layouts.app')
+  @section('content')
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Beranda
@@ -40,17 +19,12 @@
         <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
       </ol>
     </section>
-
-    <!-- Main content -->
     <section class="content">
-      <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
               <h3>{{ $count_sutug }}</h3>
-
               <p>Surat Tugas Kelompok</p>
             </div>
             <div class="icon">
@@ -60,11 +34,9 @@
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>{{ $count_sutugp }}</h3>
-
               <p>Surat Tugas Pribadi</p>
             </div>
             <div class="icon">
@@ -74,11 +46,9 @@
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{ $banyak_super }}</h3>
-
               <p>Surat Personalia & SK</p>
             </div>
             <div class="icon">
@@ -88,108 +58,84 @@
           </div>
         </div>
       </div>
-      <!-- /.row -->
-      <!-- BAR CHART -->
-        <!--div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Bar Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body chart-responsive">
-              <div class="chart" id="bar-chart" style="height: 300px;"></div>
-            </div>
-          </div-->
-          <!-- /.box -->
-      <!-- Main row -->
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Surat Terkirim</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
-                <tr>
-                  <th>#</th>
-                  <th>No Surat</th>
-                  <th>Kepentingan Surat</th>
-                  <th>Status</th>
-                  <th>Aksi</th>
-                </tr>
+                  <tr>
+                    <th>#</th>
+                    <th>No Surat</th>
+                    <th>Kepentingan Surat</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
                 </thead>
                 @php
                     $no = 1;
                 @endphp
                 <tbody>
                 @foreach($tab as $tbl => $item)
-                <tr>
-                  <td>{{ $no++ }}</td>
-                  <td>{{ $item->no_surat }}</td>
-                  <td>{{ $item->tema }}</td>
-                  @if($item->status=='disetujui')
-                  <td><span class="label bg-green">{{ $item->status }}</span></td>
-                  @elseif($item->status=='sedang diproses')
-                  <td><span class="label bg-yellow">{{ $item->status }}</span></td>
-                  @else
-                  <td><span class="label bg-red">{{ $item->status }}</span></td>
-                  @endif
-                  <td>
-                  @if($item->status=='sedang diproses')
-                    <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}" disabled>
-                      <i class="fa fa-edit"></i> Ubah
-                    </a>
-                    <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}" disabled>
-                      <i class="fa fa-remove"></i> Hapus
-                    </a>
-                    @elseif($item->status=='disetujui')
-                      @if($item->pejabat==null)
-                      <a class="btn btn-app bg-aqua" href="#" disabled>
-                        <i class="fa fa-edit"></i> Ubah
-                      </a>
-                      <a class="btn btn-app bg-red" href="#" disabled>
-                        <i class="fa fa-remove"></i> Hapus
-                      </a>
-                      @else
-                      <a class="btn btn-app bg-aqua" href="#" disabled>
-                        <i class="fa fa-edit"></i> Ubah
-                      </a>
-                      <a class="btn btn-app bg-red" href="#" disabled>
-                        <i class="fa fa-remove"></i> Hapus
-                      </a>
-                      <a class="btn btn-app bg-green" href="{{url('/dosen/download/'. $item->inforid)}}">
-                        <i class="fa fa-download"></i> Undah
-                      </a>
-                      @endif
+                  <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $item->no_surat }}</td>
+                    <td>{{ $item->tema }}</td>
+                    @if($item->status=='disetujui')
+                    <td><span class="label bg-green">{{ $item->status }}</span></td>
+                    @elseif($item->status=='sedang diproses')
+                    <td><span class="label bg-yellow">{{ $item->status }}</span></td>
                     @else
-                    <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
-                      <i class="fa fa-edit"></i> Edit
-                    </a>
-                    <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}">
-                      <i class="fa fa-remove"></i> Hapus
-                    </a>
-                  @endif
-                  </td>
-                </tr>
+                    <td><span class="label bg-red">{{ $item->status }}</span></td>
+                    @endif
+                    <td>
+                    @if($item->status=='sedang diproses')
+                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}" disabled>
+                        <i class="fa fa-edit"></i> Ubah
+                      </a>
+                      <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}" disabled>
+                        <i class="fa fa-remove"></i> Hapus
+                      </a>
+                      @elseif($item->status=='disetujui')
+                        @if($item->pejabat==null)
+                        <a class="btn btn-app bg-aqua" href="#" disabled>
+                          <i class="fa fa-edit"></i> Ubah
+                        </a>
+                        <a class="btn btn-app bg-red" href="#" disabled>
+                          <i class="fa fa-remove"></i> Hapus
+                        </a>
+                        @else
+                        <a class="btn btn-app bg-aqua" href="#" disabled>
+                          <i class="fa fa-edit"></i> Ubah
+                        </a>
+                        <a class="btn btn-app bg-red" href="#" disabled>
+                          <i class="fa fa-remove"></i> Hapus
+                        </a>
+                        <a class="btn btn-app bg-green" href="{{url('/dosen/download/'. $item->inforid)}}">
+                          <i class="fa fa-download"></i> Undah
+                        </a>
+                        @endif
+                      @else
+                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
+                        <i class="fa fa-edit"></i> Edit
+                      </a>
+                      <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}">
+                        <i class="fa fa-remove"></i> Hapus
+                      </a>
+                    @endif
+                    </td>
+                  </tr>
                 @endforeach
                 </tbody>
               </table>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row (main row) -->
     </section>
-    <!-- /.content -->
   </div>
 @endsection
 </body>

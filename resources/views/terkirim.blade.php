@@ -6,32 +6,11 @@
     <title>Surat Terkirim</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/font-awesome/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/Ionicons/css/ionicons.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('style/dist/css/AdminLTE.min.css') }}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ asset('style/dist/css/skins/_all-skins.min.css') }}">
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/morris.js/morris.css') }}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/jvectormap/jquery-jvectormap.css') }}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{ asset('style/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 </head>
 <body>
-    @extends('layouts.app')
-    @section('content')
-    <!-- Content Wrapper. Contains page content -->
+  @extends('layouts.app')
+  @section('content')
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Surat Terkirim
@@ -41,32 +20,23 @@
         <li class="active">Surat Terkirim</li>
       </ol>
     </section>
-
-    <!-- Main content -->
     <section class="content">
-      <!-- Main row -->
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <!--div class="box-header">
-            <div class="col-md-2">
-              <a type="button" class="btn btn-block btn-success" href="/user/tambah"><p class="fa fa-plus"> Kirim Surat</p></a>
-            </div>
-            </div-->
-            <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
-                <tr>
+                  <tr>
                     <th>#</th>
-                  <th>No. Surat</th>
-                  <th>Tanggal</th>
-                  <th>Kepentingan Surat</th>
-                  <th>Pemohon</th>
-                  <th>Bertanda Tangan</th>
-                  <th>Status Pengiriman</th>
-                  <th>Aksi</th>
-                </tr>
+                    <th>No. Surat</th>
+                    <th>Tanggal</th>
+                    <th>Kepentingan Surat</th>
+                    <th>Pemohon</th>
+                    <th>Bertanda Tangan</th>
+                    <th>Status Pengiriman</th>
+                    <th>Aksi</th>
+                  </tr>
                 </thead>
                 @php
                     $no = 1;
@@ -104,43 +74,34 @@
                         <i class="fa fa-edit"></i> Ubah
                       </a>
                       @endif
-                      <!--a class="btn btn-app bg-red" href="">
-                        <i class="fa fa-remove"></i> Delete
-                      </a-->
                     </td>
                   </tr>
-                </tfoot>
+                </tbody>
                 @endforeach
               </table>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- Modal Profile -->
       <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 class="modal-title">Tampilan Data</h3>
-                </div>
-                <div class="modal-body">
-                    <h4 id="mediumBody">
-                        <!-- the result to be displayed apply here -->
-                    </h4>
-                </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h3 class="modal-title">Tampilan Data</h3>
             </div>
+            <div class="modal-body">
+              <h4 id="mediumBody">
+                <!-- hasilnya disini -->
+              </h4>
+            </div>
+          </div>
         </div>
-    </div>
-      <!-- /.row (main row) -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
 @endsection
 </body>
