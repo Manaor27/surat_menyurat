@@ -5,28 +5,17 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<style type="text/css">
-        table tr td,
-        table tr th {
-            font-size: 11pt;
-        }
+    <style type="text/css">
         .letter5 { 
             letter-spacing: 1px; 
-        }
-        .element { 
-            margin: 15 px 20px;
         }
     </style>
     <table>
         <tr>
-            <td rowspan="4">
-                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="45" height="65"/>
+            <td width="60px">
+                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="60" height="80"/>
             </td>
-            <td rowspan="4">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-        </tr>
-        <tr>
+            <td>&nbsp;&nbsp;</td>
             <td>
                 <font size="2" class="letter5">
                     UNIVERSITAS KRISTEN DUTA WACANA
@@ -37,15 +26,15 @@
                 </font>
                 <br>
                 <font size="1">
-                    &#9744; &nbsp;PROGRAM STUDI INFORMATIKA<br>
-                    &#9744; &nbsp;PROGRAM STUDI SISTEM INFORMASI
+                    <li type="square" style="margin-left: 10px;"> PROGRAM STUDI INFORMATIKA
+                    <li type="square" style="margin-left: 10px;"> PROGRAM STUDI SISTEM INFORMASI </li>
                 </font>
             </td>
         </tr>
     </table>
     <br>
     <center>
-        <b><font size="4" face="Times New Roman">Berita Acara</font></b><br>
+        <b><font size="5" face="Times New Roman">Berita Acara</font></b><br>
         <b>Kuliah Umum</b><br>
         <b><i>{{ $down->surat->perihal }}</i></b><br>
         Nomor: {{ $down->no_surat }}
@@ -69,10 +58,10 @@
             <br>
             Mengetahui
         </center>
-        <table>
-            <tr style="text-align: center;"><td>{{ $down->pejabat->jabatan }},</td></tr>
-            <tr style="text-align: center;"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></tr>
-            <tr style="text-align: center;">({{ $down->pejabat->nama }})<td></td></tr>
+        <table style="text-align: center;">
+            <tr ><td>{{ $down->pejabat->jabatan }},</td></tr>
+            <tr ><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
+            <tr ><td>({{ $down->pejabat->nama }})</td></tr>
         </table>
     </font>
 </body>

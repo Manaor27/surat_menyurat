@@ -31,6 +31,7 @@ Route::get('mahasiswa/download/{id}', [MahasiswaController::class, 'download']);
 
 Route::get('/dosen/simpan/{id}', [DosenController::class, 'simpan']);
 Route::get('/dosen/delete/{id}', [DosenController::class, 'delete']);
+Route::get('dosen/download/{id}', [DosenController::class, 'download']);
 
 Route::get('/admin/simpan/{id}', [AdminController::class, 'simpan']);
 Route::get('/admin/delete/{id}', [AdminController::class, 'delete']);

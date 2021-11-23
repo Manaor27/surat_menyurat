@@ -1,55 +1,20 @@
 <html>
 <head>
-    <title>LEMBAR DISPOSISI SURAT</title>
+    <title>Surat Tugas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<style type="text/css">
-        table tr td,
-        table tr th {
-            font-size: 11pt;
-        }
-
-        footer {
-            position: fixed;
-            bottom: -40px;
-            left: 0px;
-            right: 0px;
-            height: 50px;
-            font-size: 9pt;
-
-            /** Extra personal styles **/
-            text-align: center;
-            line-height: 35px;
-        }
-
-        .line {
-            line-height: 50%;
-        }
-
-        .disp {
-            text-align: center;
-            margin: -.5rem 0;
-        }
-        .logodisp {
-            float: left;
-            position: relative;
-            width: 80px;
-            height: 80px;
-            margin: .5rem 0 0 .5rem;
+    <style type="text/css">
+        .letter5 { 
+            letter-spacing: 1px; 
         }
     </style>
     <table>
         <tr>
-            <td rowspan="4">
-                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="40" height="65"/>
+            <td width="60px">
+                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="50" height="60"/>
             </td>
-            <td rowspan="4">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-        </tr>
-        <tr style="text-align: center;">
             <td>
                 <font size="2" class="letter5">
                     UNIVERSITAS KRISTEN DUTA WACANA
@@ -60,71 +25,95 @@
                 </font>
                 <br>
                 <font size="1">
-                    Jl. Dr. Wahidin Sudiro Husodo No. 5 – 25, Yogyakarta 55224<br>
-                    Telp. 0274 – 563929 Fax. 0274 – 513235
+                    <li type="square"> PROGRAM STUDI INFORMATIKA
+                    <li type="square"> PROGRAM STUDI SISTEM INFORMASI </li>
                 </font>
             </td>
         </tr>
     </table>
-    <hr>
-    <p style="text-align: right;">
-        Yogyakarta, <?php echo date('d F Y'); ?>
-    </p>
-    <table>
-        <tr>
-            <td>Nomor </td>
-            <td> : </td>
-            <td> {{ $down->no_surat }}</td>
-        </tr>
-        <tr>
-            <td>Hal </td>
-            <td> : </td>
-            <td> {{ $down->surat->perihal }}</td>
-        </tr>
-    </table>
-    <br>
-    <p>
-        Kepada Yth. <br>
-        {{ $down->surat->kepada }}
-    </p>
-    <p>Di Tempat</p>
-    <p style="line-height: 20px;">
-        Dengan hormat,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $down->surat->keterangan }}
-    </p>
-    <table style="line-height: 20px;" align="center">
-        <tr>
-            <td>hari, tanggal</td>
-            <td>&nbsp;&nbsp;</td>
-            <td>: <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?></td>
-        </tr>
-        <tr>
-            <td>waktu</td>
-            <td>&nbsp;&nbsp;</td>
-            <td>: <?php echo date('H:i', strtotime($down->surat->waktu)); ?></td>
-        </tr>
-        <tr>
-            <td>tempat</td>
-            <td>&nbsp;&nbsp;</td>
-            <td>: {{ $down->surat->tempat }}</td>
-        </tr>
-    </table>
-    <br>
-    <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat undangan ini telah kami sampaikan, kami mengharapkan kesediaan Bapak/Ibu untuk hadir dalam acara ini. Atas perhatiannya kami ucapkan terima kasih.
-    </p>
     <br>
     <center>
-        Hormat kami,
+        <u><b><font size="4" face="Times New Roman">SURAT TUGAS</font></b></u><br>
+        Nomor: {{ $down->no_surat }}
     </center>
-    <p align="left">
-        <!--p style="text-align: center;"-->
-            {{ $down->pejabat->jabatan }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-            <u>{{ $down->pejabat->nama }}</u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-            {{ $down->pejabat->nidn }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!--/p-->
-    </p>
+    <br>
+    <br>
+    <font size="3" face="Times New Roman" class="element">
+        <p style="text-align: justify;">
+            Dengan ini {{ $down->pejabat->jabatan }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana Yogyakarta memberikan tugas kepada {{ Auth::user()->role }} tersebut di bawah ini:
+        </p>
+        @php
+            $no = 1;
+            $name = array();
+            $name = explode(',', $down->surat->nama);
+            $code = array();
+            $code = explode(',', $down->surat->kode);
+        @endphp
+    @if(count($code)>1)
+        <table align="center" border="1">
+            <thead>
+                <tr style="text-align: center;">
+                    <td >No.</td>
+                    <td >Nama</td>
+                    @if(Auth::user()->role=="mahasiswa")
+                    <td >NIM</td>
+                    @else
+                    <td >NIK</td>
+                    @endif
+                </tr>
+            </thead>
+            @foreach($code as $key => $value)
+            <tbody>
+                <tr>
+                    <td style="text-align: center;" width="50px">{{ $no++ }}.</td>
+                    <td width="350px">{{ $name[$key] }}</td>
+                    <td style="text-align: center;" width="200px">{{ $code[$key] }}</td>
+                </tr>
+            </tbody>
+            @endforeach
+        </table>
+    @else
+        @foreach($code as $key => $value)
+        <div class="row">
+            <div class="col-4">
+                <table>
+                    <tr>
+                        <td><b>Nama </b></td>
+                        <td><b> : </b></td>
+                        <td> {{ $name[$key] }}</td>
+                    </tr>
+                    <tr>
+                        @if(Auth::user()->role=="dosen")
+                        <td>NIK</td>
+                        @else
+                        <td>NIM</td>
+                        @endif
+                        <td> : </td>
+                        <td width="200px"> {{ $code[$key] }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        @endforeach
+    @endif
+        <br>
+        <p style="text-align: justify;">
+            Untuk mengikuti {{ $down->surat->perihal }} yang dilaksanakan oleh {{ $down->surat->penyelenggara }} 
+            <?php if ($down->surat->tempat!=null) {
+                echo 'ke '.$down->surat->tempat;
+            }?>. Kunjungan akan dilaksanakan pada hari <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?>.
+        </p>
+        <p style="text-align: justify;">
+            Demikian surat tugas ini dibuat untuk dapat dipergunakan sebagaimana perlunya. Kepada penerima tugas setelah menyelesaikan tugas dimohon menyampaikan laporan kepada pemberi tugas.
+        </p>
+        <br>
+        <table style="text-align: left;">
+            <tr><td><b>{{ $down->pejabat->jabatan }},</b></td></tr>
+            <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
+            <tr><td><b>({{ $down->pejabat->nama }})<hr></b></td></tr>
+            <tr><td><b>{{ $down->pejabat->nidn }}</b></td></tr>
+        </table>
+    </font>
 </body>
 
 </html>

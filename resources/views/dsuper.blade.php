@@ -5,40 +5,17 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<style type="text/css">
-        table tr td,
-        table tr th {
-            font-size: 11pt;
-        }
-        footer {
-            position: fixed;
-            bottom: -40px;
-            left: 0px;
-            right: 0px;
-            height: 50px;
-            font-size: 9pt;
-
-            /** Extra personal styles **/
-            text-align: center;
-            line-height: 35px;
-        }
+    <style type="text/css">
         .letter5 { 
             letter-spacing: 1px; 
-        }
-        .element { 
-            margin: 15 px 20px;
         }
     </style>
     <table>
         <tr>
-            <td rowspan="4">
-                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="45" height="65"/>
+            <td width="60px">
+                <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" width="60" height="80"/>
             </td>
-            <td rowspan="4">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-        </tr>
-        <tr>
+            <td>&nbsp;&nbsp;</td>
             <td>
                 <font size="2" class="letter5">
                     UNIVERSITAS KRISTEN DUTA WACANA
@@ -49,8 +26,8 @@
                 </font>
                 <br>
                 <font size="1">
-                    &#9744; &nbsp;PROGRAM STUDI INFORMATIKA<br>
-                    &#9744; &nbsp;PROGRAM STUDI SISTEM INFORMASI
+                    <li type="square" style="margin-left: 10px;"> PROGRAM STUDI INFORMATIKA
+                    <li type="square" style="margin-left: 10px;"> PROGRAM STUDI SISTEM INFORMASI </li>
                 </font>
             </td>
         </tr>

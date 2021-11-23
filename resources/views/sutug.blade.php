@@ -183,7 +183,7 @@
                   </div>
                   <div class="form-group">
                     <label>Tempat</label>
-                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" required>
+                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)">
                   </div>
                 </div>
                 <div class="box-footer">
