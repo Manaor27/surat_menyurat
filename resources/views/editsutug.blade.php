@@ -127,60 +127,78 @@
         <div class="row">
           <div class="col-md-12">
             <div class="box box-primary">
-              <form role="form" method="POST" action="/sutug/simpan">
+              <form role="form" method="POST" action="/sutug/update/{{ $srt->id }}">
                 @csrf
                 @method('PUT')
                 <div class="box-body">
+                @if($info->status=='perihal kurang jelas')
                   <div class="form-group">
                     <label>Tema</label>
-                    <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" required>
+                    <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" value="{{ $srt->perihal }}" required>
                   </div>
+                @else
+                  <div class="form-group">
+                    <label>Tema</label>
+                    <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" value="{{ $srt->perihal }}" readonly>
+                  </div>
+                @endif
+                @php
+                  $name = array();
+                  $name = explode(',', $srt->nama);
+                  $code = array();
+                  $code = explode(',', $srt->kode);
+                @endphp
                   <div class="form-group">
                     <table class="table autocomplete_table" id="autocomplete_table">
                       <tbody>
+                      @foreach($code as $key => $value)
                         <tr id="row_1">
                         @if(Auth::user()->role=='mahasiswa')
                           <td>
                             <label>NIM</label></br>
-                            <input type="text" class="form-control autocomplete_txt ui-autocomplete-input" name="kode[]" placeholder="NIM" id='employee_search_1' value="{{ Auth::user()->kode }}" autocomplete="off" readonly>
+                            <input type="text" class="form-control autocomplete_txt ui-autocomplete-input" name="kode[]" placeholder="NIM" id='employee_search_1' value="{{ $code[$key] }}" autocomplete="off" readonly>
                           </td>
                         @elseif(Auth::user()->role=='dosen')
                           <td>
                             <label>NIDN</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" id='employee_search_1' value="{{ Auth::user()->kode }}" autocomplete="off" readonly>
+                            <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" id='employee_search_1' value="{{ $code[$key] }}" autocomplete="off" readonly>
                           </td>
                         @endif
-                        @if(Auth::user()->role=='admin')
                           <td style="width: 500px">
                             <label>Nama</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' readonly>
-                          </td>
-                        @else
-                          <td style="width: 500px">
-                            <label>Nama</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ Auth::user()->name }}" readonly>
-                          </td>
-                        @endif
-                          <td >
-                            <label for="">&nbsp;</label></br>
-                            <button type="button" id="addNew" class="btn btn-success"><b>[+]</b>Tambah Anggota</button>
+                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ $name[$key]}}" readonly>
                           </td>
                         </tr>
+                      @endforeach
                       </tbody>
                     </table>
                   </div>
+                  @if($info->status=='penyelenggara kurang lengkap')
                   <div class="form-group">
                     <label>Penyelenggara Kegiatan</label>
-                    <input type="text" class="form-control" id="reservation" name="penyelenggara" required>
+                    <input type="text" class="form-control" id="reservation" name="penyelenggara" value="{{ $srt->penyelenggara }}" required>
                   </div>
+                  @else
+                  <div class="form-group">
+                    <label>Penyelenggara Kegiatan</label>
+                    <input type="text" class="form-control" id="reservation" name="penyelenggara" value="{{ $srt->penyelenggara }}" readonly>
+                  </div>
+                  @endif
                   <div class="form-group">
                     <label>Tanggal</label>
                     <input type="date" class="form-control" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
                   </div>
+                  @if($info->status=='alamat kurang jelas')
                   <div class="form-group">
                     <label>Tempat</label>
-                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)">
+                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)" value="{{ $srt->tempat }}" required>
                   </div>
+                  @else
+                  <div class="form-group">
+                    <label>Tempat</label>
+                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)" value="{{ $srt->tempat }}" readonly>
+                  </div>
+                  @endif
                 </div>
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Kirim</button>
@@ -205,76 +223,5 @@
   <script src="{{ asset('style/dist/js/adminlte.min.js') }}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('style/dist/js/demo.js') }}"></script>
-  <script>
-    $(document).ready(function(){
-      var rowcount, addBtn, tableBody, imgPath, basePath;
-
-      addBtn = $("#addNew");
-      rowcount = $("#autocomplete_table tbody tr").length+1;
-      tableBody = $("#autocomplete_table tbody");
-      imgPath = $("#imgPath").val();
-      basePath = $("#base_path").val();
-
-      function formHtml() {
-        html = '<tr id="row_'+rowcount+'">';
-        html += '<td>';
-        html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off">';
-        html += '</td>';
-        html += '<td>';
-        html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" data-type="name" readonly>';
-        html += '</td>';
-        html += '<td id="delete_'+rowcount+' scope="row">';
-        html += '</br><button type="button" class="btn btn-danger delete_row">[X]Hapus</button>';
-        html += '</td>';
-        html += '</tr>';
-        rowcount++;
-        return html;
-      }
-
-      function addNewRow() {
-        var html = formHtml();
-        console.log(html);
-        tableBody.append(html);
-      }
-
-      function registrationEvents() {
-        addBtn.on("click", addNewRow);
-        $(document).on('click', '.delete_row', function () {
-          $(this).parents('tr').remove();
-        });
-      }
-      registrationEvents();
-    });
-  </script>
-  <script type="text/javascript">
-  $(document).on('focus','.autocomplete_txt',function(){
-    type = $(this).data('type');
-    $(this).autocomplete({
-      minLength: 0,
-      source: function( request, response ) {
-          $.ajax({
-            url:"{{route('getData')}}",
-            dataType: "json",
-            data: {
-              type : type,
-              search: request.term
-            },
-            success: function( data ) {
-              response( data );
-            }
-          });
-      },
-      select: function (event, ui) {
-        var data = ui.item.data;
-        id_arr = $(this).attr('id');
-        id = id_arr.split("_");
-        elementId = id[id.length-1];
-        $('#employee_search_'+elementId).val(ui.item.label);
-        $('#employeeid_'+elementId).val(ui.item.value);
-        return false;
-      }
-    });
-  });
-  </script>
 </body>
 </html>

@@ -59,5 +59,17 @@ class SutugController extends Controller
            $response[] = array("value"=>$dt->name,"label"=>$dt->kode);
         }
         return response()->json($response); 
-     } 
+    }
+    
+    public function update($id, Request $request) {
+        $skt = Surat::find($id);
+        $skt->perihal = $request->perihal;
+        $skt->kode = $request->kode;
+        $skt->nama = $request->nama;
+        $skt->tanggal = $request->tanggal;
+        $skt->penyelenggara = $request->penyelenggara;
+        $skt->tempat = $request->tempat;
+        $skt->save();
+        return redirect('/home');
+    }
 }

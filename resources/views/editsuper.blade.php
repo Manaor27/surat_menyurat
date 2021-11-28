@@ -50,26 +50,35 @@
       <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="POST" action="/super/simpan">
+            <form role="form" method="POST" action="/super/update/{{ $srt->id }}">
                 @csrf
+                @method('PUT')
               <div class="box-body">
+              @if($info->status='perihal kurang jelas')
                 <div class="form-group">
                   <label>Perihal</label>
-                  <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
+                  <input type="text" class="form-control" name="perihal" placeholder="Tentang" value="{{ $srt->perihal }}" required>
                 </div>
+              @else
+                <div class="form-group">
+                  <label>Perihal</label>
+                  <input type="text" class="form-control" name="perihal" placeholder="Tentang" value="{{ $srt->perihal }}" readonly>
+                </div>
+              @endif
+              @php
+                $ket = array();
+                $ket = explode(',', $srt->keterangan);
+              @endphp
                 <div class="form-group">
                     <table class="table" id="dynamicRemove">
+                    @foreach($ket as $key => $value)
                         <tr>
                             <td style="width: 850px">
                                 <label for="exampleInputPassword1">Keterangan</label></br>
-                                <textarea placeholder="Place some text here"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
-                            </td>
-                            <td>
-                                </br>
-                                <button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button>
+                                <textarea placeholder="Place some text here" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required>{{ $ket[$key] }}</textarea>
                             </td>
                         </tr>
+                    @endforeach
                     </table>
                 </div>
               <div class="box-footer">

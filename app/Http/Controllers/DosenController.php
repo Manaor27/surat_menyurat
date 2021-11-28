@@ -44,9 +44,19 @@ class DosenController extends Controller
     }
 
     public function delete($id) {
-        $srt = DB::table('surat')->where('id',$id);
+        $srt = Surat::find($id);
         $srt->delete();
         return redirect('/home');
+    }
+
+    public function edit($id,$id2) {
+        $srt = Surat::find($id);
+        $info = Informasi::find($id2);
+        if ($srt->id_jenis=='1') {
+            return view('editsuper', compact('srt','info'));
+        }elseif ($srt->id_jenis=='4') {
+            return view('editsutug', compact('srt','info'));
+        }
     }
 
     public function download($id) {

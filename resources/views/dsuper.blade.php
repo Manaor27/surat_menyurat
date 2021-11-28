@@ -136,7 +136,7 @@
             </tr>
             <tr><td>&nbsp;</td></tr>
             <tr><td><font size="3" face="Times New Roman" class="element">{{ $down->pejabat->jabatan }},</font></td></tr>
-            <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
+            <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
             <tr>
                 <td><font size="3" face="Times New Roman" class="element">
                     {{ $down->pejabat->nama }} <br>

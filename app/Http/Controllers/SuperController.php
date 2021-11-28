@@ -35,4 +35,12 @@ class SuperController extends Controller
         ]);
         return redirect("/home");
     }
+
+    public function update($id, Request $request) {
+        $skt = Surat::find($id);
+        $skt->perihal = $request->perihal;
+        $skt->keterangan = $request->keterangan;
+        $skt->save();
+        return redirect('/home');
+    }
 }

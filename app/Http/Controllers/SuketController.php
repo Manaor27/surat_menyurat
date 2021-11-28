@@ -43,7 +43,6 @@ class SuketController extends Controller
 
     public function update($id, Request $request) {
         $skt = Surat::find($id);
-        $skt->no_surat = $request->no_surat;
         $skt->perihal = $request->perihal;
         $skt->kepada = $request->kepada;
         $skt->keterangan = $request->keterangan;

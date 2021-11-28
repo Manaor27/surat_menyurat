@@ -110,7 +110,7 @@
         <br>
         <table style="text-align: left;">
             <tr><td><b>{{ $down->pejabat->jabatan }},</b></td></tr>
-            <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
+            <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
             <tr><td><b><u>({{ $down->pejabat->nama }})</u></b></td></tr>
             <tr><td><b>{{ $down->pejabat->nidn }}</b></td></tr>
         </table>

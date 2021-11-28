@@ -26,11 +26,12 @@ Route::get('/user/delete/{id}', [UserController::class, 'delete']);
 
 Route::get('/mahasiswa/simpan/{id}', [MahasiswaController::class, 'simpan']);
 Route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'delete']);
-Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit']);
+Route::get('/mahasiswa/edit/{id}/{id2}', [MahasiswaController::class, 'edit']);
 Route::get('mahasiswa/download/{id}', [MahasiswaController::class, 'download']);
 
 Route::get('/dosen/simpan/{id}', [DosenController::class, 'simpan']);
 Route::get('/dosen/delete/{id}', [DosenController::class, 'delete']);
+Route::get('/dosen/edit/{id}/{id2}', [DosenController::class, 'edit']);
 Route::get('dosen/download/{id}', [DosenController::class, 'download']);
 
 Route::get('/admin/simpan/{id}', [AdminController::class, 'simpan']);
@@ -51,6 +52,7 @@ Route::get('/getData', [SutugController::class, 'getData'])->name('getData');
 
 Route::get('/suratPersonalia', [SuperController::class, 'index']);
 Route::post('/super/simpan', [SuperController::class, 'simpan']);
+Route::put('/super/update/{id}', [SuperController::class, 'update']);
 
 Route::get('/suratBerita', [SuberController::class, 'index']);
 Route::post('/suber/simpan', [SuberController::class, 'simpan']);

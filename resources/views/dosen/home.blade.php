@@ -119,7 +119,7 @@
                         </a>
                         @endif
                       @else
-                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
+                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid.'/'.$item->inforid)}}">
                         <i class="fa fa-edit"></i> Edit
                       </a>
                       <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}">

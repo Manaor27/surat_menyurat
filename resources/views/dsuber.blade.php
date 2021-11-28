@@ -60,7 +60,7 @@
         </center>
         <table style="text-align: center;">
             <tr ><td>{{ $down->pejabat->jabatan }},</td></tr>
-            <tr ><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" /></td></tr>
+            <tr ><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
             <tr ><td>({{ $down->pejabat->nama }})</td></tr>
         </table>
     </font>
