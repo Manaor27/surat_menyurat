@@ -28,7 +28,6 @@ class MahasiswaController extends Controller
 
     public function smasuk()
     {
-        //$user = Auth::user();
         return view('mahasiswa.smasuk');
     }
 

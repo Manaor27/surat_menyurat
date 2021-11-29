@@ -47,7 +47,6 @@ class AdminController extends Controller
 
     public function smasuk()
     {
-        //$user = Auth::user();
         return view('admin.smasuk');
     }
 
@@ -95,7 +94,6 @@ class AdminController extends Controller
             $pdf = PDF::loadview('dsuket', compact('down'));
             return $pdf->download('Surat Keterangan.pdf');
         }elseif ($down->surat->id_jenis=='4') {
-            //return view('dsutug', compact('down'));
             $pdf = PDF::loadview('dsutug', compact('down'));
             return $pdf->download('Surat Tugas.pdf');
         }elseif ($down->surat->id_jenis=='1') {

@@ -29,7 +29,6 @@ class DosenController extends Controller
 
     public function smasuk()
     {
-        //$user = Auth::user();
         return view('dosen.smasuk');
     }
 
