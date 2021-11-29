@@ -16,11 +16,6 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $super = JenisSurat::find(1);
-        $sutug = JenisSurat::find(4);
-        $suket = JenisSurat::find(2);
-        $suun = JenisSurat::find(3);
-        $suber = JenisSurat::find(5);
         $count_super = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',1)->get();
         $count_sutug = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',4)->get();
         $count_suket = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',2)->get();
@@ -42,7 +37,7 @@ class AdminController extends Controller
         foreach ($count_suun as $csuun) {
             $banyak_suun = $csuun->banyak;
         }
-        return view('admin.home', compact('user','super','sutug','suun','suber','suket','banyak_super','banyak_suket','banyak_suun','banyak_sutug','banyak_suber','tab'));
+        return view('admin.home', compact('user','banyak_super','banyak_suket','banyak_suun','banyak_sutug','banyak_suber','tab'));
     }
 
     public function smasuk()

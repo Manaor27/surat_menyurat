@@ -30,7 +30,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/admin/simpan/'. $sutug->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin/simpan/4')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -42,7 +42,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/admin/simpan/'. $suket->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin/simpan/2')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -54,7 +54,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/admin/simpan/'. $super->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin/simpan/1')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -66,7 +66,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/admin/simpan/'. $suber->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin/simpan/5')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -78,7 +78,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/admin/simpan/'. $suun->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin/simpan/3')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>
