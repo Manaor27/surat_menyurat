@@ -129,15 +129,6 @@
                         <i class="fa fa-remove"></i> Hapus
                       </a>
                       @endif
-                      @else
-                      <a class="btn btn-app bg-aqua" href="#" disabled>
-                        <i class="fa fa-edit"></i> Validasi
-                      </a>
-                      @if($item->surat->user->role=='admin')
-                      <a class="btn btn-app bg-red" href="#" disabled>
-                        <i class="fa fa-remove"></i> Hapus
-                      </a>
-                      @endif
                       @endif
                     @else
                       @if($item->status!='disetujui')

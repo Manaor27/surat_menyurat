@@ -69,12 +69,46 @@
         Dengan hormat,<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $down->surat->keterangan }}
     </p>
+    @php
+        function tanggal_indo($tanggal, $cetak_hari = false){
+            $hari = array ( 1 =>    'Senin',
+                        'Selasa',
+                        'Rabu',
+                        'Kamis',
+                        'Jumat',
+                        'Sabtu',
+                        'Minggu'
+                    );
+                    
+            $bulan = array (1 =>   'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember'
+                    );
+            $split 	  = explode('-', $tanggal);
+            $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+            
+            if ($cetak_hari) {
+                $num = date('N', strtotime($tanggal));
+                return $hari[$num] . ', ' . $tgl_indo;
+            }
+            return $tgl_indo;
+        }
+    @endphp
     <table style="line-height: 20px;">
         <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>hari, tanggal</td>
             <td>&nbsp;&nbsp;</td>
-            <td>: <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?></td>
+            <td>: <?php echo tanggal_indo(date('Y-m-d', strtotime($down->surat->tanggal)), true); ?></td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;</td>
@@ -95,7 +129,7 @@
     </p>
     <br>
     <table style="text-align: center;" align="right">
-        <tr><td>Yogyakarta, <?php echo date('d F Y'); ?></td></tr>
+        <tr><td>Yogyakarta, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?></td></tr>
         <tr><td>{{ $down->pejabat->jabatan }}</td></tr>
         <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
         <tr><td><u>{{ $down->pejabat->nama }}</u></td></tr>

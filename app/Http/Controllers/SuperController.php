@@ -16,9 +16,13 @@ class SuperController extends Controller
 
     public function simpan(Request $request) {
         $ket = implode(";", $request->get('keterangan'));
+        $menimbang = implode(";", $request->get('menimbang'));
+        $mengingat = implode(";", $request->get('mengingat'));
         DB::table('surat')->insert([
             'perihal' => $request->perihal,
             'keterangan' => $ket,
+            'menimbang' => $menimbang,
+            'mengingat' => $mengingat,
             'id_user' => Auth::id(),
             'id_jenis' => '1'
         ]);

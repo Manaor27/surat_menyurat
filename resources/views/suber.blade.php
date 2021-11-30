@@ -31,6 +31,10 @@
               <input type="text" class="form-control" name="tema" placeholder="Tema" required>
             </div>
             <div class="form-group">
+              <label>Nama Mitra</label>
+              <input type="text" class="form-control" name="kepada" placeholder="Nama Mitra" required>
+            </div>
+            <div class="form-group">
               <label>Tamu Pembicara</label>
               <input type="text" class="form-control" name="pembicara" placeholder="Tamu Pembicara" required>
             </div>

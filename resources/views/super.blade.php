@@ -31,10 +31,38 @@
               <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
             </div>
             <div class="form-group">
+              <table class="table" id="dynamicRemove1">
+                <tr>
+                  <td style="width: 850px">
+                    <label for="exampleInputPassword1">Menimbang</label></br>
+                    <textarea placeholder="Isi Pertimbangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="menimbang[]" required></textarea>
+                  </td>
+                  <td>
+                    <label>&nbsp;</label>
+                    <button type="button" name="add" id="dynamic1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="form-group">
+              <table class="table" id="dynamicRemove2">
+                <tr>
+                  <td style="width: 850px">
+                    <label for="exampleInputPassword1">Mengingat</label></br>
+                    <textarea placeholder="Isi Pengingat" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="mengingat[]" required></textarea>
+                  </td>
+                  <td>
+                    <label>&nbsp;</label>
+                    <button type="button" name="add" id="dynamic2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="form-group">
               <table class="table" id="dynamicRemove">
                 <tr>
                   <td style="width: 850px">
-                    <label for="exampleInputPassword1">Keterangan</label></br>
+                    <label for="exampleInputPassword1">Penetapan</label></br>
                     <textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
                   </td>
                   <td>

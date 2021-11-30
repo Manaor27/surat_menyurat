@@ -48,101 +48,122 @@
     <br>
     <br>
     <font size="3" face="Times New Roman" class="element">
-        <p style="text-align: justify; font-size: 11pt;">
+        <p style="text-align: justify;">
             Dekan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana
         </p>
+        @php
+            $list = array('a.','b.','c.','d.','e.','f.','g.','h.','i.','j.');
+            $menimbang = array();
+            $menimbang = explode(';', $down->surat->menimbang);
+
+            $li = array('1.','2.','3.','4.','5.','6.','7.','8.','9.','10.');
+            $mengingat = array();
+            $mengingat = explode(';', $down->surat->mengingat);
+        @endphp
         <table>
             <tr>
-                <td rowspan="4" valign="top" width="100px">Menimbang </td>
-                <td rowspan="4" valign="top" width="20px"> : </td>
-                <td valign="top" width="20px"> a. </td>
-                <td style="text-align: justify;">bahwa untuk kelancaran perkuliahan dan dukungan penuh pelaksanaan penelitian dosen dan mahasiswa
-                pada fasilitas Laboratorium, dipandang perlu adanya koordinator laboratorium Fakultaas Teknologi Informasi(FTI) Universitas Kristen Duta Wacana (UKDW) Yogyakarta;</td>
+                <td rowspan="{{count($menimbang)}}" valign="top" width="100px">Menimbang </td>
+                <td rowspan="{{count($menimbang)}}" valign="top" width="20px"> : </td>
+                <td valign="top" width="20px"> {{ $list[0] }} </td>
+                <td style="text-align: justify;">{{ $menimbang[0] }};</td>
             </tr>
+            <?php for($i=1; $i<count($menimbang); $i++) {?>
             <tr>
-                <td valign="top"> b. </td>
-                <td style="text-align: justify;">bahwa tugas sebagai koordinator laboratorium adalah tugas penunjang yang meliputi
-                pengembangan laboratorium, mendukung komunitas penelitian dosen dan mahasiswa, dan pengaturan penggunaan laboratorium bagi dosen dan mahasiswa;</td>
+                <td valign="top"> {{ $list[$i] }} </td>
+                <td style="text-align: justify;">{{ $menimbang[$i] }};</td>
             </tr>
-            <tr>
-                <td valign="top"> c. </td>
-                <td style="text-align: justify;">bahwa dipandang perlu untuk meningkatkan efisiensi dan efektifitas pemanfaatan laboratorium yang dikelola oleh FTI UKDW secara bersama-sama;</td>
-            </tr>
-            <tr>
-                <td valign="top"> d. </td>
-                <td style="text-align: justify;">bahwa dipandang perlu diterbitkannya Surat Keputusan Dekan terkait pengangkatan tim koordinator untuk pengelolaan dan pengembangan laboratorium komputer yang dikelola oleh FTI UKDW.</td>
-            </tr>
+            <?php } ?>
             <tr><td colspan="4">&nbsp;</td></tr>
             <tr>
-                <td rowspan="6" valign="top">Mengingat</td>
-                <td rowspan="6" valign="top"> : </td>
-                <td valign="top"> 1. </td>
-                <td style="text-align: justify;">Undang-undang Republik Indonesia Nomor 14 Tahun 2004 tentang Guru dan Dosen.</td>
+                <td rowspan="{{count($mengingat)}}" valign="top">Mengingat</td>
+                <td rowspan="{{count($mengingat)}}" valign="top"> : </td>
+                <td valign="top"> {{ $li[0] }} </td>
+                <td style="text-align: justify;">{{ $mengingat[0] }}.</td>
             </tr>
+            <?php for($j=1; $j<count($mengingat); $j++) {?>
             <tr>
-                <td valign="top"> 2. </td>
-                <td style="text-align: justify;">Peraturan Pemerintah RI Nomor 37 Tahun 2009 tentang Dosen(lembaran Negara Republik Indonesia dan tambahan Lembaran Negara    Republik Indonesia Nomor 5007).</td>
+                <td valign="top"> {{ $li[$j] }} </td>
+                <td style="text-align: justify;">{{ $mengingat[$j] }}.</td>
             </tr>
-            <tr>
-                <td valign="top"> 3. </td>
-                <td style="text-align: justify;">Peraturan Menteri Pendayagunaan Aparatur Negara dan Reformasi Birokrasi Nomor 17 Tahun 2013 tentang Jabatan Fungsional Dosen dan Angka Kreditnya.</td>
-            </tr>
-            <tr>
-                <td valign="top"> 4. </td>
-                <td style="text-align: justify;">Statuta Universitas Kristen Duta Wacana Yogyakarta tahun 2010 dengan nomor QADW-110-SU-10.01.001 Bab 4 Pasal 33.</td>
-            </tr>
-            <tr>
-                <td valign="top"> 5. </td>
-                <td style="text-align: justify;">Kebijakan Akademik Universitas Kristen Duta Wacana Yogyakarta tahun 2008-2013.</td>
-            </tr>
-            <tr>
-                <td valign="top"> 6. </td>
-                <td style="text-align: justify;">Peraturan Akademik Universitas Kristen Duta Wacana tahun 2009-2014 Bab 3 pasal 5.</td>
-            </tr>
+            <?php } ?>
         </table>
     </font>
         <br>
     <table>
-            <tr>
-                <td colspan="3" style="text-align: center;"><b><font size="3" face="Times New Roman" class="element">MEMUTUSKAN:</b></td>
-            </tr>
-            <tr>
-                <td width="75px"><b><font size="3" face="Times New Roman" class="element">Menetapkan</b></td>
-                <td width="10px"><b><font size="3" face="Times New Roman" class="element"> : </b></td>
-                <td></td>
-            </tr>
-            @php
-                $urut = array('Pertama','Kedua','Ketiga','Keempat','Kelima','Keenam','Ketujuh','Kedelapan','Kesembilan','Kesepuluh');
-                $ket = array();
-                $ket = explode(';', $down->surat->keterangan);
-            @endphp
-            @foreach($ket as $key => $value)
-            <tr>
-                <td valign="top"><b><font size="3" face="Times New Roman" class="element">{{ $urut[$key] }}</font></b></td>
-                <td valign="top"><b><font size="3" face="Times New Roman" class="element"> : </font></b></td>
-                <td style="text-align: justify;"><font size="3" face="Times New Roman" class="element">{{ $ket[$key] }}</font></td>
-            </tr>
-            @endforeach
-            <tr><td colspan="3">&nbsp;</td></tr>
-            <tr><td colspan="3">&nbsp;</td></tr>
-            <tr><td colspan="3">&nbsp;</td></tr>
-            <tr>
-                <td rowspan="5">&nbsp;</td>
-                <td rowspan="5">&nbsp;</td>
-                <td><font size="3" face="Times New Roman" class="element">
-                    Ditetapkan di: Yogyakarta <br>
-                    Pada tanggal : <?php echo date('d F Y'); ?></font>
-                </td>
-            </tr>
-            <tr><td>&nbsp;</td></tr>
-            <tr><td><font size="3" face="Times New Roman" class="element">{{ $down->pejabat->jabatan }},</font></td></tr>
-            <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
-            <tr>
-                <td><font size="3" face="Times New Roman" class="element">
-                    {{ $down->pejabat->nama }} <br>
-                    NIK: {{ $down->pejabat->nidn }}</font>
-                </td>
-            </tr>
+        <tr>
+            <td colspan="3" style="text-align: center;"><b><font size="3" face="Times New Roman" class="element">MEMUTUSKAN:</b></td>
+        </tr>
+        <tr>
+            <td width="75px"><b><font size="3" face="Times New Roman" class="element">Menetapkan</b></td>
+            <td width="10px"><b><font size="3" face="Times New Roman" class="element"> : </b></td>
+            <td></td>
+        </tr>
+        @php
+            $urut = array('Pertama','Kedua','Ketiga','Keempat','Kelima','Keenam','Ketujuh','Kedelapan','Kesembilan','Kesepuluh');
+            $ket = array();
+            $ket = explode(';', $down->surat->keterangan);
+        @endphp
+        @foreach($ket as $key => $value)
+        <tr>
+            <td valign="top"><b><font size="3" face="Times New Roman" class="element">{{ $urut[$key] }}</font></b></td>
+            <td valign="top"><b><font size="3" face="Times New Roman" class="element"> : </font></b></td>
+            <td style="text-align: justify;"><font size="3" face="Times New Roman" class="element">{{ $ket[$key] }}.</font></td>
+        </tr>
+        @endforeach
+        <tr><td colspan="3">&nbsp;</td></tr>
+        <tr><td colspan="3">&nbsp;</td></tr>
+        <tr><td colspan="3">&nbsp;</td></tr>
+        @php
+            function tanggal_indo($tanggal, $cetak_hari = false){
+                $hari = array ( 1 =>    'Senin',
+                            'Selasa',
+                            'Rabu',
+                            'Kamis',
+                            'Jumat',
+                            'Sabtu',
+                            'Minggu'
+                        );
+                        
+                $bulan = array (1 =>   'Januari',
+                            'Februari',
+                            'Maret',
+                            'April',
+                            'Mei',
+                            'Juni',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember'
+                        );
+                $split 	  = explode('-', $tanggal);
+                $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+                
+                if ($cetak_hari) {
+                    $num = date('N', strtotime($tanggal));
+                    return $hari[$num] . ', ' . $tgl_indo;
+                }
+                return $tgl_indo;
+            }
+        @endphp
+        <tr>
+            <td rowspan="5">&nbsp;</td>
+            <td rowspan="5">&nbsp;</td>
+            <td><font size="3" face="Times New Roman" class="element">
+                Ditetapkan di: Yogyakarta <br>
+                Pada tanggal : <?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?></font>
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr><td><font size="3" face="Times New Roman" class="element">{{ $down->pejabat->jabatan }},</font></td></tr>
+        <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
+        <tr>
+            <td><font size="3" face="Times New Roman" class="element">
+                {{ $down->pejabat->nama }} <br>
+                NIK: {{ $down->pejabat->nidn }}</font>
+            </td>
+        </tr>
     </table>
 </body>
 

@@ -17,6 +17,7 @@ class SuberController extends Controller
     public function simpan(Request $request) {
         Surat::create([
             'perihal' => $request->tema,
+            'kepada' => $request->kepada,
             'tanggal' => $request->tanggal,
             'target' => $request->target,
             'tamu' => $request->pembicara,

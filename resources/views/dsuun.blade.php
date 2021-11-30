@@ -31,8 +31,42 @@
             <td colspan="2"><hr></td>
         </tr>
     </table>
+    @php
+        function tanggal_indo($tanggal, $cetak_hari = false){
+            $hari = array ( 1 =>    'Senin',
+                        'Selasa',
+                        'Rabu',
+                        'Kamis',
+                        'Jumat',
+                        'Sabtu',
+                        'Minggu'
+                    );
+                    
+            $bulan = array (1 =>   'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember'
+                    );
+            $split 	  = explode('-', $tanggal);
+            $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+            
+            if ($cetak_hari) {
+                $num = date('N', strtotime($tanggal));
+                return $hari[$num] . ', ' . $tgl_indo;
+            }
+            return $tgl_indo;
+        }
+    @endphp
     <p style="text-align: right;">
-        Yogyakarta, <?php echo date('d F Y'); ?>
+        Yogyakarta, <?php tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?>
     </p>
     <table>
         <tr>
@@ -61,7 +95,7 @@
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>hari, tanggal</td>
             <td>&nbsp;&nbsp;</td>
-            <td>: <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?></td>
+            <td>: <?php echo tanggal_indo(date('Y-m-d', strtotime($down->surat->tanggal)), true); ?></td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;</td>

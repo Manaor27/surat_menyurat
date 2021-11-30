@@ -18,6 +18,8 @@ class CreateSuratTable extends Migration
             $table->string('perihal');
             $table->string('kepada')->nullable();
             $table->text('keterangan')->nullable();
+            $table->text('menimbang')->nullable();
+            $table->text('mengingat')->nullable();
             $table->date('tanggal')->nullable();
             $table->time('waktu')->nullable();
             $table->string('tempat')->nullable();

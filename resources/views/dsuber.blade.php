@@ -42,9 +42,43 @@
     <br>
     <br>
     <br>
+    @php
+        function tanggal_indo($tanggal, $cetak_hari = false){
+            $hari = array ( 1 =>    'Senin',
+                        'Selasa',
+                        'Rabu',
+                        'Kamis',
+                        'Jumat',
+                        'Sabtu',
+                        'Minggu'
+                    );
+                    
+            $bulan = array (1 =>   'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember'
+                    );
+            $split 	  = explode('-', $tanggal);
+            $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+            
+            if ($cetak_hari) {
+                $num = date('N', strtotime($tanggal));
+                return $hari[$num] . ', ' . $tgl_indo;
+            }
+            return $tgl_indo;
+        }
+    @endphp
     <font size="3" face="Times New Roman" class="element">
         <p style="text-align: justify;">
-            Pada hari ini: {{ $down->surat->tanggal }} bertempat di {{ $down->surat->tempat }} telah dilangsungkan Kuliah Umum dengan tema: <i>"{{ $down->surat->perihal }}"</i> dengan mengundang pembicara yaitu {{ $down->surat->tamu }}. Acara ini diikuti oleh {{ $down->surat->target }}.
+            Pada hari ini: {{ tanggal_indo($down->surat->tanggal,true) }} bertempat di {{ $down->surat->tempat }} telah dilangsungkan Kuliah Umum dengan tema: <i>"{{ $down->surat->perihal }}"</i> dengan mengundang pembicara yaitu {{ $down->surat->tamu }}. Acara ini diikuti oleh {{ $down->surat->target }}.
         </p>
         <p style="text-align: justify;">
             Adapun TOR acara, daftar kehadiran peserta, foto kegiatan seperti terlampir pada berita acara ini.
@@ -54,14 +88,26 @@
         </p>
         <br>
         <center>
-            Yogyakarta, <?php echo date('d F Y', strtotime($down->surat->tanggal)); ?>
+            Yogyakarta, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?>
             <br>
             Mengetahui
         </center>
         <table style="text-align: center;">
-            <tr ><td>{{ $down->pejabat->jabatan }},</td></tr>
-            <tr ><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
-            <tr ><td>({{ $down->pejabat->nama }})</td></tr>
+            <tr>
+                <td>{{ $down->pejabat->jabatan }},</td>
+                <td width="350px">&nbsp;</td>
+                <td>Perwakilan<br>{{ $down->surat->kepada }},</td>
+            </tr>
+            <tr>
+                <td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>({{ $down->pejabat->nama }})</td>
+                <td>&nbsp;</td>
+                <td>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td>
+            </tr>
         </table>
     </font>
 </body>

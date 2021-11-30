@@ -224,6 +224,14 @@
           $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
               );
       });
+      $("#dynamic1").click(function () {
+          $("#dynamicRemove1").append('<tr><td style="width: 850px"></br><textarea placeholder="Isi Pertimbangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="menimbang[]" required></textarea></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
+              );
+      });
+      $("#dynamic2").click(function () {
+          $("#dynamicRemove2").append('<tr><td style="width: 850px"></br><textarea placeholder="Isi Pengingat" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="mengingat[]" required></textarea></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
+              );
+      });
       $(document).on('click', '.remove-field', function () {
           $(this).parents('tr').remove();
       });
