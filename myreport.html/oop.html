@@ -50,47 +50,48 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-11-29 11:20:12        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2021-11-30 07:44:33        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
+
+
     <div class="row">
         <div class="column">
             <div class="bloc bloc-number">
-                <div class="label">Average weighted method count by class <small>(CC)</small></div>
+                <div class="label">classes </div>
                 <div class="number">
-                    3.14                </div>
-                            </div>
+                    56                    <small> (100 %)</small>
+                </div>
+            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
-                <div class="label">Average cyclomatic complexity by class</div>
-                <div class="number">
-                    2.32                </div>
-                            </div>
+                <div class="label">interfaces </div>
+                <div class="number">0                    <small> (0 %)</small>
+                </div>
+            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
-                <div class="label">Average relative System complexity</div>
-                <div class="number">
-                    32.5                </div>
-                            </div>
+                <div class="label">average LCOM </div>
+                <div class="number">1.77</div>
+            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
-                <div class="label">Average bugs by class<small>(Halstead)</small></div>
-                <div class="number">
-                    0.05                </div>
-                            </div>
+                <div class="label">logical lines of code by class</div>
+                <div class="number">19</div>
+            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
-                <div class="label">average defects by class <small>(Kan)</small></div>
-                <div class="number">
-                    0.24                </div>
-                            </div>
+                <div class="label">logical lines of code by method</div>
+                <div class="number">11</div>
+            </div>
         </div>
     </div>
+
 
     <div class="row">
         <div class="column">
@@ -99,21 +100,23 @@
                     <thead>
                     <tr>
                         <th>Class</th>
-                        <th class="js-sort-number">WMC</th>
+                        <th class="js-sort-number">LCOM</th>
+                        <th class="js-sort-number">Volume</th>
                         <th class="js-sort-number">Class cycl.</th>
                         <th class="js-sort-number">Max method cycl.</th>
-                        <th class="js-sort-number">Relative data complexity</th>
-                        <th class="js-sort-number">Relative structural complexity</th>
                         <th class="js-sort-number">Bugs</th>
-                        <th class="js-sort-number">Defects</th>
-                        <th class="js-sort-number">Relative system complexity</th>
+                        <th class="js-sort-number">Difficulty</th>
                     </tr>
                     </thead>
                                             <tr>
                             <td><span class="path">App\Console\Kernel</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    15.51                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -121,18 +124,6 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1.25                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    0.25                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -140,15 +131,19 @@
                                     0.01                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.5                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Exceptions\Handler</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    11.61                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -156,18 +151,6 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -176,14 +159,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\AdminController</span></td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    22                                    </span>
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.66);");">
+                                    1128                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.74);");">
@@ -194,31 +181,23 @@
                                     6                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    170.21                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    0.38                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.72);");">
-                                    1.21                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
+                                    4.57                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    169                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.42);");">
-                                    0.42                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    1.44                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Auth\ConfirmPasswordController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    2                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -229,26 +208,14 @@
                                     1                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Auth\ForgotPasswordController</span></td>
                                                             <td>
@@ -257,6 +224,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -271,24 +242,16 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Auth\LoginController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    4.75                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -297,18 +260,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -316,14 +267,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Auth\RegisterController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.5);");">
                                     4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
+                                    259.15                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -332,28 +287,16 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
-                                    16.7                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.42);");">
-                                    0.7                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    16                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
                                     0.09                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    1.4                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Auth\ResetPasswordController</span></td>
                                                             <td>
@@ -362,6 +305,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -376,24 +323,16 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Auth\VerificationController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    23.26                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -402,18 +341,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
@@ -421,9 +348,9 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\Controller</span></td>
                                                             <td>
@@ -432,6 +359,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -446,24 +377,16 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\DosenController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.59);");">
-                                    13                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.75);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.39);");">
+                                    677.66                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.37);");">
@@ -474,31 +397,23 @@
                                     3                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    169.77                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.46);");">
-                                    0.77                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    169                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.23);");">
                                     0.23                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.34);");">
-                                    0.59                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.26);");">
+                                    4.14                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\HomeController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.41);");">
-                                    9                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.5);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    176                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.26);");">
@@ -509,31 +424,23 @@
                                     4                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    26.38                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.83);");">
-                                    1.38                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
                                     0.06                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.27);");">
-                                    0.5                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    4                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\MahasiswaController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.55);");">
-                                    12                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.75);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.36);");">
+                                    627.83                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.32);");">
@@ -544,31 +451,23 @@
                                     3                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    169.77                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.46);");">
-                                    0.77                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    169                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.21);");">
                                     0.21                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.16);");">
-                                    0.36                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.26);");">
+                                    4.15                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\SuberController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
-                                    3                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    171.82                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -577,33 +476,25 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
                                     2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
-                                    49.31                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
-                                    0.31                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
-                                    49                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
                                     0.06                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    0.38                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    1.43                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\SuketController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    4                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.2);");">
+                                    348.39                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -612,33 +503,25 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
                                     2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
-                                    64.44                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.26);");">
-                                    0.44                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
-                                    64                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
                                     0.12                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    0.38                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    2.07                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\SuperController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    4                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
+                                    236.84                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -649,31 +532,23 @@
                                     2                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.48);");">
-                                    81.4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.24);");">
-                                    0.4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.48);");">
-                                    81                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
                                     0.08                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    0.38                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    1.83                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\SutugController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.64);");">
-                                    14                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.5);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.54);");">
+                                    927.1                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.53);");">
@@ -684,31 +559,23 @@
                                     10                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.85);");">
-                                    144.38                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.23);");">
-                                    0.38                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.85);");">
-                                    144                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.31);");">
                                     0.31                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.41);");">
-                                    0.68                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.68);");">
+                                    10.84                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\SuunController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
-                                    3                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    183.32                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -717,33 +584,25 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
                                     2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
-                                    49.31                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
-                                    0.31                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
-                                    49                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
                                     0.06                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    0.38                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    1.46                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\TerkirimController</span></td>
                                                             <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    22                                    </span>
+                                    1721.38                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
@@ -752,33 +611,25 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
                                     20                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
-                                    49.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
-                                    0.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
-                                    49                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.57);");">
                                     0.57                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
-                                    0.57                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    15.87                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Controllers\UserController</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.36);");">
-                                    8                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.88);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
+                                    565                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -789,26 +640,14 @@
                                     2                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
-                                    37.12                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
-                                    1.12                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.21);");">
-                                    36                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
                                     0.19                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    0.22                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.42);");">
+                                    6.64                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Kernel</span></td>
                                                             <td>
@@ -816,20 +655,12 @@
                                     0                                    </span>
                                 </td>
                                                             <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    58.6                                    </span>
+                                </td>
+                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -841,14 +672,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\AdminMiddleware</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    2                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    28.07                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -857,33 +692,25 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
                                     2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
-                                    5.33                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.8);");">
-                                    1.33                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     0.01                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    0.22                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
+                                    2.25                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\Authenticate</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    2                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    10                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -892,33 +719,25 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
                                     2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.6);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    0.22                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    1.5                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\DosenMiddleware</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    2                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    28.07                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -929,26 +748,14 @@
                                     2                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
-                                    5.33                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.8);");">
-                                    1.33                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     0.01                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    0.22                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
+                                    2.25                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\EncryptCookies</span></td>
                                                             <td>
@@ -957,6 +764,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -971,24 +782,16 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\MahasiswaMiddleware</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    2                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    28.07                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -999,28 +802,20 @@
                                     2                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
-                                    5.33                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.8);");">
-                                    1.33                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     0.01                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    0.22                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
+                                    2.25                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\PreventRequestsDuringMaintenance</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
@@ -1041,24 +836,16 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\RedirectIfAuthenticated</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
-                                    4                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    42.11                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.16);");">
@@ -1069,26 +856,14 @@
                                     4                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
-                                    5.67                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    1.67                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     0.01                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.23);");">
-                                    0.45                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.26);");">
+                                    4.13                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\TrimStrings</span></td>
                                                             <td>
@@ -1097,6 +872,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    4.75                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1111,24 +890,16 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\TrustHosts</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    2                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1136,18 +907,6 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
-                                    0.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1155,10 +914,10 @@
                                     0                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.5                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\TrustProxies</span></td>
                                                             <td>
@@ -1167,6 +926,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1181,19 +944,7 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Http\Middleware\VerifyCsrfToken</span></td>
                                                             <td>
@@ -1202,6 +953,10 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1216,164 +971,124 @@
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Models\Informasi</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    2                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.6);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    0.01                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
-                                            <tr>
-                            <td><span class="path">App\Models\JenisSurat</span></td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
-                                    0.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
-                                            <tr>
-                            <td><span class="path">App\Models\Pejabat</span></td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
-                                    0.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    0.01                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
-                                            <tr>
-                            <td><span class="path">App\Models\Surat</span></td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
-                                    3                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
-                                    5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.6);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
+                                    36                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    0.01                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.71                                    </span>
+                                </td>
+                                                    </tr>
+                                            <tr>
+                            <td><span class="path">App\Models\JenisSurat</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    11.61                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.5                                    </span>
+                                </td>
+                                                    </tr>
+                                            <tr>
+                            <td><span class="path">App\Models\Pejabat</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    24                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    0.01                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.5                                    </span>
+                                </td>
+                                                    </tr>
+                                            <tr>
+                            <td><span class="path">App\Models\Surat</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    94.01                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
                                     0.03                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.63                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Models\User</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    46.6                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1381,18 +1096,6 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
-                                    0.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1400,18 +1103,22 @@
                                     0.02                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.55                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Providers\AppServiceProvider</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1419,50 +1126,18 @@
                                     1                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Providers\AuthServiceProvider</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1471,33 +1146,25 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    1                                    </span>
                                 </td>
-                                                                                </tr>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Providers\BroadcastServiceProvider</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1506,49 +1173,57 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    1                                    </span>
                                 </td>
-                                                                                </tr>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Providers\EventServiceProvider</span></td>
                                                             <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
-                                </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">App\Providers\RouteServiceProvider</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
-                                    3                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    50.72                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
@@ -1559,31 +1234,23 @@
                                     2                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.71);");">
-                                    121.08                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    0.08                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.72);");">
-                                    121                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
                                     0.02                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    0.94                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">Database\Factories\UserFactory</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    49.83                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1594,31 +1261,23 @@
                                     1                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
-                                    0.5                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
                                     0.02                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.67                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreateUsersTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    63.4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1627,18 +1286,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
-                                    64                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
-                                    64                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
@@ -1646,14 +1293,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreatePasswordResetsTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    20.9                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1662,18 +1313,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
@@ -1681,14 +1320,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreateFailedJobsTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    48                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1699,31 +1342,23 @@
                                     1                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
-                                    64                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
-                                    64                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
                                     0.02                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreatePersonalAccessTokensTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    48                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1732,18 +1367,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.48);");">
-                                    81                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.48);");">
-                                    81                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
@@ -1751,14 +1374,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreateJenisTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    11.09                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1769,31 +1396,23 @@
                                     1                                    </span>
                                 </td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    16                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    16                                    </span>
-                                </td>
-                                                            <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
                                     0                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreateSuratTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    174.17                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1802,18 +1421,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.99);");">
-                                    169                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
-                                    169                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
@@ -1821,14 +1428,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreatePejabatTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    36.5                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1837,18 +1448,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
-                                    25                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
@@ -1856,14 +1455,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">CreateInformasiTable</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
                                     2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    86.49                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1872,18 +1475,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.71);");">
-                                    121                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.72);");">
-                                    121                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
@@ -1891,33 +1482,13 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">Database\Seeders\DatabaseSeeder</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
-                                    1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
                                 </td>
                                                             <td>
@@ -1926,14 +1497,30 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    1                                    </span>
                                 </td>
-                                                                                </tr>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">Database\Seeders\EmployeeSeeder</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    19.65                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1942,18 +1529,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
@@ -1961,14 +1536,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">Database\Seeders\JenisSeeder</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    42.11                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -1977,18 +1556,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
@@ -1996,14 +1563,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">Database\Seeders\PejabatSeeder</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    28.53                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -2012,18 +1583,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
-                                    4                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
@@ -2031,14 +1590,18 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                             <tr>
                             <td><span class="path">Database\Seeders\UserSeeder</span></td>
                                                             <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
                                     1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    378.33                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
@@ -2047,18 +1610,6 @@
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
                                     1                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    16                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0                                    </span>
-                                </td>
-                                                            <td>
-                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
-                                    16                                    </span>
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
@@ -2066,9 +1617,9 @@
                                 </td>
                                                             <td>
                                     <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
-                                    0.15                                    </span>
+                                    0                                    </span>
                                 </td>
-                                                                                </tr>
+                                                    </tr>
                                     </table>
             </div>
         </div>
