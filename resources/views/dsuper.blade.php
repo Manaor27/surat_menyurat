@@ -47,7 +47,7 @@
     </center>
     <br>
     <br>
-    <font size="1" face="Times New Roman" class="element">
+    <font size="3" face="Times New Roman" class="element">
         <p style="text-align: justify; font-size: 11pt;">
             Dekan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana
         </p>
@@ -112,9 +112,9 @@
                 <td></td>
             </tr>
             @php
-                $urut = array("Pertama","Kedua","Ketiga","Keempat","Kelima","Keenam","Ketujuh","Kedelapan","Kesembilan","Kesepuluh");
+                $urut = array('Pertama','Kedua','Ketiga','Keempat','Kelima','Keenam','Ketujuh','Kedelapan','Kesembilan','Kesepuluh');
                 $ket = array();
-                $ket = explode(',', $down->surat->keterangan);
+                $ket = explode(';', $down->surat->keterangan);
             @endphp
             @foreach($ket as $key => $value)
             <tr>

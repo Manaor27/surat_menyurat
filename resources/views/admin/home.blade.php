@@ -156,14 +156,6 @@
                         <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                           <i class="fa fa-eye"></i> Pratinjau
                         </a>
-                        <a class="btn btn-app bg-aqua" href="#" disabled>
-                          <i class="fa fa-edit"></i> Validasi
-                        </a>
-                        @if($item->surat->user->role=='admin')
-                        <a class="btn btn-app bg-red" href="#" disabled>
-                          <i class="fa fa-remove"></i> Hapus
-                        </a>
-                        @endif
                         <a class="btn btn-app bg-grey no-print" href="{{url('/admin/download/'. $item->id)}}">
                           <i class="fa fa-download"></i> Unduh
                         </a>

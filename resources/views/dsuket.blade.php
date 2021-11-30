@@ -69,9 +69,9 @@
         Dengan hormat,<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $down->surat->keterangan }}
     </p>
-    <table style="line-height: 20px;" align="center">
+    <table style="line-height: 20px;">
         <tr>
-            <td>&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>hari, tanggal</td>
             <td>&nbsp;&nbsp;</td>
             <td>: <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?></td>
