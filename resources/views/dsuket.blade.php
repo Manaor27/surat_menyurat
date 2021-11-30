@@ -69,30 +69,26 @@
         Dengan hormat,<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $down->surat->keterangan }}
     </p>
-    <div class="row">
-        <div class="col-1">
-
-        </div>
-        <div class="col-4">
-            <table style="line-height: 20px;" align="center">
-                <tr>
-                    <td>hari, tanggal</td>
-                    <td>&nbsp;&nbsp;</td>
-                    <td>: <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?></td>
-                </tr>
-                <tr>
-                    <td>waktu</td>
-                    <td>&nbsp;&nbsp;</td>
-                    <td>: <?php echo date('H:i', strtotime($down->surat->waktu)); ?></td>
-                </tr>
-                <tr>
-                    <td>tempat</td>
-                    <td>&nbsp;&nbsp;</td>
-                    <td>: {{ $down->surat->tempat }}</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+    <table style="line-height: 20px;" align="center">
+        <tr>
+            <td>&nbsp;&nbsp;</td>
+            <td>hari, tanggal</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>: <?php echo date('l, d F Y', strtotime($down->surat->tanggal)); ?></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;</td>
+            <td>waktu</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>: <?php echo date('H:i', strtotime($down->surat->waktu)); ?></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;</td>
+            <td>tempat</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>: {{ $down->surat->tempat }}</td>
+        </tr>
+    </table>
     <br>
     <p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian surat keterangan dari kami. Atas perhatian dan kebijaksanaan Ibu/Bapak, kami mengucapkan terima kasih.

@@ -120,6 +120,7 @@
                       <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                         <i class="fa fa-eye"></i> Pratinjau
                       </a>
+                      @if($item->status!='disetujui')
                       <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
                         <i class="fa fa-edit"></i> Validasi
                       </a>
@@ -127,6 +128,16 @@
                       <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
                         <i class="fa fa-remove"></i> Hapus
                       </a>
+                      @endif
+                      @else
+                      <a class="btn btn-app bg-aqua" href="#" disabled>
+                        <i class="fa fa-edit"></i> Validasi
+                      </a>
+                      @if($item->surat->user->role=='admin')
+                      <a class="btn btn-app bg-red" href="#" disabled>
+                        <i class="fa fa-remove"></i> Hapus
+                      </a>
+                      @endif
                       @endif
                     @else
                       @if($item->status!='disetujui')

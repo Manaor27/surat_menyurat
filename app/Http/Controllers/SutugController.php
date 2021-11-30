@@ -53,6 +53,10 @@ class SutugController extends Controller
             $data = User::orderby('kode','asc')->select('kode','name')->where('role','dosen')->limit(5)->get();
         }elseif($search != '' && Auth::user()->role=='dosen'){
             $data = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->where('role','dosen')->limit(5)->get();
+        }elseif ($search == '' && Auth::user()->role=='admin') {
+            $data = User::orderby('kode','asc')->select('kode','name')->limit(5)->get();
+        }elseif ($search != '' && Auth::user()->role=='admin') {
+            $data = User::orderby('kode','asc')->select('kode','name')->where('kode', 'like', '%' .$search . '%')->limit(5)->get();
         }
         $response = array();
         foreach($data as $dt){
