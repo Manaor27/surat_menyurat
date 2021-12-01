@@ -32,6 +32,7 @@
             </td>
         </tr>
     </table>
+    @if($down->surat->kepada!=null)
     <br>
     <center>
         <b><font size="4" face="Times New Roman">SURAT KEPUTUSAN DEKAN</font></b><br>
@@ -165,6 +166,85 @@
             </td>
         </tr>
     </table>
+    @else
+    @php
+        function tanggal_indo($tanggal, $cetak_hari = false){
+            $hari = array ( 1 =>    'Senin',
+                        'Selasa',
+                        'Rabu',
+                        'Kamis',
+                        'Jumat',
+                        'Sabtu',
+                        'Minggu'
+                    );
+                    
+            $bulan = array (1 =>   'Januari',
+                        'Februari',
+                        'Maret',
+                        'April',
+                        'Mei',
+                        'Juni',
+                        'Juli',
+                        'Agustus',
+                        'September',
+                        'Oktober',
+                        'November',
+                        'Desember'
+                    );
+            $split 	  = explode('-', $tanggal);
+            $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+                
+            if ($cetak_hari) {
+                $num = date('N', strtotime($tanggal));
+                return $hari[$num] . ', ' . $tgl_indo;
+            }
+            return $tgl_indo;
+        }
+    @endphp
+    <table>
+        <tr>
+            <td>Nomor</td>
+            <td> : </td>
+            <td width="200px">{{ $down->no_surat }}</td>
+            <td style="text-align: right;"><?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?></td>
+        </tr>
+        <tr>
+            <td>Hal</td>
+            <td> : </td>
+            <td>{{ $down->surat->perihal }}</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Lamp.</td>
+            <td> : </td>
+            <td>1 Lembar</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table>
+        <tr><td><b>Kepada Yth.:</b></td></tr>
+        <tr><td><b>{{ $down->surat->kepada }}</b></td></tr>
+        <tr><td><b>Universitas Kristen Duta Wacana</b></td></tr>
+        <tr><td><b>Yogyakarta</b></td></tr>
+    </table>
+    <br>
+    <table>
+        <tr><td>Salam sejahtera,</td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr><td>{{ $down->surat->keterangan }}</td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr><td>Demikian surat ini kami sampaikan. Atas perhatian dan kerjasama yang diberikan kami mengucapkan terima kasih.</td></tr>
+    </table>
+    <br>
+    <table>
+        <tr><td><b>{{ $down->pejabat->jabatan }},</b></td></tr>
+        <tr><td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td></tr>
+        <tr><td><b><u>{{ $down->pejabat->nama }}</u></b></td></tr>
+        <tr><td><b>NIK : {{ $down->nidn }}</b></td></tr>
+    </table>
+    @endif
 </body>
 
 </html>

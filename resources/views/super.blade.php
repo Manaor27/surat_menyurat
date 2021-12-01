@@ -25,12 +25,19 @@
       <div class="box box-primary">
         <form role="form" method="POST" action="/super/simpan">
           @csrf
-          <div class="box-body">
+          <div class="box-body" id="super">
+            <div class="form-group">
+              <label>Jenis Surat</label>
+              <select name="jenis" id="jenis" class="form-control">
+                <option value="1">Surat Keputusan</option>
+                <option value="2">Surat Personalia</option>
+              </select>
+            </div>
             <div class="form-group">
               <label>Perihal</label>
               <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
             </div>
-            <div class="form-group">
+            <div class="form-group project">
               <table class="table" id="dynamicRemove1">
                 <tr>
                   <td style="width: 850px">
@@ -44,7 +51,7 @@
                 </tr>
               </table>
             </div>
-            <div class="form-group">
+            <div class="form-group project">
               <table class="table" id="dynamicRemove2">
                 <tr>
                   <td style="width: 850px">
@@ -58,7 +65,7 @@
                 </tr>
               </table>
             </div>
-            <div class="form-group">
+            <div class="form-group project">
               <table class="table" id="dynamicRemove">
                 <tr>
                   <td style="width: 850px">
@@ -72,9 +79,9 @@
                 </tr>
               </table>
             </div>
-            <div class="box-footer">
-              <button type="submit" class="btn btn-primary">Kirim</button>
-            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Kirim</button>
           </div>
         </form>
       </div>

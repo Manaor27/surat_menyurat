@@ -48,7 +48,7 @@
               <input type="text" class="form-control" name="kepada" placeholder="Kepada" required>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Keterangan</label>
+              <label>Keterangan</label>
               <textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea>
             </div>
             <div class="form-group">
