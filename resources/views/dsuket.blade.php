@@ -67,7 +67,7 @@
     <br>
     <p style="line-height: 20px;">
         Dengan hormat,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $down->surat->keterangan }}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $down->surat->keterangan; ?>
     </p>
     @php
         function tanggal_indo($tanggal, $cetak_hari = false){

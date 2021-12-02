@@ -41,8 +41,9 @@
               <table class="table" id="dynamicRemove1">
                 <tr>
                   <td style="width: 850px">
-                    <label for="exampleInputPassword1">Menimbang</label></br>
-                    <textarea placeholder="Isi Pertimbangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="menimbang[]" required></textarea>
+                    <label>Menimbang</label></br>
+                    <input id="menimbang" type="hidden" name="menimbang[]">
+                    <trix-editor input="menimbang"></trix-editor>
                   </td>
                   <td>
                     <label>&nbsp;</label>
@@ -55,8 +56,9 @@
               <table class="table" id="dynamicRemove2">
                 <tr>
                   <td style="width: 850px">
-                    <label for="exampleInputPassword1">Mengingat</label></br>
-                    <textarea placeholder="Isi Pengingat" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="mengingat[]" required></textarea>
+                    <label>Mengingat</label></br>
+                    <input id="mengingat" type="hidden" name="mengingat[]">
+                    <trix-editor input="mengingat"></trix-editor>
                   </td>
                   <td>
                     <label>&nbsp;</label>
@@ -69,8 +71,9 @@
               <table class="table" id="dynamicRemove">
                 <tr>
                   <td style="width: 850px">
-                    <label for="exampleInputPassword1">Penetapan</label></br>
-                    <textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea>
+                    <label>Penetapan</label></br>
+                    <input id="keterangan" type="hidden" name="keterangan[]">
+                    <trix-editor input="keterangan"></trix-editor>
                   </td>
                   <td>
                     <label>&nbsp;</label>

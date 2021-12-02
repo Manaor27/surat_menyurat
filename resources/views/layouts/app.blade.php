@@ -42,14 +42,21 @@
         var valueSelected = this.value;
         if(valueSelected == 1){
           $('.project').remove();
-          $("#super").append('<div class="form-group project"><table class="table" id="dynamicRemove1"><tr><td style="width: 850px"><label for="exampleInputPassword1">Menimbang</label></br><textarea placeholder="Isi Pertimbangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="menimbang[]" required></textarea></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove2"><tr><td style="width: 850px"><label for="exampleInputPassword1">Mengingat</label></br><textarea placeholder="Isi Pengingat" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="mengingat[]" required></textarea></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove"><tr><td style="width: 850px"><label for="exampleInputPassword1">Penetapan</label></br><textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button></td></tr></table></div>');
+          $("#super").append('<div class="form-group project"><table class="table" id="dynamicRemove1"><tr><td style="width: 850px"><label for="exampleInputPassword1">Menimbang</label></br><input id="menimbang" type="hidden" name="menimbang[]"><trix-editor input="menimbang"></trix-editor></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove2"><tr><td style="width: 850px"><label for="exampleInputPassword1">Mengingat</label></br><input id="mengingat" type="hidden" name="mengingat[]"><trix-editor input="mengingat"></trix-editor></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove"><tr><td style="width: 850px"><label>Penetapan</label></br><input id="keterangan" type="hidden" name="keterangan[]"><trix-editor input="keterangan"></trix-editor></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button></td></tr></table></div>');
         }else{
           $('.project').remove();
-          $("#super").append('<div class="form-group project"><label>Kepada</label><input type="text" class="form-control" name="Kepada" placeholder="Kepada" required></div><div class="form-group project"><label>Keterangan</label><textarea placeholder="Melalui surat ini......." class="textarea" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea></div>');
+          $("#super").append('<div class="form-group project"><label>Kepada</label><input type="text" class="form-control" name="kepada" placeholder="Kepada" required></div><div class="form-group project"><label>Keterangan</label><input id="keterangan" type="hidden" name="keterangan"><trix-editor input="keterangan"></trix-editor></div>');
         }
       });
     });
   </script>
+  <link rel="stylesheet" type="text/css" href="trix.css">
+  <script type="text/javascript" src="trix.js"></script>
+  <style>
+    trix-toolbar [data-trix-button-group="file-tools"] {
+      display: none;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -222,6 +229,9 @@
   <script src="{{ asset('style/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
   <!-- page script -->
   <script>
+    document.addEventListener('trix-file-accept', function(e)) {
+      e.preventDefault();
+    })
     $(function () {
       $('.select2').select2()
       $('#example1').DataTable()
@@ -237,16 +247,13 @@
   </script>
   <script type="text/javascript">
       $("#dynamic").click(function () {
-          $("#dynamicRemove").append('<tr><td style="width: 850px"></br><textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan[]" required></textarea></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
-              );
+          $("#dynamicRemove").append('<tr><td style="width: 850px"><input id="keterangan" type="hidden" name="keterangan[]"><trix-editor input="keterangan"></trix-editor></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>');
       });
       $("#dynamic1").click(function () {
-          $("#dynamicRemove1").append('<tr><td style="width: 850px"></br><textarea placeholder="Isi Pertimbangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="menimbang[]" required></textarea></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
-              );
+          $("#dynamicRemove1").append('<tr><td style="width: 850px"><input id="menimbang" type="hidden" name="menimbang[]"><trix-editor input="menimbang"></trix-editor></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>');
       });
       $("#dynamic2").click(function () {
-          $("#dynamicRemove2").append('<tr><td style="width: 850px"></br><textarea placeholder="Isi Pengingat" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="mengingat[]" required></textarea></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>'
-              );
+          $("#dynamicRemove2").append('<tr><td style="width: 850px"><input id="mengingat" type="hidden" name="mengingat[]"><trix-editor input="mengingat"></trix-editor></td><td><label>&nbsp;</label><button type="button" class="btn btn-danger remove-field">[X]Delete</button></td></tr>');
       });
       $(document).on('click', '.remove-field', function () {
           $(this).parents('tr').remove();

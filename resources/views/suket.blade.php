@@ -49,7 +49,8 @@
             </div>
             <div class="form-group">
               <label>Keterangan</label>
-              <textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea>
+              <input id="keterangan" type="hidden" name="keterangan">
+              <trix-editor input="keterangan"></trix-editor>
             </div>
             <div class="form-group">
               <label>Tanggal</label>

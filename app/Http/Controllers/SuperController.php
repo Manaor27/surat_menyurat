@@ -17,10 +17,10 @@ class SuperController extends Controller
     }
 
     public function simpan(Request $request) {
-        $ket = implode(";", $request->get('keterangan'));
-        $menimbang = implode(";", $request->get('menimbang'));
-        $mengingat = implode(";", $request->get('mengingat'));
         if ($request->jenis==1) {
+            $ket = implode(";", $request->get('keterangan'));
+            $menimbang = implode(";", $request->get('menimbang'));
+            $mengingat = implode(";", $request->get('mengingat'));
             DB::table('surat')->insert([
                 'perihal' => $request->perihal,
                 'keterangan' => $ket,
