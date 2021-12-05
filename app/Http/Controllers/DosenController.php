@@ -29,7 +29,23 @@ class DosenController extends Controller
 
     public function simpan($id){
         if ($id=='2') {
-            return redirect("/suratKeterangan");
+            Surat::create([
+                'perihal' => 'Surat Keterangan Aktif',
+                'id_user' => Auth::user()->id,
+                'id_jenis' => '2'
+            ]);
+            $surat = DB::table('surat')->orderBy('id','desc')->limit('1')->get();
+            foreach ($surat as $srt) {
+                $id_srt = $srt->id;
+            }
+            Informasi::create([
+                'no_surat' => null,
+                'status' => 'disetujui',
+                'tanggal' => date('Y-m-d'),
+                'id_surat' => $id_srt,
+                'id_pejabat' => null
+            ]);
+            return redirect("/home");
         }elseif ($id=='4'){
             return redirect("/suratTugas");
         }else {
