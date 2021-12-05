@@ -25,12 +25,12 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{ $count_suket }}</h3>
-              <p>Surat Kegiatan Mahasiswa</p>
+              <p>Surat Keterangan</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/mahasiswa/simpan/'. $suket->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/mahasiswa/simpan/'. 2)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -42,7 +42,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/mahasiswa/simpan/'. $sutug->id)}}" class="small-box-footer" type="submit">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/mahasiswa/simpan/'. 4)}}" class="small-box-footer" type="submit">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">

@@ -13,31 +13,50 @@ class SuketController extends Controller
 {
     public function index(){
         $pengguna = User::where('role','mahasiswa')->get();
-        return view('suket', compact('pengguna'));
+        $user = User::all();
+        return view('suket', compact('pengguna','user'));
     }
     
     public function simpan(Request $request) {
-        Surat::create([
-            'perihal' => $request->perihal,
-            'kepada' => $request->kepada,
-            'keterangan' => $request->keterangan,
-            'tanggal' => $request->tanggal,
-            'waktu' => $request->waktu,
-            'tempat' => $request->tempat,
-            'id_user' => $request->pengguna,
-            'id_jenis' => '2'
-        ]);
+        if ($request->jenis==1) {
+            Surat::create([
+                'perihal' => $request->perihal,
+                'kepada' => $request->kepada,
+                'keterangan' => $request->keterangan,
+                'tanggal' => $request->tanggal,
+                'waktu' => $request->waktu,
+                'tempat' => $request->tempat,
+                'id_user' => $request->pengguna,
+                'id_jenis' => '2'
+            ]);
+        } else {
+            Surat::create([
+                'perihal' => 'Surat Keterangan Aktif',
+                'id_user' => $request->pengguna,
+                'id_jenis' => '2'
+            ]);
+        }
         $surat = DB::table('surat')->orderBy('id','desc')->limit('1')->get();
         foreach ($surat as $srt) {
             $id_srt = $srt->id;
         }
-        Informasi::create([
-            'no_surat' => null,
-            'status' => 'sedang diproses',
-            'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt,
-            'id_pejabat' => null
-        ]);
+        if ($request->jenis==1) {
+            Informasi::create([
+                'no_surat' => null,
+                'status' => 'sedang diproses',
+                'tanggal' => date('Y-m-d'),
+                'id_surat' => $id_srt,
+                'id_pejabat' => null
+            ]);
+        } else {
+            Informasi::create([
+                'no_surat' => null,
+                'status' => 'disetujui',
+                'tanggal' => date('Y-m-d'),
+                'id_surat' => $id_srt,
+                'id_pejabat' => null
+            ]);
+        }
         return redirect("/home");
     }
 

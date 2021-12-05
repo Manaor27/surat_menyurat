@@ -18,7 +18,6 @@ class CreatePejabatTable extends Migration
             $table->string('nidn')->unique();
             $table->string('nama');
             $table->string('jabatan');
-            $table->string('ttd');
             $table->timestamps();
         });
     }

@@ -30,7 +30,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/dosen/simpan/'. $sutug->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/dosen/simpan/'. 4)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
@@ -48,13 +48,13 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{ $banyak_super }}</h3>
-              <p>Surat Personalia & SK</p>
+              <h3>{{ $count_suket }}</h3>
+              <p>Surat Keterangan</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/dosen/simpan/'. $super->id)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/dosen/simpan/'. 2)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>

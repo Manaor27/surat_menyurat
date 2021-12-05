@@ -12,8 +12,7 @@ class TerkirimController extends Controller
 {
     public function index(){
         $tab = Informasi::all();
-        $jabat = Pejabat::all();
-        return view('terkirim', compact('tab','jabat'));
+        return view('terkirim', compact('tab'));
     }
 
     public function edit($id) {

@@ -23,6 +23,14 @@ class CreateUsersTable extends Migration
             $table->string('telpon');
             $table->rememberToken();
             $table->string('role');
+            $table->string('tempat_lahir');
+            $table->date('tgl_lahir');
+            $table->string('jekel');
+            $table->string('agama');
+            $table->string('alamat');
+            $table->string('prodi');
+            $table->string('semester');
+            $table->string('periode');
             $table->timestamps();
         });
     }

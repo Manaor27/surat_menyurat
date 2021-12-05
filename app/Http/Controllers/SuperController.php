@@ -44,7 +44,7 @@ class SuperController extends Controller
         }
         Informasi::create([
             'no_surat' => null,
-            'status' => 'sedang diproses',
+            'status' => 'disetujui',
             'tanggal' => date('Y-m-d'),
             'id_surat' => $id_srt,
             'id_pejabat' => null

@@ -15,16 +15,11 @@ class DosenController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $super = JenisSurat::find(1);
-        $sutug = JenisSurat::find(4);
-        $count_super = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',1)->get();
+        $count_suket = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',2)->count();
         $count_sutugp = Surat::where('id_user',Auth::id())->where('id_jenis',4)->where('kode',Auth::user()->kode)->count();
         $count_sutug = Surat::where('id_user',Auth::id())->where('id_jenis',4)->where('kode','!=',Auth::user()->kode)->count();
         $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->select(DB::raw('informasi.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid, informasi.id_pejabat as pejabat, informasi.id as inforid'))->where('surat.id_user',Auth::id())->get();
-        foreach ($count_super as $csuper) {
-            $banyak_super = $csuper->banyak;
-        }
-        return view('dosen.home', compact('user','sutug','super','banyak_super','count_sutug','count_sutugp','tab'));
+        return view('dosen.home', compact('user','count_suket','count_sutug','count_sutugp','tab'));
     }
 
     public function smasuk()
@@ -33,8 +28,8 @@ class DosenController extends Controller
     }
 
     public function simpan($id){
-        if ($id=='1') {
-            return redirect("/suratPersonalia");
+        if ($id=='2') {
+            return redirect("/suratKeterangan");
         }elseif ($id=='4'){
             return redirect("/suratTugas");
         }else {

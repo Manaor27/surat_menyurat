@@ -37,7 +37,7 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{ $banyak_suket }}</h3>
-              <p>Surat Kegiatan Mahasiswa</p>
+              <p>Surat Keterangan</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>

@@ -24,6 +24,14 @@ class User extends Authenticatable
         'password',
         'telpon',
         'role',
+        'tempat_lahir',
+        'tgl_lahir',
+        'jekel',
+        'agama',
+        'alamat',
+        'prodi',
+        'semester',
+        'periode',
     ];
 
     /**

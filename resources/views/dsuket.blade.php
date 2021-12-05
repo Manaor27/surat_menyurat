@@ -31,6 +31,7 @@
             <td colspan="2"><hr></td>
         </tr>
     </table>
+    @if($down->surat->kepada!=null)
     <br>
     <table>
         <tr>
@@ -135,6 +136,140 @@
         <tr><td><u>{{ $down->pejabat->nama }}</u></td></tr>
         <tr><td>{{ $down->pejabat->nidn }}</td></tr>
     </table>
+    @else
+    <center>
+        @if($down->surat->user->role=='mahasiswa')
+        <h5><b><u>SURAT KETERANGAN AKTIF KULIAH</u></b></h5>
+        @else
+        <h5><b><u>SURAT KETERANGAN AKTIF</u></b></h5>
+        @endif
+        <b>Nomor:{{$down->no_surat}}</b>
+    </center>
+    <br>
+    <table>
+        <tr>
+           <td colspan="5">Yang bertanda tangan dibawah ini:</td> 
+        </tr>
+        <tr>
+            <td rowspan="4"></td>
+            <td>Nama</td>
+            <td> : </td>
+            <td>{{ $down->pejabat->nama }}</td>
+        </tr>
+        <tr>
+            <td>NIP</td>
+            <td> : </td>
+            <td>{{ $down->pejabat->nidn }}</td>
+        </tr>
+        <tr>
+            <td>Jabatan</td>
+            <td> : </td>
+            <td>{{ $down->pejabat->jabatan }}</td>
+        </tr>
+        <tr>
+            <td>Instansi</td>
+            <td> : </td>
+            <td>Universitas Kristen Duta Wacana</td>
+        </tr>
+        <tr><td colspan="4">&nbsp;</td></tr>
+        <tr><td colspan="4">Dengan ini menerangkan bahwa :</td></tr>
+        <tr>
+            <td rowspan="6">&nbsp;</td>
+            <td>Nama</td>
+            <td> : </td>
+            <td>{{ $down->surat->user->name }}</td>
+        </tr>
+        <tr>
+            @if($down->surat->user->role=='mahasiswa')
+            <td>NIM</td>
+            @else
+            <td>NIK</td>
+            @endif
+            <td> : </td>
+            <td>{{ $down->surat->user->kode }}</td>
+        </tr>
+        @php
+            function tanggal_indo($tanggal, $cetak_hari = false){
+                $hari = array ( 1 =>    'Senin',
+                            'Selasa',
+                            'Rabu',
+                            'Kamis',
+                            'Jumat',
+                            'Sabtu',
+                            'Minggu'
+                        );
+                        
+                $bulan = array (1 =>   'Januari',
+                            'Februari',
+                            'Maret',
+                            'April',
+                            'Mei',
+                            'Juni',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember'
+                        );
+                $split 	  = explode('-', $tanggal);
+                $tgl_indo = $split[2] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+                
+                if ($cetak_hari) {
+                    $num = date('N', strtotime($tanggal));
+                    return $hari[$num] . ', ' . $tgl_indo;
+                }
+                return $tgl_indo;
+            }
+        @endphp
+        <tr>
+            <td>Tempat, Tanggal Lahir</td>
+            <td> : </td>
+            <td>{{ $down->surat->user->tempat_lahir }}, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->surat->user->tgl_lahir)), false); ?></td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td> : </td>
+            <td>{{ $down->surat->user->jekel }}</td>
+        </tr>
+        <tr>
+            <td>Agama</td>
+            <td> : </td>
+            <td>{{ $down->surat->user->agama }}</td>
+        </tr>
+        <tr>
+            <td>Alamat</td>
+            <td> : </td>
+            <td>{{ $down->surat->user->alamat }}</td>
+        </tr>
+    </table>
+    <br>
+    <p style="text-align: justify;">Yang bersangkutan benar adalah {{ $down->surat->user->role }} {{ $down->surat->user->prodi }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana yang terdaftar pada Semester {{ $down->surat->user->semester }} Tahun Akademik {{ $down->surat->user->periode }}.</p>
+    <p style="text-align: justify;">Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.</p>
+    <br>
+    <table>
+        <tr>
+            <td width="400px">&nbsp;</td>
+            <td>Yogyakarta, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->surat->user->tgl_lahir)), false); ?></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>{{ $down->pejabat->jabatan }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate($down->pejabat->nama)) !!}" /></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>{{ $down->pejabat->nama }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>NIK: {{ $down->pejabat->nidn }}</td>
+        </tr>
+    </table>
+    @endif
 </body>
 
 </html>

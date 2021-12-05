@@ -32,7 +32,7 @@
             </td>
         </tr>
     </table>
-    @if($down->surat->kepada!=null)
+    @if($down->surat->kepada==null)
     <br>
     <center>
         <b><font size="4" face="Times New Roman">SURAT KEPUTUSAN DEKAN</font></b><br>
@@ -66,7 +66,7 @@
                 <td rowspan="{{count($menimbang)}}" valign="top" width="100px">Menimbang </td>
                 <td rowspan="{{count($menimbang)}}" valign="top" width="20px"> : </td>
                 <td valign="top" width="20px"> {{ $list[0] }} </td>
-                <td style="text-align: justify;"><?php echo $menimbang[$i]; ?>;</td>
+                <td style="text-align: justify;"><?php echo $menimbang[0]; ?>;</td>
             </tr>
             <?php for($i=1; $i<count($menimbang); $i++) {?>
             <tr>
@@ -79,7 +79,7 @@
                 <td rowspan="{{count($mengingat)}}" valign="top">Mengingat</td>
                 <td rowspan="{{count($mengingat)}}" valign="top"> : </td>
                 <td valign="top"> {{ $li[0] }} </td>
-                <td style="text-align: justify;"><?php echo $mengingat[$j]; ?>.</td>
+                <td style="text-align: justify;"><?php echo $mengingat[0]; ?>.</td>
             </tr>
             <?php for($j=1; $j<count($mengingat); $j++) {?>
             <tr>
@@ -205,8 +205,8 @@
         <tr>
             <td><font size="3" face="Times New Roman">Nomor</font></td>
             <td><font size="3" face="Times New Roman"> : </font></td>
-            <td width="200px"><font size="3" face="Times New Roman">{{ $down->no_surat }}</font></td>
-            <td style="text-align: right;" width="450px"><font size="3" face="Times New Roman"><?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?></font></td>
+            <td width="400px"><font size="3" face="Times New Roman">{{ $down->no_surat }}</font></td>
+            <td style="text-align: right;" width="250px"><font size="3" face="Times New Roman"><?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?></font></td>
         </tr>
         <tr>
             <td><font size="3" face="Times New Roman">Hal</font></td>

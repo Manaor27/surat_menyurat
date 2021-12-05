@@ -49,12 +49,10 @@
                     <td>{{ $tbl->tanggal }}</td>
                     <td>{{ $tbl->surat->perihal }}</td>
                     <td>{{ $tbl->surat->user->name }}</td>
-                    @if($tbl->pejabat==null)
+                    @if($tbl->id_pejabat==null)
                     <td></td>
                     @else
-                    @foreach($jabat as $jab)
-                    <td>{{ $jab->jabatan }}</td>
-                    @endforeach
+                    <td>{{ $tbl->pejabat->jabatan }}</td>
                     @endif
                     @if($tbl->id_pejabat==null)
                     <td><span class="label bg-red">Belum Terkirim</span></td>
@@ -65,7 +63,7 @@
                       <a data-attr="{{url('/admin/preview/'. $tbl->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
                         <i class="fa fa-eye"></i> Pratinjau
                       </a>
-                      @if($tbl->status!="disetujui")
+                      @if($tbl->status!="disetujui" || $tbl->id_pejabat!=null)
                       <a class="btn btn-app bg-aqua" href="#" disabled>
                         <i class="fa fa-edit"></i> Ubah
                       </a>
