@@ -33,6 +33,19 @@
                 <option value="2">Surat Personalia</option>
               </select>
             </div>
+            @if(Auth::user()->role=='admin')
+            <div class="form-group">
+              <label>Pemohon</label>
+              <select name="pengguna" class="form-control select2" style="width: 100%;" required>
+                <option value="0">-- Input Pemohon --</option>
+                @foreach($user as $us)
+                <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
+                @endforeach
+              </select>
+            </div>
+            @else
+            <input type="hidden" class="form-control" name="pengguna" value="{{ Auth::user()->id }}">
+            @endif
             <div class="form-group">
               <label>Perihal</label>
               <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>

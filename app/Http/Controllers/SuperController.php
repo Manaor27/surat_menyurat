@@ -26,7 +26,7 @@ class SuperController extends Controller
                 'keterangan' => $ket,
                 'menimbang' => $menimbang,
                 'mengingat' => $mengingat,
-                'id_user' => Auth::id(),
+                'id_user' => $request->pengguna,
                 'id_jenis' => '1'
             ]);
         }else {
@@ -34,7 +34,7 @@ class SuperController extends Controller
                 'perihal' => $request->perihal,
                 'keterangan' => $request->keterangan,
                 'kepada' => $request->kepada,
-                'id_user' => Auth::id(),
+                'id_user' => $request->pengguna,
                 'id_jenis' => '1'
             ]);
         }
@@ -44,7 +44,7 @@ class SuperController extends Controller
         }
         Informasi::create([
             'no_surat' => null,
-            'status' => 'disetujui',
+            'status' => 'sedang diproses',
             'tanggal' => date('Y-m-d'),
             'id_surat' => $id_srt,
             'id_pejabat' => null

@@ -15,7 +15,8 @@ class DosenController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $count_suket = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_user',Auth::id())->where('id_jenis',2)->count();
+        $count_suket = Surat::where('id_user',Auth::id())->where('id_jenis',2)->count();
+        $count_super = Surat::where('id_user',Auth::id())->where('id_jenis',1)->count();
         $count_sutugp = Surat::where('id_user',Auth::id())->where('id_jenis',4)->where('kode',Auth::user()->kode)->count();
         $count_sutug = Surat::where('id_user',Auth::id())->where('id_jenis',4)->where('kode','!=',Auth::user()->kode)->count();
         $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->select(DB::raw('informasi.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid, informasi.id_pejabat as pejabat, informasi.id as inforid'))->where('surat.id_user',Auth::id())->get();
@@ -48,6 +49,8 @@ class DosenController extends Controller
             return redirect("/home");
         }elseif ($id=='4'){
             return redirect("/suratTugas");
+        }elseif ($id=='1') {
+            return redirect("/suratPersonalia");
         }else {
             return view("sutugp");
         }

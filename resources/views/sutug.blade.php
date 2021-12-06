@@ -21,6 +21,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset('style/dist/css/skins/_all-skins.min.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/select2/dist/css/select2.min.css') }}">
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -106,9 +108,27 @@
               <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas Kelompok</a></li>
               <li><a href="{{url('/dosen/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
               <li><a href="{{url('/dosen/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+              @else
+              <li><a href="{{url('/admin/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+              <li><a href="{{url('/admin/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
+              <li><a href="{{url('/admin/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+              <li><a href="{{url('/admin/simpan/'. '5')}}"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
+              <li><a href="{{url('/admin/simpan/'. '3')}}"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
               @endif
             </ul>
           </li>
+          @if(Auth::user()->role=='admin')
+          <li>
+            <a href="/suratTerkirim">
+              <i class="fa fa-reply"></i> <span>Terkirim</span>
+            </a>
+          </li>
+          <li>
+            <a href="/user">
+              <i class="fa fa-group"></i> <span>Manajemen User</span>
+            </a>
+          </li>
+          @endif
         </ul>
       </section>
     </aside>
@@ -130,6 +150,19 @@
               <form role="form" method="POST" action="/sutug/simpan">
                 @csrf
                 <div class="box-body">
+                  @if(Auth::user()->role=='admin')
+                  <div class="form-group project">
+                    <label>Pemohon</label>
+                    <select name="pengguna" class="form-control select2" style="width: 100%;" required>
+                      <option value="0">-- Input Pemohon --</option>
+                      @foreach($user as $us)
+                      <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  @else
+                  <input type="hidden" class="form-control" name="pengguna" value="{{ Auth::user()->id }}">
+                  @endif
                   <div class="form-group">
                     <label>Tema</label>
                     <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" required>
@@ -209,8 +242,11 @@
   <script src="{{ asset('style/dist/js/adminlte.min.js') }}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('style/dist/js/demo.js') }}"></script>
+  <!-- Select2 -->
+  <script src="{{ asset('style/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
   <script>
     $(document).ready(function(){
+      $('.select2').select2()
       var rowcount, addBtn, tableBody, imgPath, basePath;
 
       addBtn = $("#addNew");

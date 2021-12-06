@@ -13,7 +13,8 @@ use App\Models\User;
 class SutugController extends Controller
 {
     public function index(){
-        return view('sutug');
+        $user = User::all();
+        return view('sutug', compact('user'));
     }
 
     public function simpan(Request $request) {
@@ -26,7 +27,7 @@ class SutugController extends Controller
             'penyelenggara' => $request->penyelenggara,
             'tanggal' => $request->tanggal,
             'tempat' => $request->tempat,
-            'id_user' => Auth::id(),
+            'id_user' => $request->pengguna,
             'id_jenis' => '4'
         ]);
         $surat = DB::table('surat')->orderBy('id','desc')->limit('1')->get();

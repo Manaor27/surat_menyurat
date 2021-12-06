@@ -57,6 +57,18 @@
             <a href="{{url('/dosen/simpan/'. 2)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{ $count_super }}</h3>
+              <p>Surat Personalia & SK</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="{{url('/dosen/simpan/'. 1)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
