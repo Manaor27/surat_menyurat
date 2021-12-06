@@ -39,6 +39,14 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'telpon' => $request->telpon,
             'role' => $request->role,
+            'tempat_lahir' => $request->tempat,
+            'tgl_lahir' => $request->tanggal,
+            'jekel' => $request->jekel,
+            'agama' => $request->agama,
+            'alamat' => $request->alamat,
+            'prodi' => $request->prodi,
+            'semester' => $request->semester,
+            'periode' => $request->periode,
             'created_at' => \Carbon\Carbon::now(),
             'email_verified_at' => \Carbon\Carbon::now()
         ]);
@@ -47,7 +55,7 @@ class UserController extends Controller
 
     public function edit($id) {
         $user = User::find($id);
-        return view('admin.edituser', ['user' => $user, 'role' => ['admin', 'dosen', 'mahasiswa']]);
+        return view('admin.edituser', ['user' => $user, 'role' => ['admin', 'dosen', 'mahasiswa'], 'agama' => ['Kristen','Islam','Katolik','Buddha','Hindu','Konghucu'], 'jekel' => ['Laki-laki','Perempuan'], 'prodi' => ['Sistem Informasi','Informasi'], 'semester' => ['Gasal','Genap']]);
     }
 
     public function update($id, Request $request) {

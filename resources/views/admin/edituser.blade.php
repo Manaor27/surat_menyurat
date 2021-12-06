@@ -60,6 +60,62 @@
               @endforeach
               </select>
             </div>
+            <div class="form-group">
+              <label>Tempat Lahir</label>
+              <input type="text" class="form-control" name="tempat" placeholder="Input Tempat Lahir" value="{{ $user->tempat_lahir }}" required>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Lahir</label>
+              <input type="date" class="form-control" name="tanggal" value="{{ $user->tgl_lahir }}" required>
+            </div>
+            <div class="form-group">
+              <label>Jenis Kelamin</label>
+              <select name="jekel" class="form-control" required>
+              @foreach ($jekel as $j)
+                <option @php if ($j==($user->jekel)) echo 'selected' @endphp>
+                  {{ $j }}
+                </option>
+              @endforeach
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Agama</label>
+              <select name="agama" class="form-control" required>
+              @foreach ($agama as $a)
+                <option @php if ($a==($user->agama)) echo 'selected' @endphp>
+                  {{ $a }}
+                </option>
+              @endforeach
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Alamat</label>
+              <input type="text" class="form-control" name="alamat" placeholder="Input Alamat" value="{{ $user->alamat }}" required>
+            </div>
+            <div class="form-group">
+              <label>Program Studi</label>
+              <select name="prodi" class="form-control" required>
+              @foreach ($prodi as $p)
+                <option @php if ($p==($user->prodi)) echo 'selected' @endphp>
+                  {{ $p }}
+                </option>
+              @endforeach
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Semester</label>
+              <select name="semester" class="form-control" required>
+              @foreach ($semester as $s)
+                <option @php if ($s==($user->semester)) echo 'selected' @endphp>
+                  {{ $s }}
+                </option>
+              @endforeach
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tahun Akademik</label>
+              <input type="text" class="form-control" name="periode" placeholder="Ex: 2019/2020" value="{{ $user->periode }}" required>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Kirim</button>

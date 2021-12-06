@@ -95,7 +95,7 @@
         <table style="text-align: center;">
             <tr>
                 <td>{{ $down->pejabat->jabatan }},</td>
-                <td width="350px">&nbsp;</td>
+                <td width="200px">&nbsp;</td>
                 <td>Perwakilan<br>{{ $down->surat->kepada }},</td>
             </tr>
             <tr>
