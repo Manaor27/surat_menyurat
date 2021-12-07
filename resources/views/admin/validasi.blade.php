@@ -15,11 +15,6 @@
       <h1>
         Form Validasi Permohonan Surat
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="/home"><i class="fa fa-dashboard"></i> Beranda</a></li>
-        <li>Jenis Surat</li>
-        <li class="active">Klasifikasi Surat</li>
-      </ol>
     </section>
     <section class="content">
       <div class="box box-primary">

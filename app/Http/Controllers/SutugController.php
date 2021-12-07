@@ -14,7 +14,7 @@ class SutugController extends Controller
 {
     public function index(){
         $user = User::all();
-        return view('sutug', compact('user'));
+        return view('surat.sutug', compact('user'));
     }
 
     public function simpan(Request $request) {
@@ -66,15 +66,18 @@ class SutugController extends Controller
         return response()->json($response); 
     }
     
-    public function update($id, Request $request) {
+    public function update($id, $id2, Request $request) {
         $skt = Surat::find($id);
+        $info = Informasi::find($id);
         $skt->perihal = $request->perihal;
         $skt->kode = $request->kode;
         $skt->nama = $request->nama;
         $skt->tanggal = $request->tanggal;
         $skt->penyelenggara = $request->penyelenggara;
         $skt->tempat = $request->tempat;
+        $info->status = "sedang diproses";
         $skt->save();
+        $info->save();
         return redirect('/home');
     }
 }

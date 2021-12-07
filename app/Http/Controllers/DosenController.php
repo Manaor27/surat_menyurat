@@ -52,7 +52,7 @@ class DosenController extends Controller
         }elseif ($id=='1') {
             return redirect("/suratPersonalia");
         }else {
-            return view("sutugp");
+            return view("surat.sutugp");
         }
     }
 
@@ -65,21 +65,22 @@ class DosenController extends Controller
     public function edit($id,$id2) {
         $srt = Surat::find($id);
         $info = Informasi::find($id2);
-        if ($srt->id_jenis=='1') {
-            return view('editsuper', compact('srt','info'));
-        }elseif ($srt->id_jenis=='4') {
-            return view('editsutug', compact('srt','info'));
+        if ($srt->id_jenis=='4') {
+            return view('surat.editsutug', compact('srt','info'));
         }
     }
 
     public function download($id) {
         $down = Informasi::find($id);
         if ($down->surat->id_jenis=='1') {
-            $pdf = PDF::loadview('dsuper', compact('down'));
+            $pdf = PDF::loadview('download.dsuper', compact('down'));
             return $pdf->download('Surat Personalia.pdf');
         }elseif ($down->surat->id_jenis=='4') {
-            $pdf = PDF::loadview('dsutug', compact('down'));
+            $pdf = PDF::loadview('download.dsutug', compact('down'));
             return $pdf->download('Surat Tugas.pdf');
+        }elseif ($down->surat->id_jenis=='2') {
+            $pdf = PDF::loadview('download.dsuket', compact('down'));
+            return $pdf->download('Surat Keterangan.pdf');
         }
     }
 }

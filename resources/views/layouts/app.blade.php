@@ -136,8 +136,10 @@
               <li><a href="{{url('/mahasiswa/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
               <li><a href="{{url('/mahasiswa/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
               @else
-              <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+              <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas Kelompok</a></li>
+              <li><a href="{{url('/dosen/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
               <li><a href="{{url('/dosen/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
+              <li><a href="{{url('/dosen/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
               @endif
             </ul>
           </li>
@@ -150,6 +152,11 @@
           <li>
             <a href="/suratTerkirim">
               <i class="fa fa-reply"></i> <span>Terkirim</span>
+            </a>
+          </li>
+          <li>
+            <a href="/arsipSurat">
+              <i class="fa fa-envelope-square"></i> <span>Arsip Surat</span>
             </a>
           </li>
           <li>

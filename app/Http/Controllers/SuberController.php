@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class SuberController extends Controller
 {
     public function index(){
-        return view('suber');
+        return view('surat.suber');
     }
 
     public function simpan(Request $request) {

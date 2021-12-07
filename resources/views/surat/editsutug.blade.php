@@ -21,8 +21,6 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset('style/dist/css/skins/_all-skins.min.css') }}">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="{{ asset('style/bower_components/select2/dist/css/select2.min.css') }}">
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -108,27 +106,9 @@
               <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas Kelompok</a></li>
               <li><a href="{{url('/dosen/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
               <li><a href="{{url('/dosen/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
-              @else
-              <li><a href="{{url('/admin/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
-              <li><a href="{{url('/admin/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
-              <li><a href="{{url('/admin/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
-              <li><a href="{{url('/admin/simpan/'. '5')}}"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
-              <li><a href="{{url('/admin/simpan/'. '3')}}"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
               @endif
             </ul>
           </li>
-          @if(Auth::user()->role=='admin')
-          <li>
-            <a href="/suratTerkirim">
-              <i class="fa fa-reply"></i> <span>Terkirim</span>
-            </a>
-          </li>
-          <li>
-            <a href="/user">
-              <i class="fa fa-group"></i> <span>Manajemen User</span>
-            </a>
-          </li>
-          @endif
         </ul>
       </section>
     </aside>
@@ -137,87 +117,83 @@
         <h1>
           Surat Tugas
         </h1>
-        <ol class="breadcrumb">
-          <li><a href="/home"><i class="fa fa-dashboard"></i> Beranda</a></li>
-          <li>Jenis Surat</li>
-          <li class="active">Surat Tugas</li>
-        </ol>
       </section>
       <section class="content">
         <div class="row">
           <div class="col-md-12">
             <div class="box box-primary">
-              <form role="form" method="POST" action="/sutug/simpan">
+              <form role="form" method="POST" action="/sutug/update/{{ $srt->id }}/{{ $info->id }}">
                 @csrf
+                @method('PUT')
                 <div class="box-body">
-                  @if(Auth::user()->role=='admin')
-                  <div class="form-group project">
-                    <label>Pemohon</label>
-                    <select name="pengguna" class="form-control select2" style="width: 100%;" required>
-                      <option value="0">-- Input Pemohon --</option>
-                      @foreach($user as $us)
-                      <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
-                      @endforeach
-                    </select>
-                  </div>
-                  @else
-                  <input type="hidden" class="form-control" name="pengguna" value="{{ Auth::user()->id }}">
-                  @endif
+                @if($info->status=='perihal kurang jelas')
                   <div class="form-group">
                     <label>Tema</label>
-                    <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" required>
+                    <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" value="{{ $srt->perihal }}" required>
                   </div>
+                @else
+                  <div class="form-group">
+                    <label>Tema</label>
+                    <input type="text" class="form-control" name="tema" placeholder="Tema Kegiatan" value="{{ $srt->perihal }}" readonly>
+                  </div>
+                @endif
+                @php
+                  $name = array();
+                  $name = explode(',', $srt->nama);
+                  $code = array();
+                  $code = explode(',', $srt->kode);
+                @endphp
                   <div class="form-group">
                     <table class="table autocomplete_table" id="autocomplete_table">
                       <tbody>
+                      @foreach($code as $key => $value)
                         <tr id="row_1">
                         @if(Auth::user()->role=='mahasiswa')
                           <td>
                             <label>NIM</label></br>
-                            <input type="text" class="form-control autocomplete_txt ui-autocomplete-input" name="kode[]" placeholder="NIM" id='employee_search_1' value="{{ Auth::user()->kode }}" autocomplete="off" readonly>
+                            <input type="text" class="form-control autocomplete_txt ui-autocomplete-input" name="kode[]" placeholder="NIM" id='employee_search_1' value="{{ $code[$key] }}" autocomplete="off" readonly>
                           </td>
                         @elseif(Auth::user()->role=='dosen')
                           <td>
                             <label>NIDN</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" id='employee_search_1' value="{{ Auth::user()->kode }}" autocomplete="off" readonly>
-                          </td>
-                        @else
-                          <td>
-                            <label>ID</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" id='employee_search_1' required>
+                            <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="NIDN" id='employee_search_1' value="{{ $code[$key] }}" autocomplete="off" readonly>
                           </td>
                         @endif
-                        @if(Auth::user()->role=='admin')
                           <td style="width: 500px">
                             <label>Nama</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' readonly>
-                          </td>
-                        @else
-                          <td style="width: 500px">
-                            <label>Nama</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ Auth::user()->name }}" readonly>
-                          </td>
-                        @endif
-                          <td >
-                            <label for="">&nbsp;</label></br>
-                            <button type="button" id="addNew" class="btn btn-success"><b>[+]</b>Tambah Anggota</button>
+                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ $name[$key]}}" readonly>
                           </td>
                         </tr>
+                      @endforeach
                       </tbody>
                     </table>
                   </div>
+                  @if($info->status=='penyelenggara kurang lengkap')
                   <div class="form-group">
                     <label>Penyelenggara Kegiatan</label>
-                    <input type="text" class="form-control" id="reservation" name="penyelenggara" required>
+                    <input type="text" class="form-control" id="reservation" name="penyelenggara" value="{{ $srt->penyelenggara }}" required>
                   </div>
+                  @else
+                  <div class="form-group">
+                    <label>Penyelenggara Kegiatan</label>
+                    <input type="text" class="form-control" id="reservation" name="penyelenggara" value="{{ $srt->penyelenggara }}" readonly>
+                  </div>
+                  @endif
                   <div class="form-group">
                     <label>Tanggal</label>
-                    <input type="date" class="form-control" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
+                    <input type="date" class="form-control" name="tanggal" min="<?php echo date('Y-m-d'); ?>" value="{{ $srt->tanggal }}" readonly>
                   </div>
+                  @if($info->status=='alamat kurang jelas')
                   <div class="form-group">
                     <label>Tempat</label>
-                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)">
+                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)" value="{{ $srt->tempat }}" required>
                   </div>
+                  @else
+                  <div class="form-group">
+                    <label>Tempat</label>
+                    <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan (Optional)" value="{{ $srt->tempat }}" readonly>
+                  </div>
+                  @endif
                 </div>
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Kirim</button>
@@ -242,79 +218,5 @@
   <script src="{{ asset('style/dist/js/adminlte.min.js') }}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('style/dist/js/demo.js') }}"></script>
-  <!-- Select2 -->
-  <script src="{{ asset('style/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
-  <script>
-    $(document).ready(function(){
-      $('.select2').select2()
-      var rowcount, addBtn, tableBody, imgPath, basePath;
-
-      addBtn = $("#addNew");
-      rowcount = $("#autocomplete_table tbody tr").length+1;
-      tableBody = $("#autocomplete_table tbody");
-      imgPath = $("#imgPath").val();
-      basePath = $("#base_path").val();
-
-      function formHtml() {
-        html = '<tr id="row_'+rowcount+'">';
-        html += '<td>';
-        html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off">';
-        html += '</td>';
-        html += '<td>';
-        html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" data-type="name" readonly>';
-        html += '</td>';
-        html += '<td id="delete_'+rowcount+' scope="row">';
-        html += '</br><button type="button" class="btn btn-danger delete_row">[X]Hapus</button>';
-        html += '</td>';
-        html += '</tr>';
-        rowcount++;
-        return html;
-      }
-
-      function addNewRow() {
-        var html = formHtml();
-        console.log(html);
-        tableBody.append(html);
-      }
-
-      function registrationEvents() {
-        addBtn.on("click", addNewRow);
-        $(document).on('click', '.delete_row', function () {
-          $(this).parents('tr').remove();
-        });
-      }
-      registrationEvents();
-    });
-  </script>
-  <script type="text/javascript">
-  $(document).on('focus','.autocomplete_txt',function(){
-    type = $(this).data('type');
-    $(this).autocomplete({
-      minLength: 0,
-      source: function( request, response ) {
-          $.ajax({
-            url:"{{route('getData')}}",
-            dataType: "json",
-            data: {
-              type : type,
-              search: request.term
-            },
-            success: function( data ) {
-              response( data );
-            }
-          });
-      },
-      select: function (event, ui) {
-        var data = ui.item.data;
-        id_arr = $(this).attr('id');
-        id = id_arr.split("_");
-        elementId = id[id.length-1];
-        $('#employee_search_'+elementId).val(ui.item.label);
-        $('#employeeid_'+elementId).val(ui.item.value);
-        return false;
-      }
-    });
-  });
-  </script>
 </body>
 </html>

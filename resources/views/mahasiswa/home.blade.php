@@ -15,9 +15,6 @@
       <h1>
         Beranda
       </h1>
-      <ol class="breadcrumb">
-        <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
-      </ol>
     </section>
     <section class="content">
       <div class="row">

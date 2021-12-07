@@ -15,10 +15,6 @@
       <h1>
         Surat Terkirim
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="/home"><i class="fa fa-group"></i> Beranda</a></li>
-        <li class="active">Surat Terkirim</li>
-      </ol>
     </section>
     <section class="content">
       <div class="row">

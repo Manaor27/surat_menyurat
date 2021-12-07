@@ -35,7 +35,7 @@ class MahasiswaController extends Controller
         }elseif ($id=='4'){
             return redirect("/suratTugas");
         }else {
-            return view("sutugp");
+            return view("surat.sutugp");
         }
     }
 
@@ -49,19 +49,19 @@ class MahasiswaController extends Controller
         $srt = Surat::find($id);
         $info = Informasi::find($id2);
         if ($srt->id_jenis=='2') {
-            return view('editsuket', compact('srt','info'));
+            return view('surat.editsuket', compact('srt','info'));
         }elseif ($srt->id_jenis=='4') {
-            return view('editsutug', compact('srt','info'));
+            return view('surat.editsutug', compact('srt','info'));
         }
     }
 
     public function download($id) {
         $down = Informasi::find($id);
         if ($down->surat->id_jenis=='2') {
-            $pdf = PDF::loadview('dsuket', compact('down'));
+            $pdf = PDF::loadview('download.dsuket', compact('down'));
             return $pdf->download('Surat Keterangan.pdf');
         }elseif ($down->surat->id_jenis=='4') {
-            $pdf = PDF::loadview('dsutug', compact('down'));
+            $pdf = PDF::loadview('download.dsutug', compact('down'));
             return $pdf->download('Surat Tugas.pdf');
         }
     }

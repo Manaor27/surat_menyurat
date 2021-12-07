@@ -6,25 +6,6 @@
     <title>Form Validasi</title>
     <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('style/bower_components/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ asset('style/bower_components/Ionicons/css/ionicons.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('style/dist/css/AdminLTE.min.css') }}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-        folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{ asset('style/dist/css/skins/_all-skins.min.css') }}">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="{{ asset('style/bower_components/morris.js/morris.css') }}">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="{{ asset('style/bower_components/jvectormap/jquery-jvectormap.css') }}">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="{{ asset('style/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('style/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 </head>
 <body>
   @extends('layouts.app')
@@ -34,11 +15,6 @@
       <h1>
         Form Validasi Permohonan Surat
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
-        <li>Jenis Surat</li>
-        <li class="active">Klasifikasi Surat</li>
-      </ol>
     </section>
     <section class="content">
       <div class="box box-primary">

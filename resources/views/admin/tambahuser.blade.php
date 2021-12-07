@@ -15,10 +15,6 @@
       <h1>
         Manajemen User
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-group"></i> Manajemen User</a></li>
-        <li class="active">Tambah User</li>
-      </ol>
     </section>
     <section class="content">
       <div class="box box-primary">

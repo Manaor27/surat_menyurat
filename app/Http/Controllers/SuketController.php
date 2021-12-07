@@ -14,7 +14,7 @@ class SuketController extends Controller
     public function index(){
         $pengguna = User::where('role','mahasiswa')->get();
         $user = User::all();
-        return view('suket', compact('pengguna','user'));
+        return view('surat.suket', compact('pengguna','user'));
     }
     
     public function simpan(Request $request) {

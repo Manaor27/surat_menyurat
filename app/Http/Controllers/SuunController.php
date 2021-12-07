@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class SuunController extends Controller
 {
     public function index(){
-        return view('suun');
+        return view('surat.suun');
     }
 
     public function simpan(Request $request) {

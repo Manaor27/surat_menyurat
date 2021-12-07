@@ -15,11 +15,6 @@
       <h1>
         Surat Personalia & SK
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
-        <li>Jenis Surat</li>
-        <li class="active">Surat Personalia & SK</li>
-      </ol>
     </section>
     <section class="content">
       <div class="box box-primary">

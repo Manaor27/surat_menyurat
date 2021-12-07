@@ -72,7 +72,7 @@ class AdminController extends Controller
 
     public function edit($id) {
         $infor = Informasi::find($id);
-        return view('editstatus', compact('infor'));
+        return view('admin.editstatus', compact('infor'));
     }
 
     public function update($id, Request $request) {
@@ -86,20 +86,30 @@ class AdminController extends Controller
     public function download($id) {
         $down = Informasi::find($id);
         if ($down->surat->id_jenis=='2') {
-            $pdf = PDF::loadview('dsuket', compact('down'));
+            $pdf = PDF::loadview('download.dsuket', compact('down'));
             return $pdf->download('Surat Keterangan.pdf');
         }elseif ($down->surat->id_jenis=='4') {
-            $pdf = PDF::loadview('dsutug', compact('down'));
+            $pdf = PDF::loadview('download.dsutug', compact('down'));
             return $pdf->download('Surat Tugas.pdf');
         }elseif ($down->surat->id_jenis=='1') {
-            $pdf = PDF::loadview('dsuper', compact('down'));
+            $pdf = PDF::loadview('download.dsuper', compact('down'));
             return $pdf->download('Surat Personalia.pdf');
         }elseif ($down->surat->id_jenis=='5') {
-            $pdf = PDF::loadview('dsuber', compact('down'));
+            $pdf = PDF::loadview('download.dsuber', compact('down'));
             return $pdf->download('Surat Berita Acara.pdf');
         }else {
-            $pdf = PDF::loadview('dsuun', compact('down'));
+            $pdf = PDF::loadview('download.dsuun', compact('down'));
             return $pdf->download('Surat Undangan.pdf');
         }
+    }
+
+    public function arsip() {
+        $tab = Informasi::all();
+        return view('admin.arsip', compact('tab'));
+    }
+
+    public function laporan() {
+        $tab = Informasi::all();
+        return view('admin.laporan', compact('tab'));
     }
 }

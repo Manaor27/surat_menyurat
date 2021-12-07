@@ -36,16 +36,14 @@ class HomeController extends Controller
         }
     }
 
-    public function smasuk()
+    public function surat()
     {
         $role = Auth::user()->role;
-        if($role == "admin"){
-            return redirect()->to('suratMasuka');
-        } else if($role == "dosen"){
-            return redirect()->to('suratMasukd');
-        } else{
-            return redirect()->to('suratMasukm');
-        } 
+        if($role != "dosen"){
+            return redirect()->to('suratKeterangan');
+        } else if($role != "mahasiswa"){
+            return redirect()->to('suratPersonalia');
+        }
     }
 
     public function logout(Request $request) {

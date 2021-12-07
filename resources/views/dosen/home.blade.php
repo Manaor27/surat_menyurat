@@ -15,9 +15,6 @@
       <h1>
         Beranda
       </h1>
-      <ol class="breadcrumb">
-        <li class="active"><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
-      </ol>
     </section>
     <section class="content">
       <div class="row">
@@ -54,19 +51,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/dosen/simpan/'. 2)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>{{ $count_super }}</h3>
-              <p>Surat Personalia & SK</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-envelope"></i>
-            </div>
-            <a href="{{url('/dosen/simpan/'. 1)}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a class="small-box-footer" data-toggle="modal" data-target="#modal-default">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>
@@ -127,12 +112,12 @@
                           <i class="fa fa-remove"></i> Hapus
                         </a>
                         <a class="btn btn-app bg-green" href="{{url('/dosen/download/'. $item->inforid)}}">
-                          <i class="fa fa-download"></i> Undah
+                          <i class="fa fa-download"></i> Unduh
                         </a>
                         @endif
                       @else
                       <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid.'/'.$item->inforid)}}">
-                        <i class="fa fa-edit"></i> Edit
+                        <i class="fa fa-edit"></i> Ubah
                       </a>
                       <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}">
                         <i class="fa fa-remove"></i> Hapus
@@ -147,6 +132,26 @@
           </div>
         </div>
       </div>
+      <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <h5>Apakah Anda ingin membuat Surat Keterangan Aktif?</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tidak</button>
+              <a href="{{url('/dosen/simpan/'. 2)}}" type="button" class="btn btn-primary">Ya</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </section>
   </div>
 @endsection

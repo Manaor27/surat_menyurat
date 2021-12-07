@@ -12,13 +12,13 @@ class TerkirimController extends Controller
 {
     public function index(){
         $tab = Informasi::all();
-        return view('terkirim', compact('tab'));
+        return view('admin.terkirim', compact('tab'));
     }
 
     public function edit($id) {
         $info = Informasi::find($id);
         $jabat = Pejabat::all();
-        return view('validasi', compact('info','jabat'));
+        return view('admin.validasi', compact('info','jabat'));
     }
 
     public function update($id, Request $request) {

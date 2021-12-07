@@ -55,23 +55,23 @@
         @php
             $list = array('a.','b.','c.','d.','e.','f.','g.','h.','i.','j.');
             $menimbang = array();
-            $menimbang = explode(';', $down->surat->menimbang);
+            $menimbang = explode('|', $down->surat->menimbang);
 
             $li = array('1.','2.','3.','4.','5.','6.','7.','8.','9.','10.');
             $mengingat = array();
-            $mengingat = explode(';', $down->surat->mengingat);
+            $mengingat = explode('|', $down->surat->mengingat);
         @endphp
         <table>
             <tr>
                 <td rowspan="{{count($menimbang)}}" valign="top" width="100px">Menimbang </td>
                 <td rowspan="{{count($menimbang)}}" valign="top" width="20px"> : </td>
                 <td valign="top" width="20px"> {{ $list[0] }} </td>
-                <td style="text-align: justify;"><?php echo $menimbang[0]; ?>;</td>
+                <td style="text-align: justify;"><?php echo $menimbang[0]; ?></td>
             </tr>
             <?php for($i=1; $i<count($menimbang); $i++) {?>
             <tr>
                 <td valign="top"> {{ $list[$i] }} </td>
-                <td style="text-align: justify;"><?php echo $menimbang[$i]; ?>;</td>
+                <td style="text-align: justify;"><?php echo $menimbang[$i]; ?></td>
             </tr>
             <?php } ?>
             <tr><td colspan="4">&nbsp;</td></tr>
@@ -79,12 +79,12 @@
                 <td rowspan="{{count($mengingat)}}" valign="top">Mengingat</td>
                 <td rowspan="{{count($mengingat)}}" valign="top"> : </td>
                 <td valign="top"> {{ $li[0] }} </td>
-                <td style="text-align: justify;"><?php echo $mengingat[0]; ?>.</td>
+                <td style="text-align: justify;"><?php echo $mengingat[0]; ?></td>
             </tr>
             <?php for($j=1; $j<count($mengingat); $j++) {?>
             <tr>
                 <td valign="top"> {{ $li[$j] }} </td>
-                <td style="text-align: justify;"><?php echo $mengingat[$j]; ?>.</td>
+                <td style="text-align: justify;"><?php echo $mengingat[$j]; ?></td>
             </tr>
             <?php } ?>
         </table>
@@ -102,7 +102,7 @@
         @php
             $urut = array('Pertama','Kedua','Ketiga','Keempat','Kelima','Keenam','Ketujuh','Kedelapan','Kesembilan','Kesepuluh');
             $ket = array();
-            $ket = explode(';', $down->surat->keterangan);
+            $ket = explode('|', $down->surat->keterangan);
         @endphp
         @foreach($ket as $key => $value)
         <tr>

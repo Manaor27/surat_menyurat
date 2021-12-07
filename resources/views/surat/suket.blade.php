@@ -31,11 +31,6 @@
       <h1>
         Surat Keterangan
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="/"><i class="fa fa-dashboard"></i> Beranda</a></li>
-        <li>Jenis Surat</li>
-        <li class="active">Surat Keterangan</li>
-      </ol>
     </section>
     <section class="content">
       <div class="box box-primary">

@@ -13,14 +13,14 @@ class SuperController extends Controller
 {
     public function index(){
         $user = User::where('role','!=','mahasiswa')->get();
-        return view('super', compact('user'));
+        return view('surat.super', compact('user'));
     }
 
     public function simpan(Request $request) {
         if ($request->jenis==1) {
-            $ket = implode(";", $request->get('keterangan'));
-            $menimbang = implode(";", $request->get('menimbang'));
-            $mengingat = implode(";", $request->get('mengingat'));
+            $ket = implode("|", $request->get('keterangan'));
+            $menimbang = implode("|", $request->get('menimbang'));
+            $mengingat = implode("|", $request->get('mengingat'));
             DB::table('surat')->insert([
                 'perihal' => $request->perihal,
                 'keterangan' => $ket,
