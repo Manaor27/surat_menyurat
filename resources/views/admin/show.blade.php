@@ -4,48 +4,63 @@
 @section('content')
 <div class="row">
     @if($pre->id_jenis==2)
-    <div class="col-lg-3">
-        Perihal
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->perihal }}
-    </div>
-    <div class="col-lg-3">
-        Kepada
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->kepada }}
-    </div>
-    <div class="col-lg-3">
-        Keterangan
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->keterangan }}
-    </div>
-    <div class="col-lg-3">
-        Tanggal
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->tanggal }}
-    </div>
-    <div class="col-lg-3">
-        Waktu<
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->waktu }}
-    </div>
-    <div class="col-lg-3">
-        Tempat
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->tempat }}
-    </div>
-    <div class="col-lg-3">
-        Nama Pemohon
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->user->name }}
-    </div>
+        @if($pre->kepada!=null)
+            <div class="col-lg-3">
+                Perihal
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->perihal }}
+            </div>
+            <div class="col-lg-3">
+                Kepada
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->kepada }}
+            </div>
+            <div class="col-lg-3">
+                Keterangan
+            </div>
+            <div class="col-lg-9">
+                <?php echo $pre->keterangan; ?>
+            </div>
+            <div class="col-lg-3">
+                Tanggal
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->tanggal }}
+            </div>
+            <div class="col-lg-3">
+                Waktu
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->waktu }}
+            </div>
+            <div class="col-lg-3">
+                Tempat
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->tempat }}
+            </div>
+            <div class="col-lg-3">
+                Nama Pemohon
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->user->name }}
+            </div>
+        @else
+            <div class="col-lg-4">
+                Perihal
+            </div>
+            <div class="col-lg-8">
+                {{ $pre->perihal }}
+            </div>
+            <div class="col-lg-3">
+                Nama Pemohon
+            </div>
+            <div class="col-lg-9">
+                {{ $pre->user->name }}
+            </div>
+        @endif
     @elseif($pre->id_jenis==4)
     <div class="col-lg-3">
         Tema
@@ -106,7 +121,7 @@
         Keterangan
     </div>
     <div class="col-lg-9">
-        {{ $pre->keterangan }}
+        <?php echo $pre->keterangan; ?>
     </div>
     <div class="col-lg-3">
         Tanggal
@@ -152,7 +167,7 @@
         {{ $pre->tanggal }}
     </div>
     <div class="col-lg-4">
-        Target Peserta
+        Sasaran Peserta
     </div>
     <div class="col-lg-8">
         {{ $pre->target }}
@@ -170,24 +185,51 @@
         {{ $pre->user->name }}
     </div>
     @else
-    <div class="col-lg-4">
-        Perihal
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->perihal }}
-    </div>
-    <div class="col-lg-4">
-        Keterangan
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->keterangan }}
-    </div>
-    <div class="col-lg-4">
-        Nama Pemohon
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->user->name }}
-    </div>
+        @if($pre->kepada==null)
+            <div class="col-lg-4">
+                Perihal
+            </div>
+            <div class="col-lg-8">
+                {{ $pre->perihal }}
+            </div>
+            <div class="col-lg-4">
+                Keterangan
+            </div>
+            <div class="col-lg-8">
+                <?php echo $pre->keterangan; ?>
+            </div>
+            <div class="col-lg-4">
+                Nama Pemohon
+            </div>
+            <div class="col-lg-8">
+                {{ $pre->user->name }}
+            </div>
+        @else
+            <div class="col-lg-4">
+                Perihal
+            </div>
+            <div class="col-lg-8">
+                {{ $pre->perihal }}
+            </div>
+            <div class="col-lg-4">
+                Kepada
+            </div>
+            <div class="col-lg-8">
+                {{ $pre->kepada }}
+            </div>
+            <div class="col-lg-4">
+                Keterangan
+            </div>
+            <div class="col-lg-8">
+                <?php echo $pre->keterangan; ?>
+            </div>
+            <div class="col-lg-4">
+                Nama Pemohon
+            </div>
+            <div class="col-lg-8">
+                {{ $pre->user->name }}
+            </div>
+        @endif
     @endif
 </div>
 @endsection

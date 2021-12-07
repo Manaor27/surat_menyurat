@@ -138,16 +138,10 @@
               @else
               <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas Kelompok</a></li>
               <li><a href="{{url('/dosen/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
-              <li><a href="{{url('/dosen/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
-              <li><a href="{{url('/dosen/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+              <li><a data-toggle="modal" data-target="#modal-default"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
               @endif
             </ul>
           </li>
-          <!--li>
-            <a href="/suratMasuk">
-              <i class="fa fa-inbox"></i> <span>Surat Masuk</span>
-            </a>
-          </li-->
           @if(Auth::user()->role=='admin')
           <li>
             <a href="/suratTerkirim">
@@ -170,8 +164,29 @@
       <!-- /.sidebar -->
     </aside>
     <main>
-          @yield('content')
-      </main>
+      @yield('content')
+    </main>
+
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <h5>Apakah Anda ingin membuat Surat Keterangan Aktif?</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tidak</button>
+              <a href="{{url('/dosen/simpan/'. 2)}}" type="button" class="btn btn-primary">Ya</a>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
 
     <!-- /.content-wrapper -->
     <footer class="main-footer">
