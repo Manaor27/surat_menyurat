@@ -51,48 +51,54 @@
               <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
             </div>
             <div class="form-group project">
-              <table class="table" id="dynamicRemove1">
-                <tr>
-                  <td style="width: 850px">
-                    <label>Menimbang</label></br>
-                    <input id="menimbang" type="hidden" name="menimbang[]">
-                    <trix-editor input="menimbang"></trix-editor>
-                  </td>
-                  <td>
-                    <label>&nbsp;</label>
-                    <button type="button" name="add" id="dynamic1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button>
-                  </td>
-                </tr>
+              <table class="table autocomplete_table_1" id="autocomplete_table_1">
+                <tbody>
+                  <tr id="row_1">
+                    <td style="width: 850px">
+                      <label>Menimbang</label></br>
+                      <input id="menimbang_1" type="hidden" name="menimbang[]">
+                      <trix-editor input="menimbang_1"></trix-editor>
+                    </td>
+                    <td>
+                      <label>&nbsp;</label>
+                      <button type="button" name="add" id="addNew1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div class="form-group project">
-              <table class="table" id="dynamicRemove2">
-                <tr>
-                  <td style="width: 850px">
-                    <label>Mengingat</label></br>
-                    <input id="mengingat" type="hidden" name="mengingat[]">
-                    <trix-editor input="mengingat"></trix-editor>
-                  </td>
-                  <td>
-                    <label>&nbsp;</label>
-                    <button type="button" name="add" id="dynamic2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button>
-                  </td>
-                </tr>
+              <table class="table autocomplete_table_2" id="autocomplete_table_2">
+                <tbody>
+                  <tr id="rows_1">
+                    <td style="width: 850px">
+                      <label>Mengingat</label></br>
+                      <input id="mengingat_1" type="hidden" name="mengingat[]">
+                      <trix-editor input="mengingat_1"></trix-editor>
+                    </td>
+                    <td>
+                      <label>&nbsp;</label>
+                      <button type="button" name="add" id="addNew2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <div class="form-group project">
-              <table class="table" id="dynamicRemove">
-                <tr>
-                  <td style="width: 850px">
-                    <label>Penetapan</label></br>
-                    <input id="keterangan" type="hidden" name="keterangan[]">
-                    <trix-editor input="keterangan"></trix-editor>
-                  </td>
-                  <td>
-                    <label>&nbsp;</label>
-                    <button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button>
-                  </td>
-                </tr>
+              <table class="table autocomplete_table_3" id="autocomplete_table_3">
+                <tbody>
+                  <tr id="baris_1">
+                    <td style="width: 850px">
+                      <label>Penetapan</label></br>
+                      <input id="keterangan_1" type="hidden" name="keterangan[]">
+                      <trix-editor input="keterangan_1"></trix-editor>
+                    </td>
+                    <td>
+                      <label>&nbsp;</label>
+                      <button type="button" name="add" id="addNew3" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>

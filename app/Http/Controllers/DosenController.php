@@ -20,7 +20,7 @@ class DosenController extends Controller
         $count_sutugp = Surat::where('id_user',Auth::id())->where('id_jenis',4)->where('kode',Auth::user()->kode)->count();
         $count_sutug = Surat::where('id_user',Auth::id())->where('id_jenis',4)->where('kode','!=',Auth::user()->kode)->count();
         $tab = DB::table('informasi')->join('surat','id_surat','=','surat.id')->select(DB::raw('informasi.no_surat as no_surat, surat.perihal as tema, informasi.status as status, surat.id as suratid, informasi.id_pejabat as pejabat, informasi.id as inforid'))->where('surat.id_user',Auth::id())->get();
-        return view('dosen.home', compact('user','count_suket','count_sutug','count_sutugp','tab'));
+        return view('dosen.home', compact('user','count_suket','count_sutug','count_sutugp','count_super','tab'));
     }
 
     public function smasuk()

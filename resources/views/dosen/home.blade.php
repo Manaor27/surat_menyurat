@@ -58,7 +58,7 @@
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-red">
             <div class="inner">
               <h3>{{ $count_super }}</h3>
               <p>Surat Personalia & SK</p>
