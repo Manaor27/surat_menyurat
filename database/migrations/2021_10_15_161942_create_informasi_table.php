@@ -17,7 +17,8 @@ class CreateInformasiTable extends Migration
             $table->id();
             $table->string('no_surat')->nullable();
             $table->string('status');
-            $table->date('tanggal');
+            $table->date('tanggal')->nullable();
+            $table->string('pesan')->nullable();
             $table->unsignedBigInteger('id_surat');
             $table->foreign('id_surat')->references('id')->on('surat')->onDelete('CASCADE');
             $table->unsignedBigInteger('id_pejabat')->nullable();

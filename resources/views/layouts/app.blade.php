@@ -60,7 +60,6 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
-
     <header class="main-header">
       <a href="/home" class="logo">
         <span class="logo-mini"><b>SISM</b></span>
@@ -145,7 +144,7 @@
           @if(Auth::user()->role=='admin')
           <li>
             <a href="/suratTerkirim">
-              <i class="fa fa-reply"></i> <span>Terkirim</span>
+              <i class="fa fa-envelope"></i> <span>Data Permohonan Surat</span>
             </a>
           </li>
           <li>

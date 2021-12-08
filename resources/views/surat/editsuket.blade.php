@@ -19,51 +19,38 @@
     </section>
     <section class="content">
       <div class="box box-primary">
-        <form role="form" method="POST" action="/suket/update/{{ $srt->id }}">
+        <form role="form" method="POST" action="/suket/update/{{ $srt->id }}/{{ $info->id }}">
           @csrf
           @method('put')
           <div class="box-body">
-            @if($info->status=='perihal kurang jelas')
             <div class="form-group">
               <label>Hal</label>
               <input type="text" class="form-control" name="perihal" placeholder="Perihal" value="{{ $srt->perihal }}" required>
             </div>
-            @else
-            <div class="form-group">
-              <label>Hal</label>
-              <input type="text" class="form-control" name="perihal" placeholder="Perihal" value="{{ $srt->perihal }}" readonly>
-            </div>
-            @endif
             <div class="form-group">
               <label>Kepada</label>
-              <input type="text" class="form-control" name="kepada" placeholder="Kepada" value="{{ $srt->kepada }}" readonly>
+              <input type="text" class="form-control" name="kepada" placeholder="Kepada" value="{{ $srt->kepada }}" required>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Keterangan</label>
-                <textarea style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" readonly>{{ $srt->keterangan }}</textarea>
+              <label>Keterangan</label>
+              <input id="keterangan" type="hidden" name="keterangan" value="{{ $srt->keterangan }}" required>
+              <trix-editor input="keterangan"></trix-editor>
             </div>
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" value="{{ $srt->tanggal }}" readonly>
+              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" value="{{ $srt->tanggal }}" required>
             </div>
             <div class="form-group">
               <label>Waktu</label>
-              <input type="time" class="form-control timepicker" name="waktu" value="{{ $srt->waktu }}" readonly>
+              <input type="time" class="form-control timepicker" name="waktu" value="{{ $srt->waktu }}" required>
             </div>
-            @if($info->status=='alamat kurang jelas')
             <div class="form-group">
               <label>Tempat</label>
               <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat" value="{{ $srt->tempat }}" required>
             </div>
-            @else
-            <div class="form-group">
-              <label>Tempat</label>
-              <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat" value="{{ $srt->tempat }}" readonly>
-            </div>
-            @endif
           </div>
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
           </div>
         </form>
       </div>

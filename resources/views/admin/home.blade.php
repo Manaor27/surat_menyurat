@@ -1,15 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda</title>
+  <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/font-awesome/css/font-awesome.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/Ionicons/css/ionicons.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('style/dist/css/AdminLTE.min.css') }}">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+      folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="{{ asset('style/dist/css/skins/_all-skins.min.css') }}">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/morris.js/morris.css') }}">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="{{ asset('style/bower_components/jvectormap/jquery-jvectormap.css') }}">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body>
-  @extends('layouts.app')
-  @section('content')
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+      <a href="/home" class="logo">
+        <span class="logo-mini"><b>SISM</b></span>
+        <span class="logo-lg"><b>Surat Menyurat</b> <img src="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" style="width:30px;height:25px;"></span>
+      </a>
+      <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <p class="fa fa-user"></p>
+                <span class="hidden-xs">{{ Auth::user()->name }}</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="user-header">
+                  <p>
+                    @if(Auth::user()->role=='dosen')
+                      NIDN &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->kode }}<br/>
+                    @elseif(Auth::user()->role=='admin')
+                      Kode &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->kode }}<br/>
+                    @else
+                      NIM &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->kode }}<br/>
+                    @endif
+                    Nama &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->name }}<br/>
+                    Email &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: {{ Auth::user()->email }}<br/>
+                    No. Telpon: {{ Auth::user()->telpon }}
+                  </p>
+                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat"><b>Keluar</b></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="{{ asset('style/dist/img/icon.png') }}" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>{{ Auth::user()->name }}</p>
+            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          </div>
+        </div>
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="active">
+            <a href="/home">
+              <i class="fa fa-dashboard"></i> <span>Beranda</span>
+            </a>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-send"></i> <span>Jenis Surat</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{url('/admin/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
+              <li><a href="{{url('/admin/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
+              <li><a href="{{url('/admin/simpan/'. '1')}}"><i class="fa fa-circle-o"></i> Surat Personalia & SK</a></li>
+              <li><a href="{{url('/admin/simpan/'. '5')}}"><i class="fa fa-circle-o"></i> Surat Berita Acara</a></li>
+              <li><a href="{{url('/admin/simpan/'. '3')}}"><i class="fa fa-circle-o"></i> Surat Undangan</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/suratTerkirim">
+              <i class="fa fa-envelope"></i> <span>Data Permohonan Surat</span>
+            </a>
+          </li>
+          <li>
+            <a href="/arsipSurat">
+              <i class="fa fa-envelope-square"></i> <span>Arsip Surat</span>
+            </a>
+          </li>
+          <li>
+            <a href="/user">
+              <i class="fa fa-group"></i> <span>Manajemen User</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
@@ -21,7 +127,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{ $banyak_sutug }}</h3>
+              <h3>{{ $count_sutug }}</h3>
               <p>Surat Tugas</p>
             </div>
             <div class="icon">
@@ -33,7 +139,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{ $banyak_suket }}</h3>
+              <h3>{{ $count_suket }}</h3>
               <p>Surat Keterangan</p>
             </div>
             <div class="icon">
@@ -45,7 +151,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ $banyak_super }}</h3>
+              <h3>{{ $count_super }}</h3>
               <p>Surat Personalian & SK</p>
             </div>
             <div class="icon">
@@ -57,7 +163,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>{{ $banyak_suber }}</h3>
+              <h3>{{ $count_suber }}</h3>
               <p>Surat Berita Acara</p>
             </div>
             <div class="icon">
@@ -69,7 +175,7 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>{{ $banyak_suun }}</h3>
+              <h3>{{ $count_suun }}</h3>
               <p>Surat Undangan</p>
             </div>
             <div class="icon">
@@ -82,78 +188,24 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Surat Permohonan Masuk</h3>
-            </div>
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>No Surat</th>
-                    <th>Kepentingan Surat</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                @php
-                    $no = 1;
-                @endphp
-                <tbody>
-                @foreach($tab as $tbl => $item)
-                  <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $item->no_surat }}</td>
-                    <td>{{ $item->surat->perihal }}</td>
-                    @if($item->status=='disetujui')
-                    <td><span class="label bg-green">{{ $item->status }}</span></td>
-                    @elseif($item->status=='sedang diproses')
-                    <td><span class="label bg-yellow">{{ $item->status }}</span></td>
-                    @else
-                    <td><span class="label bg-red">{{ $item->status }}</span></td>
-                    @endif
-                    <td>
-                    @if($item->id_pejabat==null)
-                      <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
-                        <i class="fa fa-eye"></i> Pratinjau
-                      </a>
-                      @if($item->status!='disetujui')
-                      <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
-                        <i class="fa fa-edit"></i> Validasi
-                      </a>
-                      @if($item->surat->user->role=='admin')
-                      <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
-                        <i class="fa fa-remove"></i> Hapus
-                      </a>
-                      @endif
-                      @endif
-                    @else
-                      @if($item->status!='disetujui')
-                        <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
-                          <i class="fa fa-eye"></i> Pratinjau
-                        </a>
-                        <a class="btn btn-app bg-aqua" href="{{url('/admin/edit/'. $item->id)}}">
-                          <i class="fa fa-edit"></i> Validasi
-                        </a>
-                        @if($item->surat->user->role=='admin')
-                        <a class="btn btn-app bg-red" href="{{url('/admin/delete/'. $item->id_surat)}}">
-                          <i class="fa fa-remove"></i> Hapus
-                        </a>
-                        @endif
-                        @else
-                        <a data-attr="{{url('/admin/preview/'. $item->id_surat)}}" class="btn btn-app bg-green" data-toggle="modal" id="mediumButton" data-target="#mediumModal">
-                          <i class="fa fa-eye"></i> Pratinjau
-                        </a>
-                        <a class="btn btn-app bg-grey no-print" href="{{url('/admin/download/'. $item->id)}}">
-                          <i class="fa fa-download"></i> Unduh
-                        </a>
-                      @endif
-                    @endif
-                    </td>
-                  </tr>
-                @endforeach
-                </tbody>
-              </table>
+              <!-- BAR CHART -->
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Bar Chart</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="bar-chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
             </div>
           </div>
         </div>
@@ -178,6 +230,62 @@
       </div>
     </section>
   </div>
-@endsection
+  <footer class="main-footer">
+      <strong>Copyright &copy; 2021 RPL YFG.</strong> All rights
+      reserved.
+    </footer>
+
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- jQuery 3 -->
+  <script src="{{ asset('style/bower_components/jquery/dist/jquery.min.js') }}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{{ asset('style/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button);
+  </script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="{{ asset('style/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+  <!-- Morris.js charts -->
+  <script src="{{ asset('style/bower_components/raphael/raphael.min.js') }}"></script>
+  <script src="{{ asset('style/bower_components/morris.js/morris.min.js') }}"></script>
+  <!-- Sparkline -->
+  <script src="{{ asset('style/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
+  <!-- jvectormap -->
+  <script src="{{ asset('style/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+  <script src="{{ asset('style/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="{{ asset('style/bower_components/jquery-knob/dist/jquery.knob.min.js') }}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{ asset('style/dist/js/adminlte.min.js') }}"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{{ asset('style/dist/js/pages/dashboard.js') }}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="{{ asset('style/dist/js/demo.js') }}"></script>
+  <script src="{{ asset('style/bower_components/morris.js/morris.min.js') }}"></script>
+    <script>
+      $(function () {
+        "use strict";
+        var bar = new Morris.Bar({
+        element: 'bar-chart',
+        resize: true,
+        data: [
+          {y: 'Surat Tugas', a: <?php echo $count_sutug; ?>},
+          {y: 'Surat Keterangan', a: <?php echo $count_suket; ?>},
+          {y: 'Surat Personalia & SK', a: <?php echo $count_super; ?>},
+          {y: 'Surat Berita Acara', a: <?php echo $count_suber; ?>},
+          {y: 'Surat Undangan', a: <?php echo $count_suun; ?>}
+        ],
+        barColors: ['#00C0EF'],
+        xkey: 'y',
+        ykeys: ['a'],
+        hideHover: 'auto'
+      });
+    });
+  </script>
 </body>
 </html>

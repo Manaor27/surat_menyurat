@@ -92,12 +92,14 @@
     <div class="col-lg-9">
         {{ $pre->tanggal }}
     </div>
+    @if($pre->tempat!=null)
     <div class="col-lg-3">
         Tempat
     </div>
     <div class="col-lg-9">
         {{ $pre->tempat }}
     </div>
+    @endif
     <div class="col-lg-3">
         Nama Pemohon
     </div>

@@ -125,6 +125,12 @@
                     @endif
                     </td>
                   </tr>
+                  @if($item->status!='disetujui' || $item->status=='ditolak')
+                  <tr>
+                    <td></td>
+                    <td colspan="3" class="text-danger"><b>Keterangan Ditolak : {{ $item->pesan }}</b></td>
+                  </tr>
+                  @endif
                 @endforeach
                 </tbody>
               </table>

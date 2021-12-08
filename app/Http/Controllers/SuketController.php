@@ -42,11 +42,8 @@ class SuketController extends Controller
         }
         if ($request->jenis==1) {
             Informasi::create([
-                'no_surat' => null,
                 'status' => 'sedang diproses',
-                'tanggal' => date('Y-m-d'),
-                'id_surat' => $id_srt,
-                'id_pejabat' => null
+                'id_surat' => $id_srt
             ]);
         } else {
             Informasi::create([
@@ -60,15 +57,18 @@ class SuketController extends Controller
         return redirect("/home");
     }
 
-    public function update($id, Request $request) {
+    public function update($id, $id2, Request $request) {
         $skt = Surat::find($id);
+        $info = Informasi::find($id);
         $skt->perihal = $request->perihal;
         $skt->kepada = $request->kepada;
         $skt->keterangan = $request->keterangan;
         $skt->tanggal = $request->tanggal;
         $skt->waktu = $request->waktu;
         $skt->tempat = $request->tempat;
+        $info->status = "sedang diproses";
         $skt->save();
+        $info->save();
         return redirect('/home');
     }
 }

@@ -15,11 +15,11 @@
         <table border="2">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>No Surat</th>
-                    <th>Kepentingan Surat</th>
-                    <th>Tanggal Surat</th>
-                    <th>Pembuat Surat</th>
+                    <th width="50px" style="text-align: center;">#</th>
+                    <th width="125px" style="text-align: center;">No Surat</th>
+                    <th width="450px" style="text-align: center;">Kepentingan Surat</th>
+                    <th width="115px" style="text-align: center;">Tanggal Surat</th>
+                    <th width="200px" style="text-align: center;">Pembuat Surat</th>
                 </tr>
             </thead>
             @php
@@ -29,11 +29,11 @@
             @foreach($tab as $tbl => $item)
                 @if($item->id_pejabat!=null)
                 <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $item->no_surat }}</td>
-                    <td>{{ $item->surat->perihal }}</td>
-                    <td>{{ $item->tanggal }}</td>
-                    <td>{{ $item->surat->user->name }}</td>
+                    <td style="text-align: center;">{{ $no++ }}</td>
+                    <td style="text-align: center;">{{ $item->no_surat }}</td>
+                    <td>&nbsp;&nbsp;{{ $item->surat->perihal }}</td>
+                    <td style="text-align: center;"><?php echo date('d-m-Y', strtotime($item->tanggal)); ?></td>
+                    <td >&nbsp;&nbsp;{{ $item->surat->user->name }}</td>
                 </tr>
                 @endif
             @endforeach

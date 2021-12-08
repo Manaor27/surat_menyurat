@@ -35,11 +35,8 @@ class SutugController extends Controller
             $id_srt = $srt->id;
         }
         Informasi::create([
-            'no_surat' => null,
             'status' => 'sedang diproses',
-            'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt,
-            'id_pejabat' => null
+            'id_surat' => $id_srt
         ]);
         return redirect("/home");
     }
@@ -69,12 +66,15 @@ class SutugController extends Controller
     public function update($id, $id2, Request $request) {
         $skt = Surat::find($id);
         $info = Informasi::find($id);
-        $skt->perihal = $request->perihal;
+        $skt->perihal = $request->tema;
         $skt->kode = $request->kode;
         $skt->nama = $request->nama;
         $skt->tanggal = $request->tanggal;
         $skt->penyelenggara = $request->penyelenggara;
-        $skt->tempat = $request->tempat;
+        if ($skt->tempat!=null) {
+            $skt->tempat = $request->tempat;
+        }
+        $skt->id_user = Auth::user()->id;
         $info->status = "sedang diproses";
         $skt->save();
         $info->save();

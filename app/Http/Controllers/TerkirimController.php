@@ -70,7 +70,14 @@ class TerkirimController extends Controller
             }
         }
         $up->no_surat = $b;
-        $up->id_pejabat = $request->pejabat;
+        $up->status = $request->status;
+        if ($request->status=='disetujui') {
+            $up->id_pejabat = $request->pejabat;
+            $up->pesan = null;
+            $up->tanggal = date('Y-m-d');
+        }else {
+            $up->pesan = $request->pesan;
+        }
         $up->save();
         return redirect('/suratTerkirim');
     }

@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/suratTugas', [SutugController::class, 'index']);
     Route::post('/sutug/simpan', [SutugController::class, 'simpan']);
-    Route::put('/sutug/update/{id}', [SutugController::class, 'update']);
+    Route::put('/sutug/update/{id}/{id2}', [SutugController::class, 'update']);
     Route::get('/getData', [SutugController::class, 'getData'])->name('getData');
 
     Route::get('/suratKeterangan', [SuketController::class, 'index']);

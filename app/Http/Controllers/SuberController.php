@@ -30,11 +30,8 @@ class SuberController extends Controller
             $id_srt = $srt->id;
         }
         Informasi::create([
-            'no_surat' => null,
             'status' => 'disetujui',
-            'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt,
-            'id_pejabat' => null
+            'id_surat' => $id_srt
         ]);
         return redirect("/home");
     }

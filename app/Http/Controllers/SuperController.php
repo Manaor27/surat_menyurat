@@ -43,11 +43,8 @@ class SuperController extends Controller
             $id_srt = $srt->id;
         }
         Informasi::create([
-            'no_surat' => null,
-            'status' => 'sedang diproses',
-            'tanggal' => date('Y-m-d'),
-            'id_surat' => $id_srt,
-            'id_pejabat' => null
+            'status' => 'disetujui',
+            'id_surat' => $id_srt
         ]);
         return redirect("/home");
     }

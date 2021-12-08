@@ -16,33 +16,13 @@ class AdminController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $count_super = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',1)->get();
-        $count_sutug = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',4)->get();
-        $count_suket = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',2)->get();
-        $count_suun = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',3)->get();
-        $count_suber = DB::table('surat')->select(DB::raw('count(id_jenis) as banyak'))->where('id_jenis',5)->get();
+        $count_super = DB::table('surat')->where('id_jenis',1)->count();
+        $count_sutug = DB::table('surat')->where('id_jenis',4)->count();
+        $count_suket = DB::table('surat')->where('id_jenis',2)->count();
+        $count_suun = DB::table('surat')->where('id_jenis',3)->count();
+        $count_suber = DB::table('surat')->where('id_jenis',5)->count();
         $tab = Informasi::all();
-        foreach ($count_super as $csuper) {
-            $banyak_super = $csuper->banyak;
-        }
-        foreach ($count_sutug as $csutug) {
-            $banyak_sutug = $csutug->banyak;
-        }
-        foreach ($count_suket as $csuket) {
-            $banyak_suket = $csuket->banyak;
-        }
-        foreach ($count_suber as $csuber) {
-            $banyak_suber = $csuber->banyak;
-        }
-        foreach ($count_suun as $csuun) {
-            $banyak_suun = $csuun->banyak;
-        }
-        return view('admin.home', compact('user','banyak_super','banyak_suket','banyak_suun','banyak_sutug','banyak_suber','tab'));
-    }
-
-    public function smasuk()
-    {
-        return view('admin.smasuk');
+        return view('admin.home', compact('user','count_super','count_suket','count_suun','count_sutug','count_suber','tab'));
     }
 
     public function simpan($id){
@@ -68,19 +48,6 @@ class AdminController extends Controller
     public function preview(Request $request,$id) {
         $pre = Surat::find($id);
         return view('admin.show', compact('pre'))->renderSections()['content'];
-    }
-
-    public function edit($id) {
-        $infor = Informasi::find($id);
-        return view('admin.editstatus', compact('infor'));
-    }
-
-    public function update($id, Request $request) {
-        $up = Informasi::find($id);
-        $up->status = $request->status;
-        $up->tanggal = date('Y-m-d');
-        $up->save();
-        return redirect('/home');
     }
 
     public function download($id) {
