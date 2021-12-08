@@ -125,7 +125,7 @@
                     @endif
                     </td>
                   </tr>
-                  @if($item->status!='disetujui' || $item->status=='ditolak')
+                  @if($item->pesan!=null && $item->status!='disetujui')
                   <tr>
                     <td></td>
                     <td colspan="3" class="text-danger"><b>Keterangan Ditolak : {{ $item->pesan }}</b></td>

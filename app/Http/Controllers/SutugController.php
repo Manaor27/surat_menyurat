@@ -64,11 +64,13 @@ class SutugController extends Controller
     }
     
     public function update($id, $id2, Request $request) {
+        $kode = implode(",", $request->get('kode'));
+        $nama = implode(",", $request->get('nama'));
         $skt = Surat::find($id);
         $info = Informasi::find($id);
         $skt->perihal = $request->tema;
-        $skt->kode = $request->kode;
-        $skt->nama = $request->nama;
+        $skt->kode = $kode;
+        $skt->nama = $nama;
         $skt->tanggal = $request->tanggal;
         $skt->penyelenggara = $request->penyelenggara;
         if ($skt->tempat!=null) {

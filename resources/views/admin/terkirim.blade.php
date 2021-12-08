@@ -108,7 +108,7 @@
                       @endif
                     </td>
                   </tr>
-                  @if($tbl->status!='disetujui' || $tbl->status=='ditolak')
+                  @if($tbl->pesan!=null && $tbl->status!='disetujui')
                   <tr>
                     <td></td>
                     <td colspan="5" class="text-danger"><b>Keterangan Ditolak : {{ $tbl->pesan }}</b></td>

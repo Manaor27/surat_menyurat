@@ -63,15 +63,15 @@
                     @endif
                 </tr>
             </thead>
-            @foreach($code as $key => $value)
             <tbody>
+            @foreach($code as $key => $value)
                 <tr>
                     <td style="text-align: center;" width="50px">{{ $no++ }}.</td>
-                    <td width="350px">{{ $name[$key] }}</td>
-                    <td style="text-align: center;" width="200px">{{ $code[$key] }}</td>
+                    <td width="350px"><?php echo $name[$key]; ?></td>
+                    <td style="text-align: center;" width="200px"><?php echo $code[$key]; ?></td>
                 </tr>
-            </tbody>
             @endforeach
+            </tbody>
         </table>
     @else
         @foreach($code as $key => $value)
