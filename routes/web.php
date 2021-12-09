@@ -81,7 +81,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('mahasiswa', [MahasiswaController::class, 'index']);
         Route::get('/mahasiswa/simpan/{id}', [MahasiswaController::class, 'simpan']);
         Route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'delete']);
-        Route::get('/mahasiswa/edit/{id}/{id2}', [MahasiswaController::class, 'edit']);
+        Route::get('/mahasiswaEdit{id}{id2}', [MahasiswaController::class, 'edit']);
         Route::get('mahasiswa/download/{id}', [MahasiswaController::class, 'download']);
     });
  

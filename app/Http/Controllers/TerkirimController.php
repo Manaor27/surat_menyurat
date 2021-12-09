@@ -69,9 +69,9 @@ class TerkirimController extends Controller
                 $b = ($count5+1)."/E/FTI/".date('Y');
             }
         }
-        $up->no_surat = $b;
         $up->status = $request->status;
         if ($request->status=='disetujui') {
+            $up->no_surat = $b;
             $up->id_pejabat = $request->pejabat;
             $up->pesan = null;
             $up->tanggal = date('Y-m-d');

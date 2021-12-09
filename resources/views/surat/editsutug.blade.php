@@ -158,10 +158,15 @@
                   @php
                     $no = 1;
                     $name = array();
-                    $name = explode(',', $srt->nama);
+                    if($srt->nama!=Auth::user()->name){
+                      $name = explode(',', $srt->nama);
+                    }
                     $code = array();
-                    $code = explode(',', $srt->kode);
+                    if($srt->kode!=Auth::user()->kode){
+                      $code = explode(',', $srt->kode);
+                    }
                   @endphp
+                  @if($srt->kode!=Auth::user()->kode)
                   <div class="form-group">
                     <table class="table autocomplete_table" id="autocomplete_table">
                       <tbody>
@@ -202,6 +207,21 @@
                       </tbody>
                     </table>
                   </div>
+                  @else
+                  <div class="form-group">
+                  @if(Auth::user()->role=='mahasiswa')
+                    <label>NIM</label>
+                    <input type="text" class="form-control" name="kode[]" placeholder="NIM" value="{{ Auth::user()->kode }}" readonly>
+                  @elseif(Auth::user()->role=='dosen')
+                    <label>NIDN</label>
+                    <input type="text" class="form-control" name="kode[]" placeholder="NIDN" value="{{ Auth::user()->kode }}" readonly>
+                  @endif
+                  </div>
+                  <div class="form-group">
+                    <label>Nama</label></br>
+                    <input type="text" class="form-control" name="nama[]" placeholder="Nama" value="{{ Auth::user()->name }}" readonly>
+                  </div>
+                  @endif
                   <div class="form-group">
                     <label>Penyelenggara Kegiatan</label>
                     <input type="text" class="form-control" id="reservation" name="penyelenggara" value="{{ $srt->penyelenggara }}" required>
