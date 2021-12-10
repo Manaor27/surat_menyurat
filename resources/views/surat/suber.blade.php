@@ -35,11 +35,11 @@
             </div>
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
+              <input type="date" class="form-control" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
             </div>
             <div class="form-group">
               <label>Sasaran Peserta</label>
-              <input type="text" class="form-control" name="target" required>
+              <input type="text" class="form-control" name="target" placeholder="Sasaran Peserta" required>
             </div>
             <div class="form-group">
               <label>Tempat</label>

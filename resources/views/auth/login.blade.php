@@ -30,21 +30,22 @@
 
       <form action="{{ route('login') }}" method="post">
       @csrf
+        @error('email')
+            <div class="alert alert-danger">
+              <h5><i class="icon fa fa-warning"></i> Email dan Password Salah!</h5>
+            </div>
+          @enderror
         <div class="form-group has-feedback">
           <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-          @error('email')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
-        @enderror
+          
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
           <input type="password" class="form-control" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
           @error('password')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            <div class="alert alert-danger alert-dismissible">
+              <h4><i class="icon fa fa-warning"></i> Email dan Password Salah!</h4>
+            </div>
           @enderror
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
