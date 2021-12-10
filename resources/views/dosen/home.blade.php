@@ -51,7 +51,7 @@
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a class="small-box-footer" data-toggle="modal" data-target="#modal-default">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a class="small-box-footer" href="{{url('/dosen/simpan/'. 2)}}" onclick="return confirm('Anda yakin ingin membuat surat Keterangan?')">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
       </div>
