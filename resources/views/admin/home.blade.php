@@ -186,7 +186,28 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-body">
+              <!-- DONUT CHART -->
+              <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Donut Chart</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
           <div class="box">
             <div class="box-body">
               <!-- BAR CHART -->
@@ -203,9 +224,7 @@
                 <div class="box-body chart-responsive">
                   <div class="chart" id="bar-chart" style="height: 300px;"></div>
                 </div>
-                <!-- /.box-body -->
               </div>
-              <!-- /.box -->
             </div>
           </div>
         </div>
@@ -267,10 +286,10 @@
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('style/dist/js/demo.js') }}"></script>
   <script src="{{ asset('style/bower_components/morris.js/morris.min.js') }}"></script>
-    <script>
-      $(function () {
-        "use strict";
-        var bar = new Morris.Bar({
+  <script>
+    $(function () {
+      "use strict";
+      var bar = new Morris.Bar({
         element: 'bar-chart',
         resize: true,
         data: [
@@ -285,6 +304,16 @@
         ykeys: ['a'],
         hideHover: 'auto'
       });
+      var donut = new Morris.Donut({
+      element: 'sales-chart',
+      resize: true,
+      colors: ["#3c8dbc", "#f56954"],
+      data: [
+        {label: "Surat Masuk", value: <?php echo $tab2; ?>},
+        {label: "Surat Keluar", value: <?php echo $tab; ?>}
+      ],
+      hideHover: 'auto'
+    });
     });
   </script>
 </body>

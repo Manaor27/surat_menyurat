@@ -21,8 +21,9 @@ class AdminController extends Controller
         $count_suket = DB::table('surat')->where('id_jenis',2)->count();
         $count_suun = DB::table('surat')->where('id_jenis',3)->count();
         $count_suber = DB::table('surat')->where('id_jenis',5)->count();
-        $tab = Informasi::all();
-        return view('admin.home', compact('user','count_super','count_suket','count_suun','count_sutug','count_suber','tab'));
+        $tab = Informasi::where('status','=','disetujui')->count();
+        $tab2 = Informasi::where('status','!=','disetujui')->count();
+        return view('admin.home', compact('user','count_super','count_suket','count_suun','count_sutug','count_suber','tab','tab2'));
     }
 
     public function simpan($id){
