@@ -5,7 +5,7 @@
   <!-- Meta -->
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Form Surat Tugas</title>
   <link rel="icon" href="https://www.ukdw.ac.id/wp-content/uploads/2017/10/fti-ukdw.png" type="image/png" />
   <!-- Tell the browser to be responsive to screen width -->
@@ -107,7 +107,7 @@
               @elseif(Auth::user()->role=='dosen')
               <li><a href="{{url('/dosen/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas Kelompok</a></li>
               <li><a href="{{url('/dosen/simpan/'. '0')}}"><i class="fa fa-circle-o"></i> Surat Tugas Pribadi</a></li>
-              <li><a href="{{url('/dosen/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
+              <li><a href="{{url('/dosen/simpan/'. 2)}}" onclick="return confirm('Anda yakin ingin membuat surat Keterangan?')"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
               @else
               <li><a href="{{url('/admin/simpan/'. '4')}}"><i class="fa fa-circle-o"></i> Surat Tugas</a></li>
               <li><a href="{{url('/admin/simpan/'. '2')}}"><i class="fa fa-circle-o"></i> Surat Keterangan</a></li>
@@ -140,7 +140,7 @@
     <div class="content-wrapper">
       <section class="content-header">
         <h1>
-          Surat Tugas
+          Surat Tugas Kelompok
         </h1>
       </section>
       <section class="content">
@@ -154,7 +154,7 @@
                   <div class="form-group project">
                     <label>Pemohon</label>
                     <select name="pengguna" class="form-control select2" style="width: 100%;" required>
-                      <option value="0">-- Input Pemohon --</option>
+                      <option value="">-- Input Pemohon --</option>
                       @foreach($user as $us)
                       <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
                       @endforeach
@@ -233,7 +233,7 @@
       reserved.
     </footer>
   </div>
-
+  
   <!-- Bootstrap 3.3.7 -->
   <script src="{{ asset('style/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
   <!-- FastClick -->

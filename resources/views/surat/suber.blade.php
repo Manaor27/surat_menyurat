@@ -45,6 +45,15 @@
               <label>Tempat</label>
               <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" required>
             </div>
+            <div class="form-group">
+              <label>Penanda Tangan</label></br>
+              <select name="pejabat" class="form-control select2" required>
+                <option value="">-- Penanda Tangan --</option>
+                @foreach($jabat as $jbt)
+                  <option value="{{$jbt->id}}">{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                @endforeach
+              </select>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Kirim</button>

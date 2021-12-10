@@ -5,232 +5,210 @@
 <div class="row">
     @if($pre->id_jenis==2)
         @if($pre->kepada!=null)
-            <div class="col-lg-3">
-                Perihal
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->perihal }}
-            </div>
-            <div class="col-lg-3">
-                Kepada
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->kepada }}
-            </div>
-            <div class="col-lg-3">
-                Keterangan
-            </div>
-            <div class="col-lg-9">
-                <?php echo $pre->keterangan; ?>
-            </div>
-            <div class="col-lg-3">
-                Tanggal
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->tanggal }}
-            </div>
-            <div class="col-lg-3">
-                Waktu
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->waktu }}
-            </div>
-            <div class="col-lg-3">
-                Tempat
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->tempat }}
-            </div>
-            <div class="col-lg-3">
-                Nama Pemohon
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->user->name }}
-            </div>
+        <table>
+            <tr>
+                <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Kepada</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kepada }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Tanggal</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tanggal }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Waktu</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->waktu }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Tempat</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tempat }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+            </tr>
+        </table>
         @else
-            <div class="col-lg-4">
-                Perihal
-            </div>
-            <div class="col-lg-8">
-                {{ $pre->perihal }}
-            </div>
-            <div class="col-lg-3">
-                Nama Pemohon
-            </div>
-            <div class="col-lg-9">
-                {{ $pre->user->name }}
-            </div>
+        <table>
+            <tr>
+                <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+            </tr>
+        </table>
         @endif
     @elseif($pre->id_jenis==4)
-    <div class="col-lg-3">
-        Tema
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->perihal }}
-    </div>
-    <div class="col-lg-3">
-        NIM
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->kode }}
-    </div>
-    <div class="col-lg-3">
-        Nama
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->nama }}
-    </div>
-    <div class="col-lg-3">
-        Penyelenggara
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->penyelenggara }}
-    </div>
-    <div class="col-lg-3">
-        Tanggal
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->tanggal }}
-    </div>
-    @if($pre->tempat!=null)
-    <div class="col-lg-3">
-        Tempat
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->tempat }}
-    </div>
-    @endif
-    <div class="col-lg-3">
-        Nama Pemohon
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->user->name }}
-    </div>
+    <table>
+        <tr>
+            <td width="140px">&nbsp;&nbsp;&nbsp;Tema</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;NIM</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kode }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Nama</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->nama }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Penyelenggara</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->penyelenggara }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tanggal</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tanggal }}</td>
+        </tr>
+        @if($pre->tempat!=null)
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tempat</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tempat }}</td>
+        </tr>
+        @endif
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+        </tr>
+    </table>
     @elseif($pre->id_jenis==3)
-    <div class="col-lg-3">
-        Perihal
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->perihal }}
-    </div>
-    <div class="col-lg-3">
-        Kepada
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->kepada }}
-    </div>
-    <div class="col-lg-3">
-        Keterangan
-    </div>
-    <div class="col-lg-9">
-        <?php echo $pre->keterangan; ?>
-    </div>
-    <div class="col-lg-3">
-        Tanggal
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->tanggal }}
-    </div>
-    <div class="col-lg-3">
-        Waktu<
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->waktu }}
-    </div>
-    <div class="col-lg-3">
-        Tempat
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->tempat }}
-    </div>
-    <div class="col-lg-3">
-        Nama Pemohon
-    </div>
-    <div class="col-lg-9">
-        {{ $pre->user->name }}
-    </div>
+    <table>
+        <tr>
+            <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Kepada</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kepada }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tanggal</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tanggal }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Waktu</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->waktu }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tempat</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tempat }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+        </tr>
+    </table>
     @elseif($pre->id_jenis==5)
-    <div class="col-lg-4">
-        Tema
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->perihal }}
-    </div>
-    <div class="col-lg-4">
-        Tamu Pembicara
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->tamu }}
-    </div>
-    <div class="col-lg-4">
-        Tanggal
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->tanggal }}
-    </div>
-    <div class="col-lg-4">
-        Sasaran Peserta
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->target }}
-    </div>
-    <div class="col-lg-4">
-        Tempat
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->tempat }}
-    </div>
-    <div class="col-lg-4">
-        Nama Pemohon
-    </div>
-    <div class="col-lg-8">
-        {{ $pre->user->name }}
-    </div>
+    <table>
+        <tr>
+            <td width="140px">&nbsp;&nbsp;&nbsp;Tema</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tamu Pembicara</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tamu }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tanggal</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tanggal }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Sasaran Peserta</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->target }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Tempat</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tempat }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+            <td> : </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+        </tr>
+    </table>
     @else
         @if($pre->kepada==null)
-            <div class="col-lg-4">
-                Perihal
-            </div>
-            <div class="col-lg-8">
-                {{ $pre->perihal }}
-            </div>
-            <div class="col-lg-4">
-                Keterangan
-            </div>
-            <div class="col-lg-8">
-                <?php echo $pre->keterangan; ?>
-            </div>
-            <div class="col-lg-4">
-                Nama Pemohon
-            </div>
-            <div class="col-lg-8">
-                {{ $pre->user->name }}
-            </div>
+        <table>
+            <tr>
+                <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+            </tr>
+        </table>
         @else
-            <div class="col-lg-4">
-                Perihal
-            </div>
-            <div class="col-lg-8">
-                {{ $pre->perihal }}
-            </div>
-            <div class="col-lg-4">
-                Kepada
-            </div>
-            <div class="col-lg-8">
-                {{ $pre->kepada }}
-            </div>
-            <div class="col-lg-4">
-                Keterangan
-            </div>
-            <div class="col-lg-8">
-                <?php echo $pre->keterangan; ?>
-            </div>
-            <div class="col-lg-4">
-                Nama Pemohon
-            </div>
-            <div class="col-lg-8">
-                {{ $pre->user->name }}
-            </div>
+        <table>
+            <tr>
+                <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Kepada</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kepada }}</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
+                <td> : </td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+            </tr>
+        </table>
         @endif
     @endif
 </div>

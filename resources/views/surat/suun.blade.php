@@ -23,27 +23,40 @@
           <div class="box-body">
             <div class="form-group">
               <label>Hal</label>
-              <input type="text" class="form-control" name="perihal" placeholder="Perihal" required>
+              <input type="text" class="form-control" name="perihal" placeholder="Perihal" value="{{ old('perihal') }}" required>
             </div>
             <div class="form-group">
               <label>Kepada</label>
-              <input type="text" class="form-control" name="kepada" placeholder="Kepada" required>
+              <input type="text" class="form-control" name="kepada" placeholder="Kepada" value="{{ old('kepada') }}" required>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Keterangan</label>
-              <textarea placeholder="Isi Keterangan" class="textarea" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="keterangan" required></textarea>
+              <label>Keterangan</label>
+              <input id="keterangan" type="hidden" name="keterangan" required>
+              <trix-editor input="keterangan"></trix-editor>
+              @error('keterangan')
+                <p class="text-danger"><b>Keterangan wajib diisi!</b></p>
+              @enderror
             </div>
             <div class="form-group">
               <label>Tanggal</label>
-              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
+              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" min="<?php echo date('Y-m-d'); ?>" value="{{ old('tanggal') }}" required>
             </div>
             <div class="form-group">
               <label>Waktu</label>
-              <input type="time" class="form-control timepicker" name="waktu" required>
+              <input type="time" class="form-control timepicker" name="waktu" value="{{ old('waktu') }}" required>
             </div>
             <div class="form-group">
               <label>Tempat</label>
-              <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" required>
+              <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" value="{{ old('tempat') }}" required>
+            </div>
+            <div class="form-group">
+              <label>Penanda Tangan</label></br>
+              <select name="pejabat" class="form-control select2" required>
+                <option value="">-- Penanda Tangan --</option>
+                @foreach($jabat as $jbt)
+                  <option value="{{$jbt->id}}">{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="box-footer">

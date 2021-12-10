@@ -13,11 +13,17 @@ class SuperController extends Controller
 {
     public function index(){
         $user = User::where('role','!=','mahasiswa')->get();
-        return view('surat.super', compact('user'));
+        $jabat = Pejabat::all();
+        return view('surat.super', compact('user','jabat'));
     }
 
     public function simpan(Request $request) {
         if ($request->jenis==1) {
+            $request->validate([
+                'keterangan' => 'required',
+                'menimbang' => 'required',
+                'mengingat' => 'required',
+            ]);
             $ket = implode("|", $request->get('keterangan'));
             $menimbang = implode("|", $request->get('menimbang'));
             $mengingat = implode("|", $request->get('mengingat'));
@@ -30,6 +36,9 @@ class SuperController extends Controller
                 'id_jenis' => '1'
             ]);
         }else {
+            $request->validate([
+                'keterangan' => 'required',
+            ]);
             DB::table('surat')->insert([
                 'perihal' => $request->perihal,
                 'keterangan' => $request->keterangan,
@@ -42,8 +51,19 @@ class SuperController extends Controller
         foreach ($surat as $srt) {
             $id_srt = $srt->id;
         }
+        $count1 = DB::table('informasi')->join('surat','id_surat','=','surat.id')->where('informasi.id_pejabat','!=',null)->where('surat.id_jenis',1)->count();
+        if ($count1>="0") {
+            $b = "00".($count1+1)."/A/FTI/".date('Y');
+        }elseif ($count1k>="9") {
+            $b = "0".($count1+1)."/A/FTI/".date('Y');
+        }elseif ($count1>="99") {
+            $b = ($count1+1)."/A/FTI/".date('Y');
+        }
         Informasi::create([
+            'no_surat' => $b,
             'status' => 'disetujui',
+            'tanggal' => date('Y-m-d'),
+            'id_pejabat' => $request->pejabat,
             'id_surat' => $id_srt
         ]);
         return redirect("/home");

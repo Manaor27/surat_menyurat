@@ -20,6 +20,10 @@ class SutugController extends Controller
     public function simpan(Request $request) {
         $kode = implode(",", $request->get('kode'));
         $nama = implode(",", $request->get('nama'));
+        $request->validate([
+            'kode' => 'required',
+            'nama' => 'required',
+        ]);
         Surat::create([
             'perihal' => $request->tema,
             'kode' => $kode,

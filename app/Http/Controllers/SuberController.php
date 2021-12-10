@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\DB;
 class SuberController extends Controller
 {
     public function index(){
-        return view('surat.suber');
+        $jabat = Pejabat::all();
+        return view('surat.suber', compact('jabat'));
     }
 
     public function simpan(Request $request) {
@@ -29,8 +30,19 @@ class SuberController extends Controller
         foreach ($surat as $srt) {
             $id_srt = $srt->id;
         }
+        $count5 = DB::table('informasi')->join('surat','id_surat','=','surat.id')->where('informasi.id_pejabat','!=',null)->where('surat.id_jenis',5)->count();
+        if ($count5>="0") {
+            $b = "00".($count5+1)."/E/FTI/".date('Y');
+        }elseif ($count5>="9") {
+            $b = "0".($count5+1)."/E/FTI/".date('Y');
+        }elseif ($count5>="99") {
+            $b = ($count5+1)."/E/FTI/".date('Y');
+        }
         Informasi::create([
+            'no_surat' => $b,
             'status' => 'disetujui',
+            'tanggal' => date('Y-m-d'),
+            'id_pejabat' => $request->pejabat,
             'id_surat' => $id_srt
         ]);
         return redirect("/home");

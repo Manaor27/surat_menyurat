@@ -89,39 +89,19 @@
                     <td><span class="label bg-red">{{ $item->status }}</span></td>
                     @endif
                     <td>
-                    @if($item->status=='sedang diproses')
-                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}" disabled>
-                        <i class="fa fa-edit"></i> Ubah
-                      </a>
-                      <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}" disabled>
-                        <i class="fa fa-remove"></i> Hapus
-                      </a>
-                      @elseif($item->status=='disetujui')
-                        @if($item->pejabat==null)
-                        <a class="btn btn-app bg-aqua" href="#" disabled>
-                          <i class="fa fa-edit"></i> Ubah
-                        </a>
-                        <a class="btn btn-app bg-red" href="#" disabled>
-                          <i class="fa fa-remove"></i> Hapus
-                        </a>
-                        @else
-                        <a class="btn btn-app bg-aqua" href="#" disabled>
-                          <i class="fa fa-edit"></i> Ubah
-                        </a>
-                        <a class="btn btn-app bg-red" href="#" disabled>
-                          <i class="fa fa-remove"></i> Hapus
-                        </a>
-                        <a class="btn btn-app bg-green" href="{{url('/dosen/download/'. $item->inforid)}}">
-                          <i class="fa fa-download"></i> Unduh
-                        </a>
-                        @endif
-                      @else
-                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid.'/'.$item->inforid)}}">
+                    @if($item->status=='sedang ditolak')
+                      <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
                         <i class="fa fa-edit"></i> Ubah
                       </a>
                       <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}">
                         <i class="fa fa-remove"></i> Hapus
                       </a>
+                    @elseif($item->status=='disetujui')
+                      @if($item->pejabat!=null)
+                      <a class="btn btn-app bg-green" href="{{url('/dosen/download/'. $item->inforid)}}">
+                        <i class="fa fa-download"></i> Unduh
+                      </a>
+                      @endif
                     @endif
                     </td>
                   </tr>

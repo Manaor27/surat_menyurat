@@ -19,6 +19,9 @@ class SuketController extends Controller
     
     public function simpan(Request $request) {
         if ($request->jenis==1) {
+            $request->validate([
+                'keterangan' => 'required',
+            ]);
             Surat::create([
                 'perihal' => $request->perihal,
                 'kepada' => $request->kepada,
@@ -48,7 +51,7 @@ class SuketController extends Controller
         } else {
             Informasi::create([
                 'no_surat' => null,
-                'status' => 'disetujui',
+                'status' => 'sedang diproses',
                 'tanggal' => date('Y-m-d'),
                 'id_surat' => $id_srt,
                 'id_pejabat' => null

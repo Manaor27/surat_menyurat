@@ -127,20 +127,20 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>{{ $count_sutug }}</h3>
-              <p>Surat Tugas</p>
+              <h3>{{ $count_super }}</h3>
+              <p>Surat Personalia & SK (A)</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
             </div>
-            <a href="{{url('/admin/simpan/4')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin/simpan/1')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{ $count_suket }}</h3>
-              <p>Surat Keterangan</p>
+              <p>Surat Keterangan (B)</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
@@ -151,32 +151,8 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{ $count_super }}</h3>
-              <p>Surat Personalian & SK</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-envelope"></i>
-            </div>
-            <a href="{{url('/admin/simpan/1')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>{{ $count_suber }}</h3>
-              <p>Surat Berita Acara</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-envelope"></i>
-            </div>
-            <a href="{{url('/admin/simpan/5')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-3 col-xs-6">
-          <div class="small-box bg-red">
-            <div class="inner">
               <h3>{{ $count_suun }}</h3>
-              <p>Surat Undangan</p>
+              <p>Surat Undangan (C)</p>
             </div>
             <div class="icon">
               <i class="fa fa-envelope"></i>
@@ -184,20 +160,42 @@
             <a href="{{url('/admin/simpan/3')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{ $count_sutug }}</h3>
+              <p>Surat Tugas (D)</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="{{url('/admin/simpan/4')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{ $count_suber }}</h3>
+              <p>Surat Berita Acara (E)</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <a href="{{url('/admin/simpan/5')}}" class="small-box-footer">Isi Form <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="box">
             <div class="box-body">
               <!-- DONUT CHART -->
               <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Donut Chart</h3>
+                  <h3 class="box-title">Grafik Surat Masuk dan Keluar</h3>
 
                   <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
                 </div>
                 <div class="box-body chart-responsive">
@@ -207,18 +205,16 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="box">
             <div class="box-body">
               <!-- BAR CHART -->
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Bar Chart</h3>
+                  <h3 class="box-title">Grafik Jumlah Surat dari Tiap Jenis Surat</h3>
 
                   <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   </div>
                 </div>
                 <div class="box-body chart-responsive">
@@ -293,11 +289,11 @@
         element: 'bar-chart',
         resize: true,
         data: [
-          {y: 'Surat Tugas', a: <?php echo $count_sutug; ?>},
-          {y: 'Surat Keterangan', a: <?php echo $count_suket; ?>},
-          {y: 'Surat Personalia & SK', a: <?php echo $count_super; ?>},
-          {y: 'Surat Berita Acara', a: <?php echo $count_suber; ?>},
-          {y: 'Surat Undangan', a: <?php echo $count_suun; ?>}
+          {y: 'A', a: <?php echo $count_super; ?>},
+          {y: 'B', a: <?php echo $count_suket; ?>},
+          {y: 'C', a: <?php echo $count_suun; ?>},
+          {y: 'D', a: <?php echo $count_sutug; ?>},
+          {y: 'E', a: <?php echo $count_suber; ?>}
         ],
         barColors: ['#00C0EF'],
         xkey: 'y',

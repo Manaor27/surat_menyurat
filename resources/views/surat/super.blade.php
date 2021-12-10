@@ -32,7 +32,7 @@
             <div class="form-group">
               <label>Pemohon</label>
               <select name="pengguna" class="form-control select2" style="width: 100%;" required>
-                <option value="0">-- Input Pemohon --</option>
+                <option value="">-- Input Pemohon --</option>
                 @foreach($user as $us)
                 <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
                 @endforeach
@@ -51,8 +51,11 @@
                   <tr id="row_1">
                     <td style="width: 850px">
                       <label>Menimbang</label></br>
-                      <input id="menimbang_1" type="hidden" name="menimbang[]">
+                      <input id="menimbang_1" type="hidden" name="menimbang[]" required>
                       <trix-editor input="menimbang_1"></trix-editor>
+                      @error('menimbang')
+                        <p class="text-danger"><b>Menimbang wajib diisi!</b></p>
+                      @enderror
                     </td>
                     <td>
                       <label>&nbsp;</label>
@@ -68,8 +71,11 @@
                   <tr id="rows_1">
                     <td style="width: 850px">
                       <label>Mengingat</label></br>
-                      <input id="mengingat_1" type="hidden" name="mengingat[]">
+                      <input id="mengingat_1" type="hidden" name="mengingat[]" required>
                       <trix-editor input="mengingat_1"></trix-editor>
+                      @error('mengingat')
+                        <p class="text-danger"><b>Mengingat wajib diisi!</b></p>
+                      @enderror
                     </td>
                     <td>
                       <label>&nbsp;</label>
@@ -85,8 +91,11 @@
                   <tr id="baris_1">
                     <td style="width: 850px">
                       <label>Penetapan</label></br>
-                      <input id="keterangan_1" type="hidden" name="keterangan[]">
+                      <input id="keterangan_1" type="hidden" name="keterangan[]" required>
                       <trix-editor input="keterangan_1"></trix-editor>
+                      @error('keterangan')
+                        <p class="text-danger"><b>Penetapan wajib diisi!</b></p>
+                      @enderror
                     </td>
                     <td>
                       <label>&nbsp;</label>
@@ -95,6 +104,15 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="form-group">
+              <label>Penanda Tangan</label></br>
+              <select name="pejabat" class="form-control select2" required>
+                <option value="">-- Penanda Tangan --</option>
+                @foreach($jabat as $jbt)
+                  <option value="{{$jbt->id}}">{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="box-footer">

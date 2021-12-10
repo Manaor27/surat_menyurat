@@ -52,7 +52,7 @@
             <div class="form-group project">
               <label>Pemohon</label>
               <select name="pengguna" class="form-control select2" style="width: 100%;" required>
-                <option value="0">-- Input Pemohon --</option>
+                <option value="">-- Input Pemohon --</option>
                 @foreach($pengguna as $us)
                 <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
                 @endforeach
@@ -63,28 +63,31 @@
           @endif
             <div class="form-group project">
               <label>Hal</label>
-              <input type="text" class="form-control" name="perihal" placeholder="Perihal" required>
+              <input type="text" class="form-control" name="perihal" placeholder="Perihal" value="{{ old('perihal') }}" required>
             </div>
             <div class="form-group project">
               <label>Kepada</label>
-              <input type="text" class="form-control" name="kepada" placeholder="Kepada" required>
+              <input type="text" class="form-control" name="kepada" placeholder="Kepada" value="{{ old('kepada') }}" required>
             </div>
             <div class="form-group project">
               <label>Keterangan</label>
-              <input id="keterangan" type="hidden" name="keterangan">
+              <input id="keterangan" type="hidden" name="keterangan" required>
               <trix-editor input="keterangan"></trix-editor>
+              @error('keterangan')
+                <p class="text-danger"><b>Keterangan wajib diisi!</b></p>
+              @enderror
             </div>
             <div class="form-group project">
               <label>Tanggal</label>
-              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" min="<?php echo date('Y-m-d'); ?>" required>
+              <input type="date" class="form-control pull-right" id="reservation" name="tanggal" min="<?php echo date('Y-m-d'); ?>" value="{{ old('tanggal') }}" required>
             </div>
             <div class="form-group project">
               <label>Waktu</label>
-              <input type="time" class="form-control timepicker" name="waktu" required>
+              <input type="time" class="form-control timepicker" name="waktu" value="{{ old('waktu') }}" required>
             </div>
             <div class="form-group project">
               <label>Tempat</label>
-              <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat" required>
+              <input type="text" class="form-control" name="tempat" placeholder="Lokasi Kegiatan" name="tempat" value="{{ old('tempat') }}" required>
             </div>
           </div>
           <div class="box-footer">
