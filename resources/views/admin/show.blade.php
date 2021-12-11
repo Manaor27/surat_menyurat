@@ -9,37 +9,37 @@
             <tr>
                 <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+                <td>{{ $pre->perihal }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Kepada</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kepada }}</td>
+                <td>{{ $pre->kepada }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
-                <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+                <td> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $pre->keterangan; ?></td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Tanggal</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tanggal }}</td>
+                <td>{{ $pre->tanggal }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Waktu</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->waktu }}</td>
+                <td>{{ $pre->waktu }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Tempat</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tempat }}</td>
+                <td>{{ $pre->tempat }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+                <td>{{ $pre->user->name }}</td>
             </tr>
         </table>
         @else
@@ -101,37 +101,37 @@
         <tr>
             <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
             <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+            <td>{{ $pre->perihal }}</td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;Kepada</td>
             <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kepada }}</td>
+            <td>{{ $pre->kepada }}</td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
-            <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+            <td> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><?php echo $pre->keterangan; ?></td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;Tanggal</td>
             <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tanggal }}</td>
+            <td>{{ $pre->tanggal }}</td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;Waktu</td>
             <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->waktu }}</td>
+            <td>{{ $pre->waktu }}</td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;Tempat</td>
             <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->tempat }}</td>
+            <td>{{ $pre->tempat }}</td>
         </tr>
         <tr>
             <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
             <td> : </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+            <td>{{ $pre->user->name }}</td>
         </tr>
     </table>
     @elseif($pre->id_jenis==5)
@@ -173,17 +173,27 @@
             <tr>
                 <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+                <td>{{ $pre->perihal }}</td>
             </tr>
             <tr>
-                <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
-                <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+                <td>&nbsp;&nbsp;&nbsp;Mengingat</td>
+                <td> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $pre->mengingat; ?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Menimbang</td>
+                <td> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $pre->menimbang; ?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;Menetapkan</td>
+                <td> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $pre->keterangan; ?></td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+                <td>{{ $pre->user->name }}</td>
             </tr>
         </table>
         @else
@@ -191,22 +201,22 @@
             <tr>
                 <td width="140px">&nbsp;&nbsp;&nbsp;Perihal</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->perihal }}</td>
+                <td>{{ $pre->perihal }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Kepada</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->kepada }}</td>
+                <td>{{ $pre->kepada }}</td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Keterangan</td>
-                <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $pre->keterangan; ?></td>
+                <td> : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><?php echo $pre->keterangan; ?></td>
             </tr>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;Nama Pemohon</td>
                 <td> : </td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $pre->user->name }}</td>
+                <td>{{ $pre->user->name }}</td>
             </tr>
         </table>
         @endif

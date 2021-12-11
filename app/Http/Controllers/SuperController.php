@@ -21,9 +21,9 @@ class SuperController extends Controller
     public function simpan(Request $request) {
         if ($request->jenis==1) {
             $request->validate([
-                'keterangan' => 'required',
-                'menimbang' => 'required',
-                'mengingat' => 'required',
+                'keterangan[]' => 'required',
+                'menimbang[]' => 'required',
+                'mengingat[]' => 'required',
             ]);
             $ket = implode("|", $request->get('keterangan'));
             $menimbang = implode("|", $request->get('menimbang'));

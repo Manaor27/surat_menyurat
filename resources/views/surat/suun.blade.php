@@ -54,7 +54,7 @@
               <select name="pejabat" class="form-control select2" required>
                 <option value="">-- Penanda Tangan --</option>
                 @foreach($jabat as $jbt)
-                  <option value="{{$jbt->id}}">{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                  <option value="{{$jbt->id}}" @php if($jbt->id==old('pejabat')){echo 'selected';} @endphp>{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
                 @endforeach
               </select>
             </div>

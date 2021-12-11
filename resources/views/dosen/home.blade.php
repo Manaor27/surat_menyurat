@@ -93,7 +93,7 @@
                       <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
                         <i class="fa fa-edit"></i> Ubah
                       </a>
-                      <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}">
+                      <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
                         <i class="fa fa-remove"></i> Hapus
                       </a>
                     @elseif($item->status=='disetujui')

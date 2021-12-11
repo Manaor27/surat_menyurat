@@ -42,10 +42,10 @@
         var valueSelected = this.value;
         if(valueSelected == 1){
           $('.project').remove();
-          $("#super").append('<div class="form-group project"><table class="table" id="dynamicRemove1"><tr><td style="width: 850px"><label for="exampleInputPassword1">Menimbang</label></br><input id="menimbang" type="hidden" name="menimbang[]" required><trix-editor input="menimbang"></trix-editor></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove2"><tr><td style="width: 850px"><label for="exampleInputPassword1">Mengingat</label></br><input id="mengingat" type="hidden" name="mengingat[]" required><trix-editor input="mengingat"></trix-editor></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove"><tr><td style="width: 850px"><label>Penetapan</label></br><input id="keterangan" type="hidden" name="keterangan[]" required><trix-editor input="keterangan"></trix-editor></td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button></td></tr></table></div>');
+          $("#super").append('<div class="form-group project"><table class="table" id="dynamicRemove1"><tr><td style="width: 850px"><label for="exampleInputPassword1">Menimbang</label></br><input id="menimbang" type="hidden" name="menimbang[]" required><trix-editor input="menimbang"></trix-editor>@error("menimbang[]")<p class="text-danger"><b>Menimbang wajib diisi!</b></p>@enderror</td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic1" class="btn btn-success"><b>[+]</b>Tambah Pertimbangan</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove2"><tr><td style="width: 850px"><label for="exampleInputPassword1">Mengingat</label></br><input id="mengingat" type="hidden" name="mengingat[]" required><trix-editor input="mengingat"></trix-editor>@error("mengingat[]")<p class="text-danger"><b>Mengingat wajib diisi!</b></p>@enderror</td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic2" class="btn btn-success"><b>[+]</b>Tambah Pengingat</button></td></tr></table></div><div class="form-group project"><table class="table" id="dynamicRemove"><tr><td style="width: 850px"><label>Penetapan</label></br><input id="keterangan" type="hidden" name="keterangan[]" required><trix-editor input="keterangan"></trix-editor>@error("keterangan[]")<p class="text-danger"><b>Penetapan wajib diisi!</b></p>@enderror</td><td><label>&nbsp;</label><button type="button" name="add" id="dynamic" class="btn btn-success"><b>[+]</b>Tambah Penetapan</button></td></tr></table></div>');
         }else{
           $('.project').remove();
-          $("#super").append('<div class="form-group project"><label>Kepada</label><input type="text" class="form-control" name="kepada" placeholder="Kepada" required></div><div class="form-group project"><label>Keterangan</label><input id="keterangan" type="hidden" name="keterangan"><trix-editor input="keterangan"></trix-editor></div>');
+          $("#super").append('<div class="form-group project"><label>Kepada</label><input type="text" class="form-control" name="kepada" placeholder="Kepada" required></div><div class="form-group project"><label>Keterangan</label><input id="keterangan" type="hidden" name="keterangan"><trix-editor input="keterangan"></trix-editor>@error("keterangan")<p class="text-danger"><b>Keterangan wajib diisi!</b></p>@enderror</div>');
         }
       });
     });
@@ -283,7 +283,7 @@
       function formHtml1() {
         html = '<tr id="row_'+rowcount1+'">';
         html += '<td>';
-        html += '</br><input type="hidden" class="form-control" name="menimbang[]" id="menimbang_'+rowcount1+'" required><trix-editor input="menimbang_'+rowcount1+'"></trix-editor>';
+        html += '</br><input type="hidden" class="form-control" name="menimbang[]" id="menimbang_'+rowcount1+'" required><trix-editor input="menimbang_'+rowcount1+'"></trix-editor>@error("menimbang[]")<p class="text-danger"><b>Menimbang wajib diisi!</b></p>@enderror';
         html += '</td>';
         html += '<td id="delete_'+rowcount1+' scope="row">';
         html += '</br><button type="button" class="btn btn-danger delete_row">[X]Hapus</button>';
@@ -296,7 +296,7 @@
       function formHtml2() {
         html = '<tr id="row_'+rowcount2+'">';
         html += '<td>';
-        html += '</br><input type="hidden" class="form-control" name="mengingat[]" id="mengingat_'+rowcount2+'" required><trix-editor input="mengingat_'+rowcount2+'"></trix-editor>';
+        html += '</br><input type="hidden" class="form-control" name="mengingat[]" id="mengingat_'+rowcount2+'" required><trix-editor input="mengingat_'+rowcount2+'"></trix-editor>@error("mengingat[]")<p class="text-danger"><b>Mengingat wajib diisi!</b></p>@enderror';
         html += '</td>';
         html += '<td id="delete_'+rowcount2+' scope="row">';
         html += '</br><button type="button" class="btn btn-danger delete_rows">[X]Hapus</button>';
@@ -309,7 +309,7 @@
       function formHtml3() {
         html = '<tr id="row_'+rowcount3+'">';
         html += '<td>';
-        html += '</br><input type="hidden" class="form-control" name="keterangan[]" id="keterangan_'+rowcount3+'" required><trix-editor input="keterangan_'+rowcount3+'"></trix-editor>';
+        html += '</br><input type="hidden" class="form-control" name="keterangan[]" id="keterangan_'+rowcount3+'" required><trix-editor input="keterangan_'+rowcount3+'"></trix-editor>@error("keterangan[]")<p class="text-danger"><b>Penetapan wajib diisi!</b></p>@enderror';
         html += '</td>';
         html += '<td id="delete_'+rowcount3+' scope="row">';
         html += '</br><button type="button" class="btn btn-danger delete_baris">[X]Hapus</button>';

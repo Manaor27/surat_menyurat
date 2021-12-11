@@ -33,6 +33,12 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <style>
+    input[data-readonly] {
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -139,9 +145,15 @@
     </aside>
     <div class="content-wrapper">
       <section class="content-header">
+        @if(Auth::user()->role!='admin')
         <h1>
           Surat Tugas Kelompok
         </h1>
+        @else
+        <h1>
+          Surat Tugas
+        </h1>
+        @endif
       </section>
       <section class="content">
         <div class="row">
@@ -184,18 +196,18 @@
                         @else
                           <td>
                             <label>ID</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" id='employee_search_1' required>
+                            <input type="text" minlength="7" class="form-control autocomplete_txt" name="kode[]" placeholder="ID" id='employee_search_1' required>
                           </td>
                         @endif
                         @if(Auth::user()->role=='admin')
                           <td style="width: 500px">
                             <label>Nama</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' readonly>
+                            <input type="text" class="form-control" name="nama[]" placeholder="Nama Otomatis Berdasarkan ID" id='employeeid_1' required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>
                           </td>
                         @else
                           <td style="width: 500px">
                             <label>Nama</label></br>
-                            <input type="text" class="form-control autocomplete_txt" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ Auth::user()->name }}" readonly>
+                            <input type="text" class="form-control" name="nama[]" placeholder="Nama" id='employeeid_1' value="{{ Auth::user()->name }}" readonly>
                           </td>
                         @endif
                           <td >
@@ -257,12 +269,30 @@
 
       function formHtml() {
         html = '<tr id="row_'+rowcount+'">';
-        html += '<td>';
-        html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" required>';
-        html += '</td>';
-        html += '<td>';
-        html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" data-type="name" readonly required>';
-        html += '</td>';
+        <?php if (Auth::user()->role=='mahasiswa') { ?>
+          html += '<td>';
+          html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" minlength="8" maxlength="8" placeholder="NIM" title="Contoh: 72180001" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" pattern="[0-9]{8}" required>';
+          html += '</td>';
+          html += '<td>';
+          html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
+          html += '</td>';
+        <?php } ?>
+        <?php if (Auth::user()->role=='dosen') { ?>
+          html += '<td>';
+          html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" minlength="7" placeholder="NIDN" title="Contoh: 001 E 200" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" required>';
+          html += '</td>';
+          html += '<td>';
+          html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
+          html += '</td>';
+        <?php } ?>
+        <?php if (Auth::user()->role=='admin') { ?>
+          html += '<td>';
+          html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" placeholder="ID" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" pattern="[0-9]{8}" required>';
+          html += '</td>';
+          html += '<td>';
+          html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
+          html += '</td>';
+        <?php } ?>
         html += '<td id="delete_'+rowcount+' scope="row">';
         html += '</br><button type="button" class="btn btn-danger delete_row">[X]Hapus</button>';
         html += '</td>';

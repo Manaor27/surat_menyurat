@@ -24,11 +24,10 @@
             <div class="form-group">
               <label>Jenis Surat</label>
               <select name="jenis" id="jenis" class="form-control">
-                <option value="1">Surat Keputusan</option>
-                <option value="2">Surat Personalia</option>
+                <option value="1" <?php if("1"==old('jenis')){echo 'selected';} ?>>Surat Keputusan</option>
+                <option value="2" <?php if("2"==old('jenis')){echo 'selected';} ?>>Surat Personalia</option>
               </select>
             </div>
-            @if(Auth::user()->role=='admin')
             <div class="form-group">
               <label>Pemohon</label>
               <select name="pengguna" class="form-control select2" style="width: 100%;" required>
@@ -38,12 +37,10 @@
                 @endforeach
               </select>
             </div>
-            @else
-            <input type="hidden" class="form-control" name="pengguna" value="{{ Auth::user()->id }}">
-            @endif
+            @if(old('jenis')==null || old('jenis')==1)
             <div class="form-group">
               <label>Perihal</label>
-              <input type="text" class="form-control" name="perihal" placeholder="Tentang" required>
+              <input type="text" class="form-control" name="perihal" placeholder="Tentang" value="{{ old('kepada') }}" required>
             </div>
             <div class="form-group project">
               <table class="table autocomplete_table_1" id="autocomplete_table_1">
@@ -53,7 +50,7 @@
                       <label>Menimbang</label></br>
                       <input id="menimbang_1" type="hidden" name="menimbang[]" required>
                       <trix-editor input="menimbang_1"></trix-editor>
-                      @error('menimbang')
+                      @error('menimbang[]')
                         <p class="text-danger"><b>Menimbang wajib diisi!</b></p>
                       @enderror
                     </td>
@@ -73,7 +70,7 @@
                       <label>Mengingat</label></br>
                       <input id="mengingat_1" type="hidden" name="mengingat[]" required>
                       <trix-editor input="mengingat_1"></trix-editor>
-                      @error('mengingat')
+                      @error('mengingat[]')
                         <p class="text-danger"><b>Mengingat wajib diisi!</b></p>
                       @enderror
                     </td>
@@ -93,7 +90,7 @@
                       <label>Penetapan</label></br>
                       <input id="keterangan_1" type="hidden" name="keterangan[]" required>
                       <trix-editor input="keterangan_1"></trix-editor>
-                      @error('keterangan')
+                      @error('keterangan[]')
                         <p class="text-danger"><b>Penetapan wajib diisi!</b></p>
                       @enderror
                     </td>
@@ -105,15 +102,42 @@
                 </tbody>
               </table>
             </div>
-            <div class="form-group">
+            <div class="form-group project">
               <label>Penanda Tangan</label></br>
               <select name="pejabat" class="form-control select2" required>
                 <option value="">-- Penanda Tangan --</option>
                 @foreach($jabat as $jbt)
-                  <option value="{{$jbt->id}}">{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                  <option value="{{$jbt->id}}" <?php if($jbt->id==old('pejabat')){echo 'selected';} ?>>{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
                 @endforeach
               </select>
             </div>
+            @else
+            <div class="form-group">
+              <label>Perihal</label>
+              <input type="text" class="form-control" name="perihal" placeholder="Tentang" value="{{ old('kepada') }}" required>
+            </div>
+            <div class="form-group project">
+              <label>Kepada</label>
+              <input type="text" class="form-control" name="kepada" placeholder="Kepada" value="{{ old('kepada') }}" required>
+            </div>
+            <div class="form-group project">
+              <label>Keterangan</label>
+              <input id="keterangan" type="hidden" name="keterangan">
+              <trix-editor input="keterangan"></trix-editor>
+              @error("keterangan")
+                <p class="text-danger"><b>Keterangan wajib diisi!</b></p>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label>Penanda Tangan</label>
+              <select name="pejabat" class="form-control select2" required>
+                <option value="">-- Penanda Tangan --</option>
+                @foreach($jabat as $jbt)
+                <option value="{{$jbt->id}}" <?php if($jbt->id==old('pejabat')){echo 'selected';} ?>>{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                @endforeach
+              </select>
+            </div>
+            @endif
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Kirim</button>

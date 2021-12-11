@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
               <label>No. Telpon</label>
-              <input type="text" class="form-control" name="telpon" placeholder="Input Nomor Telpon" required>
+              <input type="tel" class="form-control" name="telpon" placeholder="Input Nomor Telpon" pattern="[0-9]" title="Contoh: 081234567890" required>
             </div>
             <div class="form-group">
               <label>Jabatan</label>
@@ -97,7 +97,7 @@
             </div>
             <div class="form-group">
               <label>Tahun Akademik</label>
-              <input type="text" class="form-control" name="periode" placeholder="Ex: 2019/2020" required>
+              <input type="text" class="form-control" name="periode" placeholder="Cth: 2019/2020" required>
             </div>
           </div>
           <div class="box-footer">
