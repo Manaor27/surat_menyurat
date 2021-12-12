@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
               <label>No. Telpon</label>
-              <input type="tel" class="form-control" name="telpon" placeholder="Input Nomor Telpon" pattern="[0-9]" title="Contoh: 081234567890" required>
+              <input type="tel" class="form-control" name="telpon" placeholder="Input Nomor Telpon" title="Contoh: 081234567890" required>
             </div>
             <div class="form-group">
               <label>Jabatan</label>
