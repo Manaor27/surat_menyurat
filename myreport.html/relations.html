@@ -50,7 +50,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-12-08 18:53:47        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2021-12-13 11:36:07        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -440,11 +440,19 @@
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller",
+            "\\App\\Models\\Pejabat",
             "\\Illuminate\\Http\\Request",
             "\\Illuminate\\Support\\Facades\\Auth",
             "\\App\\Models\\Surat",
             "\\Illuminate\\Support\\Facades\\DB",
             "\\App\\Models\\Informasi"
+        ]
+    },
+    {
+        "name": "\\App\\Models\\Pejabat",
+        "size": 3000,
+        "relations": [
+            "\\Illuminate\\Database\\Eloquent\\Model"
         ]
     },
     {
@@ -465,6 +473,7 @@
         "relations": [
             "\\App\\Http\\Controllers\\Controller",
             "\\App\\Models\\User",
+            "\\App\\Models\\Pejabat",
             "\\Illuminate\\Http\\Request",
             "\\Illuminate\\Support\\Facades\\DB",
             "\\App\\Models\\Informasi",
@@ -489,6 +498,7 @@
         "size": 3000,
         "relations": [
             "\\App\\Http\\Controllers\\Controller",
+            "\\App\\Models\\Pejabat",
             "\\Illuminate\\Http\\Request",
             "\\Illuminate\\Support\\Facades\\Auth",
             "\\App\\Models\\Surat",
@@ -505,13 +515,6 @@
             "\\App\\Models\\Pejabat",
             "\\Illuminate\\Http\\Request",
             "\\Illuminate\\Support\\Facades\\DB"
-        ]
-    },
-    {
-        "name": "\\App\\Models\\Pejabat",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Database\\Eloquent\\Model"
         ]
     },
     {
@@ -885,7 +888,7 @@
         "relations": []
     },
     {
-        "name": "\\Database\\Seeders\\EmployeeSeeder",
+        "name": "\\Database\\Seeders\\JenisSeeder",
         "size": 3000,
         "relations": [
             "\\Illuminate\\Database\\Seeder",
@@ -896,14 +899,6 @@
         "name": "\\DB",
         "size": 3000,
         "relations": []
-    },
-    {
-        "name": "\\Database\\Seeders\\JenisSeeder",
-        "size": 3000,
-        "relations": [
-            "\\Illuminate\\Database\\Seeder",
-            "\\DB"
-        ]
     },
     {
         "name": "\\Database\\Seeders\\PejabatSeeder",
