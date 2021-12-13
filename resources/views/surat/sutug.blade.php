@@ -274,7 +274,7 @@
           html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" minlength="8" maxlength="8" placeholder="NIM" title="Contoh: 72180001" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" pattern="[0-9]{8}" required>';
           html += '</td>';
           html += '<td>';
-          html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
+          html += '</br><input type="text" class="form-control bg-gray-light" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
           html += '</td>';
         <?php } ?>
         <?php if (Auth::user()->role=='dosen') { ?>
@@ -282,7 +282,7 @@
           html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" minlength="7" placeholder="NIDN" title="Contoh: 001 E 200" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" required>';
           html += '</td>';
           html += '<td>';
-          html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
+          html += '</br><input type="text" class="form-control bg-gray-light" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
           html += '</td>';
         <?php } ?>
         <?php if (Auth::user()->role=='admin') { ?>
@@ -290,7 +290,7 @@
           html += '</br><input type="text" class="form-control autocomplete_txt ui-autocomplete-input" placeholder="ID" data-type="kode" name="kode[]" id="employee_search_'+rowcount+'" autocomplete="off" pattern="[0-9]{8}" required>';
           html += '</td>';
           html += '<td>';
-          html += '</br><input type="text" class="form-control" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
+          html += '</br><input type="text" class="form-control bg-gray-light" name="nama[]" id="employeeid_'+rowcount+'" placeholder="Nama Otomatis Terisi Berdasarkan ID" data-type="name" required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>';
           html += '</td>';
         <?php } ?>
         html += '<td id="delete_'+rowcount+' scope="row">';
