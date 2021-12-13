@@ -30,14 +30,14 @@
 
       <form action="{{ route('login') }}" method="post">
       @csrf
-        @error('kode')
+        @error('email')
             <div class="alert alert-danger">
-              <h5><i class="icon fa fa-warning"></i> ID dan Password Salah!</h5>
+              <h5><i class="icon fa fa-warning"></i> Email dan Password Salah!</h5>
             </div>
           @enderror
         <div class="form-group has-feedback">
-          <input type="text" class="form-control @error('kode') is-invalid @enderror" placeholder="ID" name="kode" value="{{ old('kode') }}" required autocomplete="kode" autofocus>
-          
+          <input type="text" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
