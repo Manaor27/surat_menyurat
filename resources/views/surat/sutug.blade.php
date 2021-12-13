@@ -202,7 +202,7 @@
                         @if(Auth::user()->role=='admin')
                           <td style="width: 500px">
                             <label>Nama</label></br>
-                            <input type="text" class="form-control" name="nama[]" placeholder="Nama Otomatis Berdasarkan ID" id='employeeid_1' required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>
+                            <input type="text" class="form-control bg-gray-light" name="nama[]" placeholder="Nama Otomatis Berdasarkan ID" id='employeeid_1' required onkeydown="return false;" style="caret-color: transparent !important;" data-readonly>
                           </td>
                         @else
                           <td style="width: 500px">

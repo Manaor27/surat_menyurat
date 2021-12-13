@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
               <label>No. Telpon</label>
-              <input type="tel" class="form-control" name="telpon" placeholder="Input Nomor Telpon" value="{{ $user->telpon }}">
+              <input type="text" class="form-control" name="telpon" placeholder="Input Nomor Telpon" value="{{ $user->telpon }}">
             </div>
             <div class="form-group">
               <label>Jabatan</label>

@@ -26,12 +26,15 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'telpon' => ['required', 'string', 'min:10'],
+            'telpon' => ['required', 'numeric', 'min:10'],
             'role' => ['required', 'string', 'max:255'],
         ]);
     }
 
     public function simpan(Request $request) {
+        $request->validate([
+            'telpon' => 'numeric',
+        ]);
         User::create([
             'kode' => $request->kode,
             'name' => $request->name,
