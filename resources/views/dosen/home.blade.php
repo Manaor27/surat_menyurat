@@ -89,7 +89,7 @@
                     <td><span class="label bg-red">{{ $item->status }}</span></td>
                     @endif
                     <td>
-                    @if($item->status=='sedang ditolak')
+                    @if($item->status=='ditolak')
                       <a class="btn btn-app bg-aqua" href="{{url('/dosen/edit/'. $item->suratid)}}">
                         <i class="fa fa-edit"></i> Ubah
                       </a>
