@@ -41,7 +41,7 @@
     <br>
     <font size="3" face="Times New Roman" class="element">
         <p style="text-align: justify;">
-            Dengan ini {{ $down->pejabat->jabatan }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana Yogyakarta memberikan tugas kepada {{ Auth::user()->role }} tersebut di bawah ini:
+            Dengan ini {{ $down->pejabat->jabatan }} Fakultas Teknologi Informasi Universitas Kristen Duta Wacana Yogyakarta memberikan tugas kepada {{ $down->surat->user->role }} tersebut di bawah ini:
         </p>
         @php
             $no = 1;
