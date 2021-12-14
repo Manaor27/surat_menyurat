@@ -23,23 +23,28 @@
           <div class="box-body">
             <div class="form-group">
               <label>ID</label>
-              <input type="text" class="form-control" name="kode" placeholder="Input Kode Identitas" required>
+              <input type="text" class="form-control" name="kode" value="{{old('kode')}}" placeholder="Input Kode Identitas" required>
             </div>
             <div class="form-group">
               <label>Name</label>
-              <input type="text" class="form-control" name="name" placeholder="Enter name" required>
+              <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter name" required>
             </div>
             <div class="form-group">
               <label>Alamat Email</label>
-              <input type="email" class="form-control" name="email" placeholder="Input email" required>
+              <input type="email" class="form-control" name="email" value="{{old('email')}}" placeholder="Input email" required>
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" class="form-control" name="password" placeholder="Password" required>
+              <input type="password" class="form-control" name="password" value="{{old('password')}}" placeholder="Password" required>
             </div>
             <div class="form-group">
               <label>No. Telpon</label>
-              <input type="tel" class="form-control" name="telpon" placeholder="Input Nomor Telpon" title="Contoh: 081234567890" required>
+              <input type="text" class="form-control @error('telpon') is-invalid @enderror" name="telpon" value="{{old('telpon')}}" placeholder="Input Nomor Telpon" title="Contoh: 081234567890" required>
+              @error('telpon')
+                <span class="invalid-feedback text-danger" role="alert">
+                    <strong>Nomor Telpon Wajib Numerik</strong>
+                </span>
+              @enderror
             </div>
             <div class="form-group">
               <label>Jabatan</label>
@@ -53,11 +58,11 @@
             </div>
             <div class="form-group">
               <label>Tempat Lahir</label>
-              <input type="text" class="form-control" name="tempat" placeholder="Input Tempat Lahir" required>
+              <input type="text" class="form-control" name="tempat" value="{{old('tempat')}}" placeholder="Input Tempat Lahir" required>
             </div>
             <div class="form-group">
               <label>Tanggal Lahir</label>
-              <input type="date" class="form-control" name="tanggal" required>
+              <input type="date" class="form-control" name="tanggal" value="{{old('tanggal')}}" required>
             </div>
             <div class="form-group">
               <label>Jenis Kelamin</label>
@@ -79,7 +84,7 @@
             </div>
             <div class="form-group">
               <label>Alamat</label>
-              <input type="text" class="form-control" name="alamat" placeholder="Input Alamat" required>
+              <input type="text" class="form-control" name="alamat" value="{{old('alamat')}}" placeholder="Input Alamat" required>
             </div>
             <div class="form-group">
               <label>Program Studi</label>
@@ -97,7 +102,7 @@
             </div>
             <div class="form-group">
               <label>Tahun Akademik</label>
-              <input type="text" class="form-control" name="periode" placeholder="Cth: 2019/2020" required>
+              <input type="text" class="form-control" name="periode" value="{{old('periode')}}" placeholder="Cth: 2019/2020" required>
             </div>
           </div>
           <div class="box-footer">
