@@ -102,7 +102,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="form-group project">
+            <div class="form-group">
               <label>Penanda Tangan</label></br>
               <select name="pejabat" class="form-control select2" required>
                 <option value="">-- Penanda Tangan --</option>
