@@ -30,7 +30,7 @@ class SuperController extends Controller
                 'keterangan' => $request->keterangan,
                 'menimbang' => $request->menimbang,
                 'mengingat' => $request->mengingat,
-                'id_user' => $request->pengguna,
+                'id_user' => Auth::id(),
                 'id_jenis' => '1'
             ]);
         }else {
@@ -41,7 +41,7 @@ class SuperController extends Controller
                 'perihal' => $request->perihal,
                 'keterangan' => $request->keterangan,
                 'kepada' => $request->kepada,
-                'id_user' => $request->pengguna,
+                'id_user' => Auth::id(),
                 'id_jenis' => '1'
             ]);
         }

@@ -73,7 +73,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('dosen', [DosenController::class, 'index']);
         Route::get('/dosen/simpan/{id}', [DosenController::class, 'simpan']);
         Route::get('/dosen/delete/{id}', [DosenController::class, 'delete']);
-        Route::get('/dosen/edit/{id}/{id2}', [DosenController::class, 'edit']);
+        Route::get('/dosenEdit{id}{id2}', [DosenController::class, 'edit']);
         Route::get('dosen/download/{id}', [DosenController::class, 'download']);
     });
 

@@ -66,15 +66,6 @@
                 <p class="text-danger"><b>Keterangan wajib diisi!</b></p>
               @enderror
             </div>
-            <div class="form-group">
-              <label>Penanda Tangan</label>
-              <select name="pejabat" class="form-control select2" required>
-                <option value="">-- Penanda Tangan --</option>
-                @foreach($jabat as $jbt)
-                  <option value="{{$jbt->id}}" <?php if($jbt->id==old('pejabat')){echo 'selected';} ?>>{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
-                @endforeach
-              </select>
-            </div>
             @else
             <div class="form-group">
               <label>Perihal</label>
@@ -91,15 +82,6 @@
               @error("keterangan")
                 <p class="text-danger"><b>Keterangan wajib diisi!</b></p>
               @enderror
-            </div>
-            <div class="form-group">
-              <label>Penanda Tangan</label>
-              <select name="pejabat" class="form-control select2" required>
-                <option value="">-- Penanda Tangan --</option>
-                @foreach($jabat as $jbt)
-                <option value="{{$jbt->id}}" <?php if($jbt->id==old('pejabat')){echo 'selected';} ?>>{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
-                @endforeach
-              </select>
             </div>
             @endif
           </div>
