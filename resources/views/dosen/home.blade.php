@@ -90,9 +90,11 @@
                     @endif
                     <td>
                     @if($item->status=='ditolak')
+                      @if($item->id_jenis!=2)
                       <a class="btn btn-app bg-aqua" href="{{url('/dosenEdit'. $item->suratid . $item->inforid)}}">
                         <i class="fa fa-edit"></i> Ubah
                       </a>
+                      @endif
                       <a class="btn btn-app bg-red" href="{{url('/dosen/delete/'. $item->suratid)}}" onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
                         <i class="fa fa-remove"></i> Hapus
                       </a>
