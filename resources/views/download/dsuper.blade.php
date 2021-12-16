@@ -52,41 +52,19 @@
         <p style="text-align: justify;">
             Dekan Fakultas Teknologi Informasi Universitas Kristen Duta Wacana
         </p>
-        @php
-            $list = array('a.','b.','c.','d.','e.','f.','g.','h.','i.','j.');
-            $menimbang = array();
-            $menimbang = explode('|', $down->surat->menimbang);
-
-            $li = array('1.','2.','3.','4.','5.','6.','7.','8.','9.','10.');
-            $mengingat = array();
-            $mengingat = explode('|', $down->surat->mengingat);
-        @endphp
         <table>
             <tr>
-                <td rowspan="{{count($menimbang)}}" valign="top" width="100px">Menimbang </td>
-                <td rowspan="{{count($menimbang)}}" valign="top" width="20px"> : </td>
-                <td valign="top" width="20px"> {{ $list[0] }} </td>
-                <td style="text-align: justify;"><?php echo $menimbang[0]; ?></td>
+                <td valign="top" width="100px">Menimbang </td>
+                <td valign="top" width="10px"> : </td>
+                <td valign="top" style="text-align: justify;"> <?php echo $down->surat->menimbang; ?> </td>
             </tr>
-            <?php for($i=1; $i<count($menimbang); $i++) {?>
+        </table>
+        <table>
             <tr>
-                <td valign="top"> {{ $list[$i] }} </td>
-                <td style="text-align: justify;"><?php echo $menimbang[$i]; ?></td>
+                <td valign="top" width="100px">Mengingat</td>
+                <td valign="top" width="10px"> : </td>
+                <td valign="top" style="text-align: justify;"> <?php echo $down->surat->mengingat; ?> </td>
             </tr>
-            <?php } ?>
-            <tr><td colspan="4">&nbsp;</td></tr>
-            <tr>
-                <td rowspan="{{count($mengingat)}}" valign="top">Mengingat</td>
-                <td rowspan="{{count($mengingat)}}" valign="top"> : </td>
-                <td valign="top"> {{ $li[0] }} </td>
-                <td style="text-align: justify;"><?php echo $mengingat[0]; ?></td>
-            </tr>
-            <?php for($j=1; $j<count($mengingat); $j++) {?>
-            <tr>
-                <td valign="top"> {{ $li[$j] }} </td>
-                <td style="text-align: justify;"><?php echo $mengingat[$j]; ?></td>
-            </tr>
-            <?php } ?>
         </table>
     </font>
         <br>
@@ -99,18 +77,18 @@
             <td width="10px"><b><font size="3" face="Times New Roman" class="element"> : </b></td>
             <td></td>
         </tr>
-        @php
+        <?php
             $urut = array('Pertama','Kedua','Ketiga','Keempat','Kelima','Keenam','Ketujuh','Kedelapan','Kesembilan','Kesepuluh');
             $ket = array();
-            $ket = explode('|', $down->surat->keterangan);
-        @endphp
-        @foreach($ket as $key => $value)
+            $ket = explode('<li>', $down->surat->keterangan);
+        ?>
+        <?php for($key=1; $key<count($ket); $key++){ ?>
         <tr>
             <td valign="top"><b><font size="3" face="Times New Roman" class="element">{{ $urut[$key] }}</font></b></td>
             <td valign="top"><b><font size="3" face="Times New Roman" class="element"> : </font></b></td>
             <td style="text-align: justify;"><font size="3" face="Times New Roman" class="element"><?php echo $ket[$key]; ?>.</font></td>
         </tr>
-        @endforeach
+        <?php } ?>
         <tr><td colspan="3">&nbsp;</td></tr>
         <tr><td colspan="3">&nbsp;</td></tr>
         <tr><td colspan="3">&nbsp;</td></tr>

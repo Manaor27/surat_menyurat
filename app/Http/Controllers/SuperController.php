@@ -21,18 +21,15 @@ class SuperController extends Controller
     public function simpan(Request $request) {
         if ($request->jenis==1) {
             $request->validate([
-                'keterangan[]' => 'required',
-                'menimbang[]' => 'required',
-                'mengingat[]' => 'required',
+                'keterangan' => 'required',
+                'menimbang' => 'required',
+                'mengingat' => 'required',
             ]);
-            $ket = implode("|", $request->get('keterangan'));
-            $menimbang = implode("|", $request->get('menimbang'));
-            $mengingat = implode("|", $request->get('mengingat'));
             DB::table('surat')->insert([
                 'perihal' => $request->perihal,
-                'keterangan' => $ket,
-                'menimbang' => $menimbang,
-                'mengingat' => $mengingat,
+                'keterangan' => $request->keterangan,
+                'menimbang' => $request->menimbang,
+                'mengingat' => $request->mengingat,
                 'id_user' => $request->pengguna,
                 'id_jenis' => '1'
             ]);

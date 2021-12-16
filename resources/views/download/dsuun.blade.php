@@ -88,8 +88,9 @@
     <p>Di Tempat</p>
     <p style="line-height: 20px;">
         Dengan hormat,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $down->surat->keterangan }}
+        <?php echo $down->surat->keterangan; ?>
     </p>
+    <br>
     <table style="line-height: 20px;">
         <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

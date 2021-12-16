@@ -68,7 +68,7 @@
     <br>
     <p style="line-height: 20px;">
         Dengan hormat,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $down->surat->keterangan; ?>
+        <?php echo $down->surat->keterangan; ?>
     </p>
     @php
         function tanggal_indo($tanggal, $cetak_hari = false){
@@ -104,6 +104,7 @@
             return $tgl_indo;
         }
     @endphp
+    <br>
     <table style="line-height: 20px;">
         <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
