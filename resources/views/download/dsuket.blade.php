@@ -251,7 +251,7 @@
     <table>
         <tr>
             <td width="400px">&nbsp;</td>
-            <td>Yogyakarta, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->surat->user->tgl_lahir)), false); ?></td>
+            <td>Yogyakarta, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
