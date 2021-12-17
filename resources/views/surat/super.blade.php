@@ -75,6 +75,15 @@
               @enderror
             </div>
             @endif
+            <div class="form-group">
+              <label>Penanda Tangan</label></br>
+              <select name="pejabat" class="form-control select2" required>
+                <option value="">-- Penanda Tangan --</option>
+                @foreach($jabat as $jbt)
+                  <option value="{{$jbt->id}}" @php if($jbt->id==old('pejabat')){echo 'selected';} @endphp>{{$jbt->nama}} ( {{$jbt->jabatan}} )</option>
+                @endforeach
+              </select>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Kirim</button>
