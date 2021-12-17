@@ -66,7 +66,7 @@
         }
     @endphp
     <p style="text-align: right;">
-        Yogyakarta, <?php tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?>
+        Yogyakarta, <?php echo tanggal_indo(date('Y-m-d', strtotime($down->tanggal)), false); ?>
     </p>
     <table>
         <tr>
