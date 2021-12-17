@@ -28,15 +28,6 @@
                 <option value="2" <?php if("2"==old('jenis')){echo 'selected';} ?>>Surat Personalia</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Pemohon</label>
-              <select name="pengguna" class="form-control select2" style="width: 100%;" required>
-                <option value="">-- Input Pemohon --</option>
-                @foreach($user as $us)
-                <option value="{{$us->id}}">{{$us->kode}} ( {{$us->name}} )</option>
-                @endforeach
-              </select>
-            </div>
             @if(old('jenis')==null || old('jenis')==1)
             <div class="form-group">
               <label>Perihal</label>
